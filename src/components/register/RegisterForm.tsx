@@ -1,10 +1,14 @@
 import React, { SyntheticEvent, useState } from 'react';
-import { Btn } from '../common/Btn';
+import { Btn } from '../common/buttons/Btn';
 
 import '../login/AuthForm.css';
+import { useNavigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
   const [form, setForm] = useState({
     login: '',
     email: '',
@@ -19,7 +23,7 @@ export const RegisterForm = () => {
     setLoading(true);
 
     try {
-      await fetch(`http://localhost:3000/auth/register`, {
+      const res = await fetch(`http://localhost:3000/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -28,7 +32,16 @@ export const RegisterForm = () => {
           ...form,
         }),
       });
-    } catch (e) {
+      const data = await res.json();
+      console.log(data);
+
+      if (data.message) {
+        setError(data.message);
+      }
+      if (data.statusCode !== 400) {
+        navigate('/confirm-email');
+      }
+    } catch (e: any) {
       console.log(e);
     } finally {
       setLoading(false);
@@ -93,6 +106,7 @@ export const RegisterForm = () => {
         value={form.lastName}
         onChange={(e) => updateForm('lastName', e.target.value)}
       />
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <Btn text="Zarejestruj się!" />
     </form>
     //@Todo obluga odpowiedzi w sensie jak error to wyswietlic info z

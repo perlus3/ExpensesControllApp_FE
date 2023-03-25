@@ -1,0 +1,44 @@
+.single-account-page {
+    height: 100vh;
+    width: 45vw;
+
+    background-color: #555555;
+}
+
+.account-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0;
+    background-color: grey;
+}
+
+.operation-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    margin: 50px;
+    border-radius: 50px;
+}
+
+/*.operations-list {*/
+/*    display: flex;*/
+/*    justify-content: flex-start;*/
+/*    align-items: flex-start;*/
+/*    flex-direction: column;*/
+/*    background-color: white;*/
+/*}*/
+
+.single-operation {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-top: 2px solid red;
+}
+
+
+
+

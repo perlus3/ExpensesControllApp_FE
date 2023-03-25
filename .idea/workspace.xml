@@ -4,16 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="zmiany w routingu">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/accountsView/AccountsView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/accountsView/SingleAccountView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/AfterUserRegistration.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/header/Header.css" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="push zapobiegający utracie danych (jedna taka akcja już była)">
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/AccountOperationList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/SingleAccountOperation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/account-operations/SingleOperation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/components/login/AuthForm.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/navbar/Navbar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/userPage/MainPageView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/AddNewAccount.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/AddNewAccount.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/UserMainPage.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/AddOperation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Btn.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/Btn.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Btn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/Btn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/BadCredentials.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/BadCredentials.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/authContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/authContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +54,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="login/register" />
+        <entry key="$PROJECT_DIR$" value="development" />
       </map>
     </option>
   </component>
@@ -75,6 +99,7 @@
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\common\buttons" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\userPage" />
     </key>
@@ -172,6 +197,7 @@
     <MESSAGE value="added przycisk, browserRouter, Routing, i context" />
     <MESSAGE value="added Routing, LoginForm, RegisterForm i Obsługe błedu logowania" />
     <MESSAGE value="zmiany w routingu" />
-    <option name="LAST_COMMIT_MESSAGE" value="zmiany w routingu" />
+    <MESSAGE value="push zapobiegający utracie danych (jedna taka akcja już była)" />
+    <option name="LAST_COMMIT_MESSAGE" value="push zapobiegający utracie danych (jedna taka akcja już była)" />
   </component>
 </project>

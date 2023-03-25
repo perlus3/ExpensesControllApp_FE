@@ -1,16 +1,21 @@
 button, .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     border: none;
     background: #61dafb;
     color: black;
+    text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 0.8rem;
-    padding: 1em 4em;
+    padding: 0.5em 2em;
     border-radius: 0.25em;
     line-height: 22px;
     text-decoration: none;
 }
 
 .btn:hover {
-    transform: scale(1.25);
+    /*transform: scale(1.25);*/
 }
