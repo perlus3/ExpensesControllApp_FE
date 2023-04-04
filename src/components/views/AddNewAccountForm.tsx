@@ -1,21 +1,20 @@
 import React, { SyntheticEvent, useContext, useState } from 'react';
-import { Btn } from '../common/buttons/Btn';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { AuthContext } from '../../contexts/authContext';
-
 import './AddNewAccount.css';
+import { GoBackButton } from '../common/buttons/GoBackBtn';
+import { ErrorHandler } from '../common/ErrorHandler';
 
-export const AddNewAccount = () => {
+export const AddNewAccountForm = () => {
   const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState();
   const [form, setForm] = useState({
     name: '',
     currency: '',
   });
-
   const addAccount = async (e: SyntheticEvent) => {
     e.preventDefault();
 
@@ -33,18 +32,25 @@ export const AddNewAccount = () => {
         }),
       });
       const data = await res.json();
+      console.log(data);
       if (data.error) {
-        setError(data);
+        setError(data.error);
       }
+
       userContext?.setUser(data.user);
-      //@TODO po dodaniu konta nie wraca mi na glowna strone a raczej jej nie wyswietla bo blad autoryzacji
       navigate(`/user`);
-    } catch (e) {
-      console.log('catch error', e);
+    } catch (e: any) {
+      console.log('dupadupaeeeeeeeee');
+      setError(e);
     } finally {
       setLoading(false);
     }
   };
+
+  if (error) {
+    return <ErrorHandler message={error} />;
+  }
+
   const updateForm = (key: string, value: string) => {
     setForm((form) => ({
       ...form,
@@ -56,33 +62,39 @@ export const AddNewAccount = () => {
     return <h2>Trwa dodawanie konta...</h2>;
   }
 
-  if (error) {
-    navigate('/invalid_credentials', { replace: true });
-  }
-
   return (
     <div className="new-account">
       <form className="adding-new-account" action="" onSubmit={addAccount}>
-        <h1>Wpisz nazwe i walute dla nowego konta</h1>
-        <input
-          type="text"
-          name="name"
-          placeholder="Nazwa nowego konta"
-          required
-          maxLength={50}
-          value={form.name}
-          onChange={(e) => updateForm('name', e.target.value)}
-        />
-        <input
-          type="text"
+        <h1>Stwórz nowe konto</h1>
+        <div className="form-floating w-100">
+          <input
+            id="login"
+            type="name"
+            name="name"
+            placeholder="Nazwa nowego konta"
+            required
+            maxLength={50}
+            value={form.name}
+            className="form-control"
+            onChange={(e) => updateForm('name', e.target.value)}
+          />
+          <label htmlFor="login">Nazwa konta</label>
+        </div>
+        <select
+          className="form-select w-75"
           name="currency"
-          placeholder="Waluta (PLN, EURO, DOLAR)"
-          required
-          maxLength={50}
           value={form.currency}
           onChange={(e) => updateForm('currency', e.target.value)}
-        />
-        <Btn text="Dodaj konto" />
+        >
+          <option hidden value="#">
+            --wybierz--
+          </option>
+          <option value="PLN">PLN</option>
+          <option value="EURO">EURO</option>
+          <option value="DOLAR">DOLAR</option>
+        </select>
+        <button className="btn btn-primary w-50">Dodaj konto</button>
+        <GoBackButton />
       </form>
     </div>
   );

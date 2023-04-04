@@ -1,11 +1,11 @@
-.new-account {
+.form-container {
     display: flex;
     justify-content: center;
     position: relative;
     top: 50px;
 }
 
-.adding-new-account {
+.form {
     background-color: white;
     width: 30em;
     height: 25em;

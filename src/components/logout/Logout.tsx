@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { apiUrl } from '../../config/api';
+import { LoginForm } from '../login/LoginForm';
 
 export const Logout = () => {
   const userContext = useContext(AuthContext);
@@ -14,8 +15,14 @@ export const Logout = () => {
           Authorization: `Bearer ${userContext?.token}`,
         },
       });
+      userContext?.setToken('');
     })();
   }, []);
-  //@Todo zrobic zeby wylogowanie wyrzucalo do panelu logowania/ problem z cofaniem strony, nadal mozna wykonywac akcje/oraz odwieczny problem z odswiezaniem strony/ jak zrobic warunki na routes
-  return <p>Wylogowano</p>;
+
+  return (
+    <>
+      <p style={{ backgroundColor: 'green' }}>WYLOGOWANO POPRAWNIE</p>
+      <LoginForm />
+    </>
+  );
 };

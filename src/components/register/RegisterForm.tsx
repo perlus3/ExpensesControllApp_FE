@@ -1,13 +1,13 @@
 import React, { SyntheticEvent, useState } from 'react';
-import { Btn } from '../common/buttons/Btn';
 
 import '../login/AuthForm.css';
 import { useNavigate } from 'react-router-dom';
+import { GoBackButton } from '../common/buttons/GoBackBtn';
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   const [form, setForm] = useState({
     login: '',
@@ -33,20 +33,21 @@ export const RegisterForm = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
 
-      if (data.message) {
+      if (!data.login) {
         setError(data.message);
       }
-      if (data.statusCode !== 400) {
+
+      if (!data.message) {
         navigate('/confirm-email');
       }
     } catch (e: any) {
-      console.log(e);
+      setError(e.message);
     } finally {
       setLoading(false);
     }
   };
+
   const updateForm = (key: string, value: string) => {
     setForm((form) => ({
       ...form,
@@ -59,59 +60,83 @@ export const RegisterForm = () => {
   }
 
   return (
-    <form className="auth-form" action="" onSubmit={registerUser}>
-      <h1>Załóż konto!</h1>
-      <input
-        type="text"
-        name="login"
-        placeholder="Login"
-        required
-        maxLength={50}
-        value={form.login}
-        onChange={(e) => updateForm('login', e.target.value)}
-      />
-      <input
-        type="text"
-        name="email"
-        placeholder="Email"
-        required
-        maxLength={50}
-        value={form.email}
-        onChange={(e) => updateForm('email', e.target.value)}
-      />
-      <input
-        type="text"
-        name="password"
-        placeholder="Hasło"
-        required
-        maxLength={50}
-        value={form.password}
-        onChange={(e) => updateForm('password', e.target.value)}
-      />
-      <input
-        type="text"
-        name="firstName"
-        placeholder="Imię"
-        required
-        maxLength={50}
-        value={form.firstName}
-        onChange={(e) => updateForm('firstName', e.target.value)}
-      />
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Nazwisko"
-        required
-        maxLength={50}
-        value={form.lastName}
-        onChange={(e) => updateForm('lastName', e.target.value)}
-      />
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <Btn text="Zarejestruj się!" />
-    </form>
-    //@Todo obluga odpowiedzi w sensie jak error to wyswietlic info z
-    //mozliwoscia powrotu do okna rejestracji. jesli status ok to dac info o
-    //wyslanym linku do aktywacji konta zrobic w ogole przycisk powrotu do
-    //strony logowania
+    <div className="register-form">
+      <form className="auth-form" action="" onSubmit={registerUser}>
+        <h1>Załóż konto!</h1>
+        <div className="form-floating w-100">
+          <input
+            id="login"
+            type="text"
+            name="login"
+            placeholder="Login"
+            required
+            maxLength={50}
+            value={form.login}
+            className="form-control"
+            onChange={(e) => updateForm('login', e.target.value)}
+          />
+          <label htmlFor="login">Login</label>
+        </div>
+        <div className="form-floating w-100">
+          <input
+            id="email"
+            type="text"
+            name="email"
+            placeholder="Email"
+            required
+            maxLength={50}
+            value={form.email}
+            className="form-control"
+            onChange={(e) => updateForm('email', e.target.value)}
+          />
+          <label htmlFor="email">Email</label>
+        </div>
+        <div className="form-floating w-100">
+          <input
+            id="password"
+            type="text"
+            name="password"
+            placeholder="Hasło"
+            required
+            maxLength={50}
+            value={form.password}
+            className="form-control"
+            onChange={(e) => updateForm('password', e.target.value)}
+          />
+          <label htmlFor="password">Hasło</label>
+        </div>
+        <div className="form-floating w-100">
+          <input
+            id="firstName"
+            type="text"
+            name="firstName"
+            placeholder="Imię"
+            required
+            maxLength={50}
+            value={form.firstName}
+            className="form-control"
+            onChange={(e) => updateForm('firstName', e.target.value)}
+          />
+          <label htmlFor="firstName">Imię</label>
+        </div>
+        <div className="form-floating w-100">
+          <input
+            id="lastName"
+            type="text"
+            name="lastName"
+            placeholder="Nazwisko"
+            required
+            maxLength={50}
+            value={form.lastName}
+            className="form-control"
+            onChange={(e) => updateForm('lastName', e.target.value)}
+          />
+          <label htmlFor="lastName">Nazwisko</label>
+        </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
+        <button className="btn btn-primary w-50">Zarejestruj się</button>
+        <GoBackButton />
+      </form>
+    </div>
   );
 };

@@ -1,16 +1,16 @@
 import React, { SyntheticEvent, useContext, useState } from 'react';
-import { Btn } from '../common/buttons/Btn';
 
 import './AuthForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { AuthContext } from '../../contexts/authContext';
+import { ErrorHandler } from '../common/ErrorHandler';
 
 export const LoginForm = () => {
   const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | undefined>(undefined);
   const [form, setForm] = useState({
     login: '',
     password: '',
@@ -33,17 +33,16 @@ export const LoginForm = () => {
         }),
       });
       const data = await res.json();
-      if (data.error) {
-        setError(data);
-        navigate('/invalid_credentials', { replace: true });
+      if (!data.accessToken) {
+        setError(data.message);
       }
-      userContext?.setToken(data.accessToken);
-      userContext?.setUser(data.user);
-      if (data.user) {
+      if (!data.message) {
+        userContext?.setToken(data.accessToken);
+        userContext?.setUser(data.user);
         navigate(`/user`);
       }
-    } catch (e) {
-      console.log('catch error', e);
+    } catch (e: any) {
+      setError(e.message);
     } finally {
       setLoading(false);
     }
@@ -58,12 +57,9 @@ export const LoginForm = () => {
   if (loading) {
     return <h2>Trwa logowanie do aplikacji...</h2>;
   }
-
   if (error) {
-    navigate('/invalid_credentials', { replace: true });
+    return <ErrorHandler message={error} />;
   }
-
-  //@Todo nie jestem zalogowany od razu do aplikacji, a na tym ma polegac accessToken
 
   return (
     <div className="login-page">
@@ -90,7 +86,7 @@ export const LoginForm = () => {
         <p>
           Nie masz jescze konta? <Link to="/register">Załóż konto TUTAJ!</Link>
         </p>
-        <Btn text="Zaloguj" />
+        <button className="btn btn-primary w-50">Zaloguj</button>
       </form>
     </div>
   );
