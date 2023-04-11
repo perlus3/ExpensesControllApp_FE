@@ -5,6 +5,13 @@
     top: 50px;
 }
 
+.details-view {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    top: 50px;
+}
+
 .form {
     background-color: white;
     width: 30em;

@@ -2,12 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 import { AuthContext } from '../../contexts/authContext';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AccountOperationsList } from '../account-operations/AccountOperationsList';
+import { AccountOperationsListView } from './AccountOperationsListView';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 
 import { AddAccountOperations } from '../account-operations/AddAccountOperations';
 import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
-import { NewAccountEntity } from '../../../types/interfaces';
+import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
 
 export const SingleAccountPage = () => {
@@ -35,8 +35,8 @@ export const SingleAccountPage = () => {
         }
         setAccount(result);
       })();
-    } catch (e) {
-      console.log(e);
+    } catch (e: any) {
+      setError(e.message);
     }
   }, [count]);
 
@@ -52,15 +52,19 @@ export const SingleAccountPage = () => {
     navigate(`/edit-account-form/${id}`);
   };
 
+  const goForDetails = () => {
+    navigate(`/details/${id}`);
+  };
+
   return (
-    <div className="container-fluid text-center">
+    <div className="container-fluid text-center mb-3">
       <AddAccountOperations
         name={account.name}
         value={account.value}
         key={account.id}
         currency={account.currency}
       />
-      <AccountOperationsList
+      <AccountOperationsListView
         id={params.id}
         currency={account.currency}
         count={count}
@@ -70,6 +74,15 @@ export const SingleAccountPage = () => {
         <div className="row">
           <div className="col">
             <GoBackButton />
+          </div>
+          <div className="col">
+            <button
+              className="btn btn-success"
+              style={{ color: 'white' }}
+              onClick={() => goForDetails()}
+            >
+              Analizuj wydatki
+            </button>
           </div>
           <div className="col">
             <button
