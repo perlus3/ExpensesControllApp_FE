@@ -1,5 +1,4 @@
-import React, { SyntheticEvent, useContext, useState } from 'react';
-import { OperationType } from '../../../wydatki-backend/types';
+import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { apiUrl } from '../config/api';
 import { AuthContext } from '../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
@@ -7,6 +6,7 @@ import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
+import { CategoryEntity, OperationType } from '../types/interfaces';
 
 interface Props {
   accountId: string | undefined;
@@ -18,11 +18,35 @@ export const AddOperation = (props: Props) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
+
+  const [categories, setCategories] = useState<CategoryEntity[]>([]);
   const [form, setForm] = useState({
     name: '',
     value: '',
+    categoryId: '',
     operationType: props.operationType,
   });
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const res = await fetch(`${apiUrl}/categories`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userContext?.token}`,
+          },
+        });
+        const data = await res.json();
+        if (!data.id) {
+          setError(data.message);
+        }
+        setCategories(data);
+      })();
+    } catch (error: any) {
+      setError(error.message);
+    }
+  }, []);
 
   const addOperation = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -91,6 +115,30 @@ export const AddOperation = (props: Props) => {
           value={form.value}
           onChange={(e) => updateForm('value', Number(e.target.value))}
         />
+        <select
+          className="form-select w-75"
+          name="categoryId"
+          value={form.categoryId}
+          onChange={(e) => updateForm('categoryId', e.target.value)}
+        >
+          <option>--wybierz--</option>
+          {props.operationType === 'INCOME'
+            ? categories
+                .filter((category) => category.type === 'INCOME')
+                .map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))
+            : categories
+                .filter((category) => category.type === 'EXPENSE')
+                .map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+        </select>
+
         <button className="btn btn-primary w-50">Dodaj</button>
         <GoBackButton />
       </form>
