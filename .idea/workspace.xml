@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="dodanie about">
+      <change afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/authContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/authContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/AddOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AddOperation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="development" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectId" id="2MpLnklPq1nUdPaWBQVgi1OJ8vK" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Porjekty/carions-backend",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\views" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\assets\icons" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\common\buttons" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev" />
+        <item itemvalue="npm.start:dev" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="" />
+      <created>1678459746173</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678459746173</updated>
+      <workItem from="1678459747129" duration="42713000" />
+      <workItem from="1678954337234" duration="29557000" />
+      <workItem from="1679070805858" duration="5423000" />
+      <workItem from="1679141844441" duration="164000" />
+      <workItem from="1679142011839" duration="42000" />
+      <workItem from="1679831470451" duration="18679000" />
+      <workItem from="1679900322573" duration="134082000" />
+    </task>
+    <task id="LOCAL-00001" summary="eslint/prettier config">
+      <created>1678532190597</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678532190597</updated>
+    </task>
+    <task id="LOCAL-00002" summary="dziwne pliki">
+      <created>1679141259592</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679141259592</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added przycisk, browserRouter, Routing, i context">
+      <created>1679141421791</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679141421791</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added Routing, LoginForm, RegisterForm i Obsługe błedu logowania">
+      <created>1679141555443</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679141555443</updated>
+    </task>
+    <task id="LOCAL-00005" summary="zmiany w routingu">
+      <created>1679141963159</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679141963159</updated>
+    </task>
+    <task id="LOCAL-00006" summary="push zapobiegający utracie danych (jedna taka akcja już była)">
+      <created>1679772618139</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679772618139</updated>
+    </task>
+    <task id="LOCAL-00007" summary="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor">
+      <created>1680621315496</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680621315497</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dodanie about">
+      <created>1681190558280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681190558280</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="eslint/prettier config" />
+    <MESSAGE value="dziwne pliki" />
+    <MESSAGE value="added przycisk, browserRouter, Routing, i context" />
+    <MESSAGE value="added Routing, LoginForm, RegisterForm i Obsługe błedu logowania" />
+    <MESSAGE value="zmiany w routingu" />
+    <MESSAGE value="push zapobiegający utracie danych (jedna taka akcja już była)" />
+    <MESSAGE value="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
+    <MESSAGE value="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
+    <MESSAGE value="dodanie about" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie about" />
+  </component>
+</project>
