@@ -6,7 +6,7 @@ export const About = () => {
       <div className="row">
         <div className="col-12 text-center">
           <p className="mb-5">
-            <h1 className="mt-3 mb-5">
+            <h1 className="mt-3 mb-5 text-danger">
               Ta aplikacja pomoże kontrolować Twoje wydatki!
             </h1>
             <h4>Zarejestruj sie i potwierdz e-mail aby się zalogować.</h4>

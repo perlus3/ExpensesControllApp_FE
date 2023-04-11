@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-export const ConfirmEmail = () => {
+export const AfterRegisterInfo = () => {
   const [timer, setTimer] = useState<number>(5);
   const navigate = useNavigate();
   setTimeout(() => {

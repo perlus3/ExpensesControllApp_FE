@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="dodanie about">
-      <change afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="confirm email, renderowanie warunkowe i mała zmiana w catch">
+      <change afterPath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/authContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/authContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AddOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AddOperation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/about/About.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/about/About.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/AfterRegisterInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +115,7 @@
       <workItem from="1679141844441" duration="164000" />
       <workItem from="1679142011839" duration="42000" />
       <workItem from="1679831470451" duration="18679000" />
-      <workItem from="1679900322573" duration="134082000" />
+      <workItem from="1679900322573" duration="141108000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -185,7 +173,42 @@
       <option name="project" value="LOCAL" />
       <updated>1681190558280</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="zmiana lokalizacji interfejsów, zmiana typów">
+      <created>1681190902854</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681190902854</updated>
+    </task>
+    <task id="LOCAL-00010" summary="dodanie about">
+      <created>1681190923745</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681190923745</updated>
+    </task>
+    <task id="LOCAL-00011" summary="dodanie kategorii">
+      <created>1681191006847</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681191006847</updated>
+    </task>
+    <task id="LOCAL-00012" summary="dodanie kategorii">
+      <created>1681191059526</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681191059526</updated>
+    </task>
+    <task id="LOCAL-00013" summary="confirm email, renderowanie warunkowe i mała zmiana w catch">
+      <created>1681191132140</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681191132140</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +234,10 @@
     <MESSAGE value="push zapobiegający utracie danych (jedna taka akcja już była)" />
     <MESSAGE value="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
     <MESSAGE value="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
+    <MESSAGE value="zmiana lokalizacji interfejsów, zmiana typów" />
     <MESSAGE value="dodanie about" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie about" />
+    <MESSAGE value="dodanie kategorii" />
+    <MESSAGE value="confirm email, renderowanie warunkowe i mała zmiana w catch" />
+    <option name="LAST_COMMIT_MESSAGE" value="confirm email, renderowanie warunkowe i mała zmiana w catch" />
   </component>
 </project>

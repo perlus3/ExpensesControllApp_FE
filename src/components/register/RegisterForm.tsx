@@ -39,7 +39,7 @@ export const RegisterForm = () => {
       }
 
       if (!data.message) {
-        navigate('/confirm-email');
+        navigate('/after-register');
       }
     } catch (e: any) {
       setError(e.message);
