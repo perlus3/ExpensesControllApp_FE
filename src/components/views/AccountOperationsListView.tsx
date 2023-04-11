@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/authContext';
 
 import { apiUrl } from '../../config/api';
-import { Currency, NewOperationData } from '../../../../wydatki-backend/types';
 
 import remove from '../../assets/icons/remove.png';
 import update123 from '../../assets/icons/update123.png';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { Currency, NewOperationData } from '../../types/interfaces';
 interface Props {
   id: string | undefined;
   count: number;
@@ -15,7 +15,7 @@ interface Props {
   currency: Currency;
 }
 
-export const AccountOperationsList = (props: Props) => {
+export const AccountOperationsListView = (props: Props) => {
   const userContext = useContext(AuthContext);
   const { setCount } = props;
   const navigate = useNavigate();

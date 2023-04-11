@@ -58,7 +58,6 @@ export const EditAccount = (props: Props) => {
       if (!data.error) {
         navigate(-1);
       }
-      console.log(data);
       if (!data.name) {
         setError(data.message);
       }

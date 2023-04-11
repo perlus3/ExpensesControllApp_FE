@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 export const UserMainPageView = () => {
   const userContext = useContext(AuthContext);
-  const [error, setError] = useState(undefined);
+  const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -29,11 +29,11 @@ export const UserMainPageView = () => {
 
         userContext?.setAccounts(data);
       } catch (err: any) {
-        setError(err);
+        setError(err.message);
         if (err.name === 'AbortError') {
           console.log('cancelled');
         } else {
-          setError(err);
+          setError(err.message);
         }
       }
 
@@ -54,7 +54,7 @@ export const UserMainPageView = () => {
   return (
     <>
       <Header />
-      {!userContext?.accounts.length ? (
+      {userContext?.accounts && !userContext?.accounts.length ? (
         <div className="d-flex flex-column justify-content-between h-100">
           <span className="d-flex align-items-center justify-content-center">
             <h3 className="text-center mt-5 mx-5">

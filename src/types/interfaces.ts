@@ -16,13 +16,6 @@ export enum OperationType {
   INCOME = 'INCOME',
   EXPENSE = 'EXPENSE',
 }
-export interface SingleOperationEntity {
-  id: string;
-  name: string;
-  value: number;
-  date: Date;
-  operationType: OperationType;
-}
 
 export interface NewOperationData {
   id: string;
@@ -32,4 +25,19 @@ export interface NewOperationData {
   createdAt: Date;
   updatedAt: Date;
   operationType: OperationType;
+}
+
+export interface FilteredOperation {
+  id: string;
+  name: string;
+  value: number;
+  createdAt: Date;
+}
+
+export interface CategoryEntity {
+  id: string;
+  name: string;
+  type: OperationType;
+  createdAt: Date;
+  updatedAt: Date;
 }

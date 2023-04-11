@@ -4,47 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor">
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/icons/update123.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/account-operations/EditOperationForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/ErrorHandler.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/header/Header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/interfaces.ts" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="dodanie about">
+      <change afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountOperationList.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountOperationsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/SingleOperation.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/EditAccountForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/Btn.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/Btn.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/BadCredentials.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/ConfirmEmail.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccount.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccount.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccount.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/api.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/contexts/authContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/authContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/AddOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AddOperation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +63,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/megakurs/nodeEtap",
+    "last_opened_file_path": "C:/Porjekty/carions-backend",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
@@ -106,10 +85,11 @@
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src" />
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\views" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\assets\icons" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\common\buttons" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
-      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\userPage" />
     </key>
   </component>
   <component name="RunManager">
@@ -147,7 +127,7 @@
       <workItem from="1679141844441" duration="164000" />
       <workItem from="1679142011839" duration="42000" />
       <workItem from="1679831470451" duration="18679000" />
-      <workItem from="1679900322573" duration="80047000" />
+      <workItem from="1679900322573" duration="134082000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -191,7 +171,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679772618139</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor">
+      <created>1680621315496</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680621315497</updated>
+    </task>
+    <task id="LOCAL-00008" summary="dodanie about">
+      <created>1681190558280</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681190558280</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,6 +210,8 @@
     <MESSAGE value="zmiany w routingu" />
     <MESSAGE value="push zapobiegający utracie danych (jedna taka akcja już była)" />
     <MESSAGE value="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
+    <MESSAGE value="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
+    <MESSAGE value="dodanie about" />
+    <option name="LAST_COMMIT_MESSAGE" value="dodanie about" />
   </component>
 </project>

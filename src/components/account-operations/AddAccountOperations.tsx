@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import React from 'react';
-import { Currency } from '../../../../wydatki-backend/types';
+import { Currency } from '../../types/interfaces';
 
 interface Props {
   name: string;

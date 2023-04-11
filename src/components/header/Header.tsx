@@ -21,15 +21,6 @@ export const Header = () => {
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link
-                to="/user/accounts"
-                className="nav-link"
-                aria-current="page"
-              >
-                Moje Konta
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link to="/new-account" className="nav-link" aria-current="page">
                 Dodaj Konto
               </Link>

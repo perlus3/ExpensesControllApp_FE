@@ -1,6 +1,6 @@
-import { OperationType } from '../../../../wydatki-backend/types';
 import { AddOperation } from '../../utils/AddOperation';
 import { useParams } from 'react-router-dom';
+import { OperationType } from '../../types/interfaces';
 
 export const IncomeForm = () => {
   const params = useParams();
