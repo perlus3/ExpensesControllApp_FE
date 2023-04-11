@@ -15,12 +15,15 @@ import { ConfirmEmail } from './components/register/ConfirmEmail';
 import { EditOperationForm } from './components/account-operations/EditOperationForm';
 import { ErrorHandler } from './components/common/ErrorHandler';
 import { EditAccountForm } from './components/account-operations/EditAccountForm';
+import { DetailsView } from './components/views/DetailsView';
+import { About } from './components/about/About';
 
 export const Routing = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginForm />} />
       <Route path="/register" element={<RegisterForm />} />
+      <Route path="/about" element={<About />} />
       <Route path="/confirm-email" element={<ConfirmEmail />} />
       <Route path="/error" element={<ErrorHandler message={''} />} />
       <Route element={<PrivateRoutes />}>
@@ -34,6 +37,7 @@ export const Routing = () => {
         <Route path="/edit-account-form/:id" element={<EditAccountForm />} />
         <Route path="/accounts/:id" element={<SingleAccountPage />} />
         <Route path="/new-account" element={<AddNewAccountForm />} />
+        <Route path="/details/:id" element={<DetailsView />} />
         <Route path="/user/accounts" element={<AccountsList />} />
         <Route path="/log-out" element={<Logout />} />
       </Route>

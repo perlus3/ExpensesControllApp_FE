@@ -4,7 +4,6 @@ import './AuthForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { AuthContext } from '../../contexts/authContext';
-import { ErrorHandler } from '../common/ErrorHandler';
 
 export const LoginForm = () => {
   const userContext = useContext(AuthContext);
@@ -57,9 +56,6 @@ export const LoginForm = () => {
   if (loading) {
     return <h2>Trwa logowanie do aplikacji...</h2>;
   }
-  if (error) {
-    return <ErrorHandler message={error} />;
-  }
 
   return (
     <div className="login-page">
@@ -83,9 +79,20 @@ export const LoginForm = () => {
           value={form.password}
           onChange={(e) => updateForm('password', e.target.value)}
         />
+        {error && (
+          <p className="text-center" style={{ color: 'red' }}>
+            {error}
+          </p>
+        )}
         <p>
-          Nie masz jescze konta? <Link to="/register">Załóż konto TUTAJ!</Link>
+          Nie masz jescze konta?{' '}
+          <Link style={{ color: 'blue' }} to="/register">
+            Załóż konto TUTAJ!
+          </Link>
         </p>
+        <Link to="/about" className="btn btn-secondary w-50">
+          O aplikacji!
+        </Link>
         <button className="btn btn-primary w-50">Zaloguj</button>
       </form>
     </div>
