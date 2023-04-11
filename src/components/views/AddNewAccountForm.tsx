@@ -32,16 +32,14 @@ export const AddNewAccountForm = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
       if (data.error) {
-        setError(data.error);
+        setError(data.message);
       }
 
       userContext?.setUser(data.user);
       navigate(`/user`);
     } catch (e: any) {
-      console.log('dupadupaeeeeeeeee');
-      setError(e);
+      setError(e.message);
     } finally {
       setLoading(false);
     }
