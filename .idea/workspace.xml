@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="confirm email, zmiana nazw">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/api.ts" afterDir="false" />
-    </list>
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="zmiana nazw, readme" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +108,7 @@
       <workItem from="1679142011839" duration="42000" />
       <workItem from="1679831470451" duration="18679000" />
       <workItem from="1679900322573" duration="141751000" />
-      <workItem from="1681284471567" duration="6610000" />
+      <workItem from="1681284471567" duration="7292000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -213,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681241622648</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="zmiana nazw, readme">
+      <created>1681336413616</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1681336413616</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,6 +246,7 @@
     <MESSAGE value="dodanie kategorii" />
     <MESSAGE value="confirm email, renderowanie warunkowe i mała zmiana w catch" />
     <MESSAGE value="confirm email, zmiana nazw" />
-    <option name="LAST_COMMIT_MESSAGE" value="confirm email, zmiana nazw" />
+    <MESSAGE value="zmiana nazw, readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="zmiana nazw, readme" />
   </component>
 </project>
