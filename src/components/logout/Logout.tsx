@@ -19,10 +19,5 @@ export const Logout = () => {
     })();
   }, []);
 
-  return (
-    <>
-      <p style={{ backgroundColor: 'green' }}>WYLOGOWANO POPRAWNIE</p>
-      <LoginForm />
-    </>
-  );
+  return <LoginForm />;
 };

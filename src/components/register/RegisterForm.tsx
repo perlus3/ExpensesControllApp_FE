@@ -3,6 +3,7 @@ import React, { SyntheticEvent, useState } from 'react';
 import '../login/AuthForm.css';
 import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
+import { apiUrl } from '../../config/api';
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ export const RegisterForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`http://localhost:3000/auth/register`, {
+      const res = await fetch(`${apiUrl}/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +40,7 @@ export const RegisterForm = () => {
       }
 
       if (!data.message) {
-        navigate('/confirm-email');
+        navigate('/after-register');
       }
     } catch (e: any) {
       setError(e.message);

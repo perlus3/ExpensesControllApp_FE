@@ -10,13 +10,14 @@ import { PrivateRoutes } from './utils/PrivateRoutes';
 import { AccountsList } from './components/views/AccountsList';
 import { IncomeForm } from './components/account-operations/IncomeForm';
 import { ExpenseForm } from './components/account-operations/ExpenseForm';
-import { ConfirmEmail } from './components/register/ConfirmEmail';
+import { AfterRegisterInfo } from './components/register/AfterRegisterInfo';
 
 import { EditOperationForm } from './components/account-operations/EditOperationForm';
 import { ErrorHandler } from './components/common/ErrorHandler';
 import { EditAccountForm } from './components/account-operations/EditAccountForm';
 import { DetailsView } from './components/views/DetailsView';
 import { About } from './components/about/About';
+import { EmailConfirm } from './components/emailConfirm/EmailConfirm';
 
 export const Routing = () => {
   return (
@@ -24,7 +25,8 @@ export const Routing = () => {
       <Route path="/" element={<LoginForm />} />
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/about" element={<About />} />
-      <Route path="/confirm-email" element={<ConfirmEmail />} />
+      <Route path="/email/confirm-email/:token" element={<EmailConfirm />} />
+      <Route path="/after-register" element={<AfterRegisterInfo />} />
       <Route path="/error" element={<ErrorHandler message={''} />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/user" element={<UserMainPageView />} />
