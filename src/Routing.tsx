@@ -18,11 +18,13 @@ import { EditAccountForm } from './components/account-operations/EditAccountForm
 import { DetailsView } from './components/views/DetailsView';
 import { About } from './components/about/About';
 import { EmailConfirm } from './components/emailConfirm/EmailConfirm';
+import { LandingPage } from './components/landingPage/LandingPage';
 
 export const Routing = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginForm />} />
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginForm />} />
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/about" element={<About />} />
       <Route path="/email/confirm-email/:token" element={<EmailConfirm />} />

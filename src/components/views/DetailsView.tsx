@@ -176,7 +176,7 @@ export const DetailsView = () => {
                 </thead>
                 {filteredOperations.map((el) => (
                   <tbody>
-                    <tr>
+                    <tr key={el.id}>
                       <td>{el.name}</td>
                       <td>{el.value}</td>
                       <td>{newDate(el.createdAt)}</td>

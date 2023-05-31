@@ -1,0 +1,13 @@
+body {
+    overflow: hidden;
+}
+
+.text {
+    color: white;
+}
+
+.overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+}
