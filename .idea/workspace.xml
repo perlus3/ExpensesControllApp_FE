@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="images">
-      <change afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="landing page added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -120,7 +112,7 @@
       <workItem from="1679900322573" duration="141751000" />
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
-      <workItem from="1685456670518" duration="9511000" />
+      <workItem from="1685456670518" duration="9890000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -234,7 +226,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681336543645</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="landing page added">
+      <created>1685537710577</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1685537710577</updated>
+    </task>
+    <task id="LOCAL-00018" summary="landing page added">
+      <created>1685537758031</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685537758031</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,6 +273,7 @@
     <MESSAGE value="confirm email, zmiana nazw" />
     <MESSAGE value="zmiana nazw, readme" />
     <MESSAGE value="images" />
-    <option name="LAST_COMMIT_MESSAGE" value="images" />
+    <MESSAGE value="landing page added" />
+    <option name="LAST_COMMIT_MESSAGE" value="landing page added" />
   </component>
 </project>
