@@ -58,7 +58,7 @@ export const LoginForm = () => {
   }
 
   return (
-    <div className="login-page">
+    <div className="login-page background-image">
       <form className="auth-form" action="" onSubmit={loginUser}>
         <h1>Zaloguj się!</h1>
         <input

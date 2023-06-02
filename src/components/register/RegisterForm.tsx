@@ -61,9 +61,9 @@ export const RegisterForm = () => {
   }
 
   return (
-    <div className="register-form">
+    <div className="register-form background-image vh-100">
       <form className="auth-form" action="" onSubmit={registerUser}>
-        <h1>Załóż konto!</h1>
+        <h2>Załóż konto!</h2>
         <div className="form-floating w-100">
           <input
             id="login"

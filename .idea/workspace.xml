@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="landing page added">
-      <change afterPath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="credits page with links added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/AuthForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/AuthForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +120,7 @@
       <workItem from="1679900322573" duration="141751000" />
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
-      <workItem from="1685456670518" duration="18156000" />
+      <workItem from="1685456670518" duration="19340000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -254,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685537906600</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="credits page with links added">
+      <created>1685697910642</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1685697910642</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +296,7 @@
     <MESSAGE value="zmiana nazw, readme" />
     <MESSAGE value="images" />
     <MESSAGE value="landing page added" />
-    <option name="LAST_COMMIT_MESSAGE" value="landing page added" />
+    <MESSAGE value="credits page with links added" />
+    <option name="LAST_COMMIT_MESSAGE" value="credits page with links added" />
   </component>
 </project>
