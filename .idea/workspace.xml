@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="landing page added" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="landing page added">
+      <change afterPath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/AuthForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/AuthForm.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="development" />
+        <entry key="$PROJECT_DIR$" value="refactor" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "landing__page",
+    "git-widget-placeholder": "credits__page",
     "last_opened_file_path": "C:/Moje projekty/Wydatki/wydatki-frontend",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -112,7 +119,7 @@
       <workItem from="1679900322573" duration="141751000" />
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
-      <workItem from="1685456670518" duration="9890000" />
+      <workItem from="1685456670518" duration="18156000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -240,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685537758031</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="landing page added">
+      <created>1685537906600</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1685537906600</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

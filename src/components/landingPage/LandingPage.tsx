@@ -14,20 +14,27 @@ export const LandingPage = () => {
     <div className="container-fluid vh-100">
       <div className="row">
         <div className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="col-5">
+          <div className="col-4">
             <p className="text display-6 px-4">ExpenseApp</p>
           </div>
-          <div className="col-2 d-flex justify-content-center align-items-center">
+          <div className="col-4 d-flex justify-content-center align-items-center">
             <button className="btn btn-primary btn-lg">
               <Link to="/login">
                 <p className="text m-0">Zaloguj</p>
               </Link>
             </button>
           </div>
-          <div className="col-5 d-flex justify-content-end align-items-center px-3">
+          <div className="col-2 d-flex justify-content-end align-items-center">
             <button className="btn btn-primary btn-lg">
               <Link to="/register">
                 <p className="text m-0">Rejestracja</p>
+              </Link>
+            </button>
+          </div>
+          <div className="col-2 d-flex justify-content-center align-items-center">
+            <button className="btn btn-primary btn-lg">
+              <Link to="/credits">
+                <p className="text m-0">Credits</p>
               </Link>
             </button>
           </div>

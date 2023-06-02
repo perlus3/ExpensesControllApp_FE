@@ -14,6 +14,12 @@ a {
     border: 3px solid #000c5e;
 }
 
-/*.nav-link-active {*/
-/*    color: #e1e16f;*/
-/*}*/
+.background-image {
+    background-image: url('./assets/images/background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.link {
+    color: blue;
+}
