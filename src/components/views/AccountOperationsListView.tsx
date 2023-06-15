@@ -131,7 +131,7 @@ export const AccountOperationsListView = (props: Props) => {
                 </div>
                 <div className="row mt-2">
                   <div className="col-9 text-start">
-                    <span className="text-capitalize text fw-bold ">
+                    <span className="text-capitalize fw-bold ">
                       {operation.name}
                     </span>
                   </div>

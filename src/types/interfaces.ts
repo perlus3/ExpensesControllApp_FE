@@ -1,6 +1,5 @@
 export enum Currency {
   PLN = 'PLN',
-
   EURO = 'EURO',
   DOLAR = 'DOLAR',
 }
@@ -40,4 +39,9 @@ export interface CategoryEntity {
   type: OperationType;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface Month {
+  name: string;
+  value: number;
 }

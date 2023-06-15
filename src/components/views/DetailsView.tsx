@@ -1,10 +1,13 @@
 import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
-import { CategoryEntity, FilteredOperation } from '../../types/interfaces';
+import {
+  CategoryEntity,
+  FilteredOperation,
+  Month,
+} from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
-import { eachDayOfInterval, format } from 'date-fns';
 
 export const DetailsView = () => {
   const userContext = useContext(AuthContext);
@@ -24,18 +27,33 @@ export const DetailsView = () => {
     },
   ]);
 
-  const [form, setForm] = useState({
-    categoryId: '',
-    startDate: '',
-    endDate: '',
-  });
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedCategoryId, setSelectedCategoryId] = useState('');
+  const isMonthsDisabled = selectedYear === '';
 
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date(2030, 3, 1);
+  const months: Month[] = [
+    { name: 'Styczeń', value: 1 },
+    { name: 'Luty', value: 2 },
+    { name: 'Marzec', value: 3 },
+    { name: 'Kwiecień', value: 4 },
+    { name: 'Maj', value: 5 },
+    { name: 'Czerwiec', value: 6 },
+    { name: 'Lipiec', value: 7 },
+    { name: 'Sierpień', value: 8 },
+    { name: 'Wrzesień', value: 9 },
+    { name: 'Październik', value: 10 },
+    { name: 'Listopad', value: 11 },
+    { name: 'Grudzień', value: 12 },
+  ];
 
-  const dates = eachDayOfInterval({ start: startDate, end: endDate }).map(
-    (date) => format(date, 'dd.MM.yyyy'),
-  );
+  const currentYear = new Date().getFullYear();
+  const yearsCount = 3;
+
+  const years = [];
+  for (let i = currentYear - yearsCount; i <= currentYear + yearsCount; i++) {
+    years.push(i);
+  }
 
   useEffect(() => {
     try {
@@ -63,7 +81,7 @@ export const DetailsView = () => {
 
     try {
       const res = await fetch(
-        `${apiUrl}/categories/all/${form.categoryId}?startDate=${form.startDate}&endDate=${form.endDate}`,
+        `${apiUrl}/categories/all/${selectedCategoryId}?year=${selectedYear}&month=${selectedMonth}`,
         {
           method: 'GET',
           headers: {
@@ -74,25 +92,35 @@ export const DetailsView = () => {
       );
       const data = await res.json();
 
-      if (!data.message) {
+      if (data) {
         setFilteredOperations(data);
         setRender(+1);
       }
-      if (!data.value) {
+      if (!data) {
         setError(data.message);
       }
     } catch (e: any) {
-      setError(e.message);
+      setError('Aby kontynuować musisz wybrać kategorie operacji!');
     } finally {
       setLoading(false);
     }
   };
 
-  const updateForm = (key: string, value: string | number) => {
-    setForm((form) => ({
-      ...form,
-      [key]: value,
-    }));
+  const handleCategoryIdChange = (e: any) => {
+    setSelectedCategoryId(e.target.value);
+  };
+
+  const handleYearChange = (e: any) => {
+    const selectedYearValue = e.target.value;
+    setSelectedYear(selectedYearValue);
+
+    if (selectedYearValue === '') {
+      setSelectedMonth('');
+    }
+  };
+
+  const handleMonthChange = (e: any) => {
+    setSelectedMonth(e.target.value);
   };
 
   if (loading) {
@@ -120,8 +148,8 @@ export const DetailsView = () => {
             <select
               className="form-select w-75"
               name="categoryId"
-              value={form.categoryId}
-              onChange={(e) => updateForm('categoryId', e.target.value)}
+              value={selectedCategoryId}
+              onChange={handleCategoryIdChange}
             >
               <option value="">--Wybierz kategorie--</option>
               {categories.map((category) => (
@@ -130,32 +158,32 @@ export const DetailsView = () => {
                 </option>
               ))}
             </select>
-            <h2>Wybierz daty</h2>
-            <p className="mb-0">od:</p>
+            <h4>Wybierz rok:</h4>
             <select
               className="form-select w-75"
-              name="startDate"
-              value={form.startDate}
-              onChange={(e) => updateForm('startDate', e.target.value)}
+              name="year"
+              value={selectedYear}
+              onChange={handleYearChange}
             >
-              <option value="">--Wybierz datę--</option>
-              {dates.map((date) => (
-                <option key={date} value={date}>
-                  {date}
+              <option value="">--Wybierz--</option>
+              {years.map((year) => (
+                <option key={year} value={year}>
+                  {year}
                 </option>
               ))}
             </select>
-            <p className="mb-0">do:</p>
+            <h4>Wybierz miesiąc:</h4>
             <select
               className="form-select w-75"
-              name="endDate"
-              value={form.endDate}
-              onChange={(e) => updateForm('endDate', e.target.value)}
+              name="month"
+              value={selectedMonth}
+              disabled={isMonthsDisabled}
+              onChange={handleMonthChange}
             >
-              <option value="">--Wybierz datę--</option>
-              {dates.map((date) => (
-                <option key={date} value={date}>
-                  {date}
+              <option value="">--Wybierz--</option>
+              {months.map((month) => (
+                <option key={month.name} value={month.value}>
+                  {month.name}
                 </option>
               ))}
             </select>
@@ -175,8 +203,8 @@ export const DetailsView = () => {
                   </tr>
                 </thead>
                 {filteredOperations.map((el) => (
-                  <tbody>
-                    <tr key={el.id}>
+                  <tbody key={el.id}>
+                    <tr>
                       <td>{el.name}</td>
                       <td>{el.value}</td>
                       <td>{newDate(el.createdAt)}</td>
