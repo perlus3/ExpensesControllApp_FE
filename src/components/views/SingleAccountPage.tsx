@@ -5,10 +5,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { AccountOperationsListView } from './AccountOperationsListView';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 
-import { AddAccountOperations } from '../account-operations/AddAccountOperations';
+import { AccountInfo } from '../account-operations/AccountInfo';
 import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
 import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { DetailsView } from './DetailsView';
 
 export const SingleAccountPage = () => {
   const userContext = useContext(AuthContext);
@@ -57,13 +58,14 @@ export const SingleAccountPage = () => {
   };
 
   return (
-    <div className="container-fluid text-center mb-3">
-      <AddAccountOperations
+    <div className="row background-color">
+      <AccountInfo
+        id={account.id}
         name={account.name}
         value={account.value}
-        key={account.id}
         currency={account.currency}
       />
+      <DetailsView />
       <AccountOperationsListView
         id={params.id}
         currency={account.currency}

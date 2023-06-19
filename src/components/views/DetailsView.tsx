@@ -8,6 +8,7 @@ import {
 } from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { PieChart } from '../charts/PieChart';
 
 export const DetailsView = () => {
   const userContext = useContext(AuthContext);
@@ -140,93 +141,92 @@ export const DetailsView = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="details-view col">
-          <form className="form" onSubmit={checkDetails}>
-            <h1>Wybierz kategorie</h1>
-            <select
-              className="form-select w-75"
-              name="categoryId"
-              value={selectedCategoryId}
-              onChange={handleCategoryIdChange}
-            >
-              <option value="">--Wybierz kategorie--</option>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
-            <h4>Wybierz rok:</h4>
-            <select
-              className="form-select w-75"
-              name="year"
-              value={selectedYear}
-              onChange={handleYearChange}
-            >
-              <option value="">--Wybierz--</option>
-              {years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-            <h4>Wybierz miesiąc:</h4>
-            <select
-              className="form-select w-75"
-              name="month"
-              value={selectedMonth}
-              disabled={isMonthsDisabled}
-              onChange={handleMonthChange}
-            >
-              <option value="">--Wybierz--</option>
-              {months.map((month) => (
-                <option key={month.name} value={month.value}>
-                  {month.name}
-                </option>
-              ))}
-            </select>
-            <button className="btn btn-primary w-50">Wybierz</button>
-            <GoBackButton />
-          </form>
-        </div>
-        {render ? (
-          <div className="details-list d-flex col mt-5 border">
-            <div className="col">
-              <table className="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Nazwa</th>
-                    <th scope="col">Wartość</th>
-                    <th scope="col">Data</th>
-                  </tr>
-                </thead>
-                {filteredOperations.map((el) => (
-                  <tbody key={el.id}>
-                    <tr>
-                      <td>{el.name}</td>
-                      <td>{el.value}</td>
-                      <td>{newDate(el.createdAt)}</td>
-                    </tr>
-                  </tbody>
-                ))}
-              </table>
-            </div>
-            <div className="col">
-              <p className="text-center">
-                Suma wybranych operacji wyniosła:{' '}
-                <strong>
-                  {filteredOperations.reduce(
-                    (sum, el) => sum + Number(el.value),
-                    0,
-                  )}
-                </strong>
-              </p>
-            </div>
-          </div>
-        ) : null}
+    <div className="col-6">
+      <div className="details-view col">
+        <form className="form" onSubmit={checkDetails}>
+          <h1>Wybierz kategorie</h1>
+          <select
+            className="form-select w-75"
+            name="categoryId"
+            value={selectedCategoryId}
+            onChange={handleCategoryIdChange}
+          >
+            <option value="">--Wybierz kategorie--</option>
+            {categories.map((category) => (
+              <option key={category.id} value={category.id}>
+                {category.name}
+              </option>
+            ))}
+          </select>
+          <h4>Wybierz rok:</h4>
+          <select
+            className="form-select w-75"
+            name="year"
+            value={selectedYear}
+            onChange={handleYearChange}
+          >
+            <option value="">--Wybierz--</option>
+            {years.map((year) => (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
+          <h4>Wybierz miesiąc:</h4>
+          <select
+            className="form-select w-75"
+            name="month"
+            value={selectedMonth}
+            disabled={isMonthsDisabled}
+            onChange={handleMonthChange}
+          >
+            <option value="">--Wybierz--</option>
+            {months.map((month) => (
+              <option key={month.name} value={month.value}>
+                {month.name}
+              </option>
+            ))}
+          </select>
+          <button className="btn btn-primary w-50">Wybierz</button>
+          <GoBackButton />
+        </form>
       </div>
+      {render ? (
+        <div className="details-list d-flex col mt-5 border">
+          <div className="col">
+            <table className="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col">Nazwa</th>
+                  <th scope="col">Wartość</th>
+                  <th scope="col">Data</th>
+                </tr>
+              </thead>
+              {filteredOperations.map((el) => (
+                <tbody key={el.id}>
+                  <tr>
+                    <td>{el.name}</td>
+                    <td>{el.value}</td>
+                    <td>{newDate(el.createdAt)}</td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
+          </div>
+          <div className="col">
+            <p className="text-center">
+              Suma wybranych operacji wyniosła:{' '}
+              <strong>
+                {filteredOperations.reduce(
+                  (sum, el) => sum + Number(el.value),
+                  0,
+                )}
+              </strong>
+            </p>
+          </div>
+        </div>
+      ) : null}
+      <PieChart />
     </div>
   );
 };

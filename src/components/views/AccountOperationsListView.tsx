@@ -86,7 +86,7 @@ export const AccountOperationsListView = (props: Props) => {
   }
 
   return (
-    <>
+    <div className="col-12">
       <div>{today}</div>
       <ul className="list-group mt-2">
         {operations.map((operation) => (
@@ -153,6 +153,6 @@ export const AccountOperationsListView = (props: Props) => {
           </div>
         ))}
       </ul>
-    </>
+    </div>
   );
 };

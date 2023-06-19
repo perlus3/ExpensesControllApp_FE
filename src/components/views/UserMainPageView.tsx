@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../contexts/authContext';
 import { apiUrl } from '../../config/api';
 
-import { AccountsList } from './AccountsList';
+import { AccountsListView } from './AccountsListView';
 import { Header } from '../header/Header';
 
 import { ErrorHandler } from '../common/ErrorHandler';
@@ -43,10 +43,6 @@ export const UserMainPageView = () => {
     })();
   }, []);
 
-  if (userContext?.accounts === null) {
-    return <p>Wczytywanie...</p>;
-  }
-
   if (error) {
     return <ErrorHandler message={error} />;
   }
@@ -75,7 +71,7 @@ export const UserMainPageView = () => {
           </div>
         </div>
       ) : (
-        <AccountsList />
+        <AccountsListView />
       )}
     </>
   );

@@ -6,11 +6,11 @@ import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
-import { CategoryEntity, OperationType } from '../types/interfaces';
+import { CategoryEntity } from '../types/interfaces';
 
 interface Props {
   accountId: string | undefined;
-  operationType: OperationType;
+  operationType: string | null;
 }
 
 export const AddOperation = (props: Props) => {

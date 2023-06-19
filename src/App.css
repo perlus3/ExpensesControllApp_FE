@@ -12,7 +12,7 @@ body {
 
 a {
     text-decoration: none;
-    color: black;
+    color: white;
 }
 
 .border {
@@ -23,6 +23,11 @@ a {
     background-image: url('./assets/images/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.background-color {
+    background: #000C5EFF;
+;
 }
 
 .link {

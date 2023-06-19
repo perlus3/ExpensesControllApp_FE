@@ -5,12 +5,15 @@ import { Link } from 'react-router-dom';
 
 import './AccountList.css';
 
-export const AccountsList = () => {
+export const AccountsListView = () => {
   const userContext = useContext(AuthContext);
-
   return (
     <>
-      <div className="row">
+      <div className="col-12 d-flex justify-content-center">
+        <p className="fs-3 pt-4">Wybierz konto</p>
+      </div>
+
+      <div className="col">
         {userContext?.accounts &&
           userContext?.accounts.map((account) => (
             <div className="col-12 py-2" key={account.id}>

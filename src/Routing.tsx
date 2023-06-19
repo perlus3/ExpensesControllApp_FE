@@ -5,13 +5,10 @@ import { RegisterForm } from './components/register/RegisterForm';
 import { UserMainPageView } from './components/views/UserMainPageView';
 import { AddNewAccountForm } from './components/views/AddNewAccountForm';
 import { Logout } from './components/logout/Logout';
-import { SingleAccountPage } from './components/views/SingleAccountPage';
 import { PrivateRoutes } from './utils/PrivateRoutes';
-import { AccountsList } from './components/views/AccountsList';
-import { IncomeForm } from './components/account-operations/IncomeForm';
-import { ExpenseForm } from './components/account-operations/ExpenseForm';
+import { AccountsListView } from './components/views/AccountsListView';
+import { AddOperations } from './components/account-operations/AddOperations';
 import { AfterRegisterInfo } from './components/register/AfterRegisterInfo';
-
 import { EditOperationForm } from './components/account-operations/EditOperationForm';
 import { ErrorHandler } from './components/common/ErrorHandler';
 import { EditAccountForm } from './components/account-operations/EditAccountForm';
@@ -20,6 +17,7 @@ import { About } from './components/about/About';
 import { EmailConfirm } from './components/emailConfirm/EmailConfirm';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { CreditsPage } from './components/credits/CreditsPage';
+import { BlankComponent } from './components/views/Blank';
 
 export const Routing = () => {
   return (
@@ -34,17 +32,16 @@ export const Routing = () => {
       <Route path="/error" element={<ErrorHandler message={''} />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/user" element={<UserMainPageView />} />
-        <Route path="/income-form/:id" element={<IncomeForm />} />
-        <Route path="/expense-form/:id" element={<ExpenseForm />} />
+        <Route path="/add-operation/:id" element={<AddOperations />} />
         <Route
           path="/edit-operation-form/:id"
           element={<EditOperationForm />}
         />
         <Route path="/edit-account-form/:id" element={<EditAccountForm />} />
-        <Route path="/accounts/:id" element={<SingleAccountPage />} />
+        <Route path="/accounts/:id" element={<BlankComponent />} />
         <Route path="/new-account" element={<AddNewAccountForm />} />
         <Route path="/details/:id" element={<DetailsView />} />
-        <Route path="/user/accounts" element={<AccountsList />} />
+        <Route path="/user/accounts" element={<AccountsListView />} />
         <Route path="/log-out" element={<Logout />} />
       </Route>
     </Routes>

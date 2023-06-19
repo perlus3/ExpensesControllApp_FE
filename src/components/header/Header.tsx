@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg background-color">
       <div className="container">
-        <Link to="#" className="navbar-brand">
+        <Link to="#" className="navbar-brand text-white">
           ExpenseApp
         </Link>
         <button
@@ -16,17 +16,25 @@ export const Header = () => {
           aria-controls="nav"
           aria-label="Rozwiń nawigacje"
         >
-          <div className="navbar-toggler-icon"></div>
+          <div className="navbar-toggler-icon text-white"></div>
         </button>
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/new-account" className="nav-link" aria-current="page">
+              <Link
+                to="/new-account"
+                className="nav-link text-white"
+                aria-current="page"
+              >
                 Dodaj Konto
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/log-out" className="nav-link" aria-current="page">
+              <Link
+                to="/log-out"
+                className="nav-link text-white"
+                aria-current="page"
+              >
                 Wyloguj
               </Link>
             </li>
