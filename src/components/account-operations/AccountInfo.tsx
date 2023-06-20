@@ -11,14 +11,12 @@ interface Props {
 
 export const AccountInfo = (props: Props) => {
   return (
-    <div className="col-6 justify-content-center">
+    <div className="col-6 border border-white">
       <div className="col-8 pt-3">
-        <h1 className="text-capitalize" style={{ color: 'white' }}>
-          {props.name}
-        </h1>
+        <h1 className="text-capitalize text">{props.name}</h1>
       </div>
       <div className="col-8 pb-2">
-        <span style={{ color: 'white' }}>
+        <span className="text">
           {props.value} {props.currency}
         </span>
       </div>
