@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="trying to make big component for account, and put inside other components, changed styles and views">
-      <change afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/charts/PieChart.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/common/buttons/AddOperationBtn.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/views/Blank.tsx" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddAccountOperations.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/IncomeForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperations.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AddOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/AddOperation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +118,7 @@
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
-      <workItem from="1686721299005" duration="36349000" />
+      <workItem from="1686721299005" duration="49484000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -286,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686807530243</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general">
+      <created>1687191004789</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1687191004789</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,6 +319,7 @@
     <MESSAGE value="added background to register form, and login page" />
     <MESSAGE value="changed DetailsView form" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make big component for account, and put inside other components, changed styles and views" />
+    <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
   </component>
 </project>
