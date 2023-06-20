@@ -37,22 +37,22 @@ export const DetailsView = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState('');
   // const isMonthsDisabled = selectedYear === '';
 
-  const [filteredPeriod, setFilteredPeriod] = useState({
-    year: selectedYear,
-    month: selectedMonth,
-  });
+  // const [filteredPeriod, setFilteredPeriod] = useState({
+  //   year: selectedYear,
+  //   month: selectedMonth,
+  // });
 
-  const today = new Date().toLocaleDateString('pl-PL', {
-    year: 'numeric',
-    month: 'long',
-  });
+  // const today = new Date().toLocaleDateString('pl-PL', {
+  //   year: 'numeric',
+  //   month: 'long',
+  // });
 
-  const newDate = (date: Date) => {
-    return new Date(date).toLocaleDateString('pl-PL', {
-      year: 'numeric',
-      month: 'long',
-    });
-  };
+  // const newDate = (date: Date) => {
+  //   return new Date(date).toLocaleDateString('pl-PL', {
+  //     year: 'numeric',
+  //     month: 'long',
+  //   });
+  // };
   //
   // const data = selectedYear + selectedMonth;
   // const year = data.substring(0, 4);
