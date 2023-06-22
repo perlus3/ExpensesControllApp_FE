@@ -9,7 +9,7 @@ import { AccountInfo } from '../account-operations/AccountInfo';
 import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
 import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
-import { DetailsView } from './DetailsView';
+import { Details } from './Details';
 
 export const SingleAccountPage = () => {
   const userContext = useContext(AuthContext);
@@ -65,7 +65,7 @@ export const SingleAccountPage = () => {
         value={account.value}
         currency={account.currency}
       />
-      <DetailsView />
+      <Details />
       <AccountOperationsListView
         id={params.id}
         currency={account.currency}

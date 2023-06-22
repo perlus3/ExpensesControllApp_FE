@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general">
+      <change afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/charts/PieChart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/charts/DoughnutChart.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +119,7 @@
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
-      <workItem from="1686721299005" duration="49484000" />
+      <workItem from="1686721299005" duration="57708000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
