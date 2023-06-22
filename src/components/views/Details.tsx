@@ -58,7 +58,6 @@ export const Details = () => {
         if (!data.id) {
           setError(data.message);
         }
-        console.log(data);
         setCashReport(data);
         setRender(true);
       })();
@@ -83,11 +82,6 @@ export const Details = () => {
   if (error) {
     return <ErrorHandler message={error} />;
   }
-
-  console.log(
-    new Date(selectedMonth).getMonth() + 1,
-    new Date(selectedYear).getFullYear(),
-  );
 
   return render ? (
     <div className="col-6 d-flex flex-column justify-content-center border border-white">
