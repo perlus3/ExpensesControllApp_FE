@@ -72,17 +72,14 @@ export const DetailsView = () => {
   const handleMonthChange = (e: any) => {
     setSelectedMonth(e.target.value);
   };
-  //
-  // const data = selectedYear + selectedMonth;
-  // const year = data.substring(0, 4);
-  // const month = data.substring(4);
-  // const dateObject = new Date(`${year}-${month}-01`);
-  // const peroidDate = newDate(dateObject);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     try {
       (async () => {
         const res = await fetch(`${apiUrl}/categories`, {
+          signal,
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -95,9 +92,17 @@ export const DetailsView = () => {
         }
         setCategories(data);
       })();
-    } catch (error: any) {
-      setError(error.message);
+    } catch (err: any) {
+      setError(err.message);
+      if (err.name === 'AbortError') {
+        console.log('cancelled');
+      } else {
+        setError(err.message);
+      }
     }
+    return () => {
+      controller.abort();
+    };
   }, []);
   const checkDetails = async (e: SyntheticEvent) => {
     e.preventDefault();

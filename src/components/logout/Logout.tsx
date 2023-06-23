@@ -7,8 +7,11 @@ export const Logout = () => {
   const userContext = useContext(AuthContext);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     (async () => {
       await fetch(`${apiUrl}/auth/log-out`, {
+        signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -16,6 +19,10 @@ export const Logout = () => {
         },
       });
       userContext?.setToken('');
+
+      return () => {
+        controller.abort();
+      };
     })();
   }, []);
 

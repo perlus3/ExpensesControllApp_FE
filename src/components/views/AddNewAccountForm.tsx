@@ -19,8 +19,11 @@ export const AddNewAccountForm = () => {
     e.preventDefault();
 
     setLoading(true);
+    const controller = new AbortController();
+    const signal = controller.signal;
     try {
       const res = await fetch(`${apiUrl}/accounts/add`, {
+        signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,11 +41,20 @@ export const AddNewAccountForm = () => {
 
       userContext?.setUser(data.user);
       navigate(`/user`);
-    } catch (e: any) {
-      setError(e.message);
+    } catch (err: any) {
+      setError(err.message);
+      if (err.name === 'AbortError') {
+        console.log('cancelled');
+      } else {
+        setError(err.message);
+      }
     } finally {
       setLoading(false);
     }
+
+    return () => {
+      controller.abort();
+    };
   };
 
   if (error) {
