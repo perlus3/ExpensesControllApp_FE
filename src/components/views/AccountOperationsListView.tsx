@@ -23,12 +23,9 @@ export const AccountOperationsListView = (props: Props) => {
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     try {
       (async () => {
         const res = await fetch(`${apiUrl}/operations/all/${props.id}`, {
-          signal,
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -41,18 +38,9 @@ export const AccountOperationsListView = (props: Props) => {
         }
         setOperations(data);
       })();
-    } catch (err: any) {
-      setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
+    } catch (e: any) {
+      setError(e.message);
     }
-
-    return () => {
-      controller.abort();
-    };
   }, []);
 
   if (!operations) {
@@ -60,10 +48,7 @@ export const AccountOperationsListView = (props: Props) => {
   }
 
   const handleDeleteClick = async (elementId: string) => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     const res = await fetch(`${apiUrl}/operations/${elementId}`, {
-      signal,
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -78,9 +63,6 @@ export const AccountOperationsListView = (props: Props) => {
         operations.filter((operation) => operation.id !== elementId),
       );
     }
-    return () => {
-      controller.abort();
-    };
   };
 
   const newDate = (date: Date) => {

@@ -11,7 +11,7 @@ interface Props {
 
 export const AccountInfo = (props: Props) => {
   return (
-    <div className="col-6 border border-white">
+    <div className="col-5 border border-white rounded-3 mx-5">
       <div className="col-8 pt-3">
         <h1 className="text-capitalize text">{props.name}</h1>
       </div>

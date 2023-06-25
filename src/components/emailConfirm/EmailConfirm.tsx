@@ -9,12 +9,9 @@ export const EmailConfirm = () => {
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     try {
       (async () => {
         const res = await fetch(`${apiUrl}/email/confirm-email`, {
-          signal,
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -30,16 +27,7 @@ export const EmailConfirm = () => {
       })();
     } catch (err: any) {
       setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
     }
-
-    return () => {
-      controller.abort();
-    };
   }, []);
 
   if (error) {

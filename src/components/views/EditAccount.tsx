@@ -25,11 +25,8 @@ export const EditAccount = (props: Props) => {
   });
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     (async () => {
       const res = await fetch(`${apiUrl}/accounts/${props.accountId}`, {
-        signal,
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -39,9 +36,6 @@ export const EditAccount = (props: Props) => {
       const data = await res.json();
       setSelectedAccount(data);
     })();
-    return () => {
-      controller.abort();
-    };
   }, []);
   const editOperation = async (e: SyntheticEvent) => {
     e.preventDefault();

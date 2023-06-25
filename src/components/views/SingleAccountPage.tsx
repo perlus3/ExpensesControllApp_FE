@@ -21,12 +21,9 @@ export const SingleAccountPage = () => {
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     try {
       (async () => {
         const res = await fetch(`${apiUrl}/accounts/${id}`, {
-          signal,
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -41,15 +38,7 @@ export const SingleAccountPage = () => {
       })();
     } catch (err: any) {
       setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
     }
-    return () => {
-      controller.abort();
-    };
   }, [count]);
 
   if (account === null) {
@@ -69,14 +58,14 @@ export const SingleAccountPage = () => {
   };
 
   return (
-    <div className="row background-color">
+    <div className="row background-color border pt-5">
       <AccountInfo
         id={account.id}
         name={account.name}
         value={account.value}
         currency={account.currency}
       />
-      <Details />
+      <Details accountId={account.id} />
       <AccountOperationsListView
         id={params.id}
         currency={account.currency}
