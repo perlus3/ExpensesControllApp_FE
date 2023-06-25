@@ -30,6 +30,17 @@ a {
 ;
 }
 
+.custom-modal-width {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 .link {
     color: blue;
+}
+
+.chart {
+    height: 200px;
+    width: 200px;
 }

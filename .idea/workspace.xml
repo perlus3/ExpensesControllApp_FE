@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="">
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added cleanup funtions to all fetch actions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperations.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperations.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +124,7 @@
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
-      <workItem from="1686721299005" duration="64590000" />
+      <workItem from="1686721299005" duration="82199000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -303,7 +301,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687442050338</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added cleanup funtions to all fetch actions">
+      <created>1687523739329</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687523739329</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,6 +348,7 @@
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
     <MESSAGE value="added chart for incomes and expenses" />
-    <option name="LAST_COMMIT_MESSAGE" value="added chart for incomes and expenses" />
+    <MESSAGE value="added cleanup funtions to all fetch actions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added cleanup funtions to all fetch actions" />
   </component>
 </project>
