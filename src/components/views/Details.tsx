@@ -8,7 +8,7 @@ import { DoughnutChart } from '../charts/DoughnutChart';
 import { DetailsView } from './DetailsView';
 
 interface Props {
-  accountId: string;
+  accountId: string | undefined;
 }
 
 export const Details = ({ accountId }: Props) => {
@@ -23,7 +23,8 @@ export const Details = ({ accountId }: Props) => {
     income: 0,
     expenses: 0,
   });
-  const [render, setRender] = useState(false);
+  const [render, setRender] = useState<boolean>(false);
+  const [dataAvailable, setDataAvailable] = useState<boolean>(false);
 
   const isMonthsDisabled = selectedYear === '';
 
@@ -88,10 +89,12 @@ export const Details = ({ accountId }: Props) => {
             },
           },
         );
-
         const data = await res.json();
         if (!data.id) {
           setError(data.message);
+        }
+        if (data.income === 0 && data.expenses === 0) {
+          setDataAvailable(true);
         }
         setCashReport(data);
         setRender(true);
@@ -128,18 +131,23 @@ export const Details = ({ accountId }: Props) => {
     setSelectedMonth(e.target.value);
   };
 
+  const handleStatusChange = (status: boolean) => {
+    setRender(status);
+    setDataAvailable(status);
+  };
+
   if (error) {
     return <ErrorHandler message={error} />;
   }
 
   return render ? (
-    <div className="col-5 ">
-      <div className="border border-white pb-2 rounded-3">
+    <div className="d-flex justify-content-center">
+      <div className="pb-2">
         <div className="d-flex justify-content-center">
-          <p className="text-white mb-2">Okres analizy:</p>
+          <h5 className="mb-2">Okres analizy:</h5>
         </div>
         <div className="d-flex justify-content-center">
-          <p className="text-white">
+          <p>
             {`${
               selectedMonth
                 ? months.find((el) => el.value === Number(selectedMonth))?.name
@@ -147,21 +155,37 @@ export const Details = ({ accountId }: Props) => {
             } ${new Date(selectedYear).getFullYear()}`}
           </p>
         </div>
-        <div className="d-flex justify-content-center">
-          <div className="d-flex justify-content-center chart">
-            <DoughnutChart
-              income={cashReport.income}
-              expenses={cashReport.expenses}
-            />
+        {!dataAvailable ? (
+          <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center chart">
+              <DoughnutChart
+                income={cashReport.income}
+                expenses={cashReport.expenses}
+              />
+            </div>
           </div>
-        </div>
-        <div className="d-flex justify-content-center pt-2">
-          <Button
-            className="btn btn-primary"
-            onClick={() => setModalIsOpen(true)}
-          >
-            Szczegóły
-          </Button>
+        ) : (
+          <p className="text-center text-danger">Brak danych</p>
+        )}
+        <div className="row d-flex justify-content-center pt-1">
+          <div className="row">
+            <div className="col-6">
+              <Button
+                className="btn btn-secondary smaller-button"
+                onClick={() => handleStatusChange(false)}
+              >
+                Powrót
+              </Button>
+            </div>
+            <div className="col-6">
+              <Button
+                className="btn btn-primary smaller-button"
+                onClick={() => setModalIsOpen(true)}
+              >
+                Szczegóły
+              </Button>
+            </div>
+          </div>
           <Modal
             show={modalIsOpen}
             onHide={() => setModalIsOpen(false)}
@@ -186,19 +210,19 @@ export const Details = ({ accountId }: Props) => {
       </div>
     </div>
   ) : (
-    <div className="col-5 d-flex rounded-3 flex-column justify-content-center border border-white">
+    <div className="col d-flex flex-column justify-content-center">
       <div className="row">
         <div className="col d-flex justify-content-center"></div>
       </div>
       <div className="row">
         <div className="col-12">
           <form onSubmit={changePeriodFilter}>
-            <div className="row border-bottom d-flex justify-content-center">
-              <p className="text-white m-2 fs-4">Analizuj wpływy i wydatki</p>
+            <div className="row border-bottom border-dark d-flex justify-content-center text-center">
+              <h5 className="m-2">Analizuj operacje</h5>
             </div>
-            <div className="d-flex mt-3">
-              <div className="mx-2">
-                <p className="text-white">Wybierz rok:</p>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+              <div className="col">
+                <p className="my-1 fw-bold text-center">Wybierz rok:</p>
                 <select
                   className="form-select"
                   name="year"
@@ -213,8 +237,8 @@ export const Details = ({ accountId }: Props) => {
                   ))}
                 </select>
               </div>
-              <div>
-                <p className="text-white">Wybierz miesiąc:</p>
+              <div className="col">
+                <p className="my-1 fw-bold text-center">Wybierz miesiąc:</p>
                 <select
                   className="form-select"
                   name="month"
@@ -231,12 +255,12 @@ export const Details = ({ accountId }: Props) => {
                 </select>
               </div>
             </div>
-            <div className="me-3 d-flex justify-content-center pt-3">
+            <div className="me-3 d-flex justify-content-center">
               <button
                 disabled={!selectedYear}
-                className="btn btn-primary w-25 mb-2"
+                className="btn btn-primary my-2 smaller-button"
               >
-                Check!
+                Sprawdź!
               </button>
             </div>
           </form>
