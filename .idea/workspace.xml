@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="changed Details.tsx layout, and added conditional rendering for no data in chart info">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="workspace.xml">
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,7 @@
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
-      <workItem from="1687859737073" duration="36851000" />
+      <workItem from="1687859737073" duration="37208000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -373,7 +370,31 @@
       <option name="project" value="LOCAL" />
       <updated>1687984735474</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="changed changing operationType for category in operation edit form">
+      <option name="closed" value="true" />
+      <created>1687985132923</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687985132923</updated>
+    </task>
+    <task id="LOCAL-00037" summary="added category for NewOperationData interface for possibility to render category of operation in operation list">
+      <option name="closed" value="true" />
+      <created>1687985255165</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1687985255165</updated>
+    </task>
+    <task id="LOCAL-00038" summary="workspace.xml">
+      <option name="closed" value="true" />
+      <created>1687985269169</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1687985269169</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -391,9 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
-    <MESSAGE value="zmiana lokalizacji interfejsów, zmiana typów" />
-    <MESSAGE value="dodanie about" />
     <MESSAGE value="dodanie kategorii" />
     <MESSAGE value="confirm email, renderowanie warunkowe i mała zmiana w catch" />
     <MESSAGE value="confirm email, zmiana nazw" />
@@ -416,6 +434,9 @@
     <MESSAGE value="added/changed some styles" />
     <MESSAGE value="changed AccountOperationsListView.tsx layout" />
     <MESSAGE value="changed Details.tsx layout, and added conditional rendering for no data in chart info" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Details.tsx layout, and added conditional rendering for no data in chart info" />
+    <MESSAGE value="changed changing operationType for category in operation edit form" />
+    <MESSAGE value="added category for NewOperationData interface for possibility to render category of operation in operation list" />
+    <MESSAGE value="workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="workspace.xml" />
   </component>
 </project>
