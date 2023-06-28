@@ -23,6 +23,7 @@ export interface NewOperationData {
   description?: string;
   createdAt: Date;
   updatedAt: Date;
+  category: CategoryEntity;
   operationType: OperationType;
 }
 
