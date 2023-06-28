@@ -1,29 +1,38 @@
 import React from 'react';
 import { Currency } from '../../types/interfaces';
-import { AddOperationBtn } from '../common/buttons/AddOperationBtn';
+import { Details } from '../views/Details';
+import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
+import { EditAccountBtn } from '../common/buttons/EditAccountBtn';
 
 interface Props {
-  id: string;
-  name: string;
+  id: string | undefined;
   value: number;
   currency: Currency;
 }
 
 export const AccountInfo = (props: Props) => {
   return (
-    <div className="col-5 border border-white rounded-3 mx-5">
-      <div className="col-8 pt-3">
-        <h1 className="text-capitalize text">{props.name}</h1>
-      </div>
-      <div className="col-8 pb-2">
-        <span className="text">
-          {props.value} {props.currency}
-        </span>
-      </div>
-      <div className="row justify-content-center p-0">
-        <div className="col-4 pb-2">
-          <AddOperationBtn id={props.id} />
+    <div className="col border border-dark rounded shadow-sm mx-auto">
+      <div className="row border-bottom border-dark">
+        <div className="col-9 d-flex align-items-center">
+          <div className="me-5"></div>
+          <div>
+            <h1 className="fs-5 my-3">
+              Saldo: {props.value} {props.currency}
+            </h1>
+          </div>
         </div>
+        <div className="col-3 d-flex align-items-center justify-content-end">
+          <div className="me-2">
+            <EditAccountBtn />
+          </div>
+          <div>
+            <DeleteAccountBtn />
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <Details accountId={props.id} />
       </div>
     </div>
   );
