@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 interface Props {
-  id: string;
+  id: string | undefined;
 }
 export const AddOperationBtn = ({ id }: Props) => {
   return (
-    <button className="btn btn-primary" type="button">
-      <Link to={`/add-operation/${id}`}>Dodaj operacje</Link>
-    </button>
+    <Button className="btn btn-sm smaller-button btn-primary">
+      <Link to={`/add-operation/${id}`}>
+        <span className="text-white">Dodaj nową operacje</span>
+      </Link>
+    </Button>
   );
 };

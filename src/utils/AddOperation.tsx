@@ -65,7 +65,6 @@ export const AddOperation = (props: Props) => {
         }),
       });
       const data = await res.json();
-      console.log(data);
       if (!data.message) {
         navigate(-1);
       }

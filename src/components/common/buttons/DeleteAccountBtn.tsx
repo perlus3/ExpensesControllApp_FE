@@ -1,7 +1,8 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiUrl } from '../../../config/api';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../../contexts/authContext';
+import { Button } from 'react-bootstrap';
 
 export const DeleteAccountBtn = () => {
   const userContext = useContext(AuthContext);
@@ -25,12 +26,12 @@ export const DeleteAccountBtn = () => {
   };
 
   return (
-    <button
-      className="btn btn-danger"
+    <Button
+      className="btn btn-sm smaller-button btn-danger"
       type="button"
       onClick={() => handleDeleteClick(id)}
     >
-      Usuń konto!
-    </button>
+      <span className="text-white">Usuń konto</span>
+    </Button>
   );
 };
