@@ -12,7 +12,7 @@ body {
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
 }
 
 .border {
@@ -26,10 +26,28 @@ a {
 }
 
 .background-color {
-    background: #000C5EFF;
+    background: #cfd2f1;
 ;
+}
+
+.smaller-button {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    line-height: 1;
+}
+
+
+.custom-modal-width {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .link {
     color: blue;
+}
+
+.chart {
+    max-height: 200px;
+    max-width: 200px;
 }

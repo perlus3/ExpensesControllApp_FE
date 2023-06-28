@@ -19,25 +19,11 @@
     flex-direction: row;
 }
 
-button {
-
-    /*margin: 50px;*/
-    /*border-radius: 50px;*/
-}
-
-/*.operations-list {*/
-/*    display: flex;*/
-/*    justify-content: flex-start;*/
-/*    align-items: flex-start;*/
-/*    flex-direction: column;*/
-/*    background-color: white;*/
-/*}*/
-
 .single-operation {
     display: flex;
     justify-content: space-between;
     padding-bottom: 20px;
-    border-top: 2px solid white;
+    border-top: 2px solid black;
 }
 
 span {

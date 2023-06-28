@@ -6,6 +6,7 @@ import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
+import { CategoryEntity } from '../types/interfaces';
 
 interface Props {
   operationId: string | undefined;
@@ -16,16 +17,18 @@ export const EditOperation = (props: Props) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>('');
-  const [selectedOption, setSelectedOption] = useState('');
+  const [categories, setCategories] = useState<CategoryEntity[]>([]);
+
   const [selectedOperation, setSelectedOperation] = useState({
     name: '',
     value: '',
+    category: '',
     operationType: '',
   });
   const [form, setForm] = useState({
     name: ``,
     value: ``,
-    operationType: ``,
+    category: ``,
   });
 
   useEffect(() => {
@@ -37,8 +40,20 @@ export const EditOperation = (props: Props) => {
           Authorization: `Bearer ${userContext?.token}`,
         },
       });
+      const categories = await fetch(`${apiUrl}/categories`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${userContext?.token}`,
+        },
+      });
+      const categoryNames = await categories.json();
+      setCategories(categoryNames);
       const data = await res.json();
-      setSelectedOperation(data);
+      setSelectedOperation({
+        ...data,
+        category: data.category.name,
+      });
     })();
   }, []);
   const editOperation = async (e: SyntheticEvent) => {
@@ -55,14 +70,13 @@ export const EditOperation = (props: Props) => {
 
         body: JSON.stringify({
           ...form,
-          operationType: selectedOption,
+          categoryId: form.category,
         }),
       });
       const data = await res.json();
       if (!data.error) {
         navigate(-1);
       }
-      console.log(data);
       if (!data.name) {
         setError(data.message);
       }
@@ -78,10 +92,6 @@ export const EditOperation = (props: Props) => {
       ...form,
       [key]: value,
     }));
-  };
-
-  const handleOptionChange = (e: any) => {
-    setSelectedOption(e.target.value);
   };
 
   if (loading) {
@@ -132,15 +142,22 @@ export const EditOperation = (props: Props) => {
           value={form.value}
           onChange={(e) => updateForm('value', Number(e.target.value))}
         />
+        <p className="mt-2 mb-0">
+          Aktualna kategoria to: {selectedOperation.category}
+        </p>
+
         <select
           className="form-select w-75"
-          name="operationType"
-          value={selectedOption}
-          onChange={handleOptionChange}
+          name="category"
+          value={form.category}
+          onChange={(e) => updateForm('category', e.target.value)}
         >
-          <option value="#">--wybierz--</option>
-          <option value="INCOME">INCOME</option>
-          <option value="EXPENSE">EXPENSE</option>
+          <option value="">--Wybierz kategorie--</option>
+          {categories.map((category) => (
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
+          ))}
         </select>
 
         <button className="btn btn-primary w-50">Zapisz</button>

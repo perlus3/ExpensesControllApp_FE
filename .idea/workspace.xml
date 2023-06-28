@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general">
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="changed Details.tsx layout, and added conditional rendering for no data in chart info">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,27 +44,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rebuild",
-    "last_opened_file_path": "C:/Moje projekty/Wydatki/wydatki-frontend",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
-    "ts.external.directory.path": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rebuild&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Moje projekty/Wydatki/wydatki-frontend&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
@@ -118,7 +118,8 @@
       <workItem from="1681284471567" duration="7988000" />
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
-      <workItem from="1686721299005" duration="49484000" />
+      <workItem from="1686721299005" duration="84290000" />
+      <workItem from="1687859737073" duration="36851000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -281,7 +282,98 @@
       <option name="project" value="LOCAL" />
       <updated>1687191004789</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="added chart for incomes and expenses">
+      <created>1687442013463</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687442013463</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added chart for incomes and expenses">
+      <created>1687442050338</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1687442050338</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added cleanup funtions to all fetch actions">
+      <created>1687523739329</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1687523739329</updated>
+    </task>
+    <task id="LOCAL-00027" summary="deleted cleanup funtions which was wrong">
+      <created>1687683921142</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1687683921142</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added modal, changes with data rendering">
+      <created>1687684004182</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1687684004182</updated>
+    </task>
+    <task id="LOCAL-00029" summary="cosmetic changes in functional account buttons">
+      <option name="closed" value="true" />
+      <created>1687984406549</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984406549</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added EditAccountBtn.tsx component">
+      <option name="closed" value="true" />
+      <created>1687984425866</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984425866</updated>
+    </task>
+    <task id="LOCAL-00031" summary="changed SingleAccountPage.css layout">
+      <option name="closed" value="true" />
+      <created>1687984483931</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984483931</updated>
+    </task>
+    <task id="LOCAL-00032" summary="changed AccountInfo.tsx layout / added buttons components">
+      <option name="closed" value="true" />
+      <created>1687984562375</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984562375</updated>
+    </task>
+    <task id="LOCAL-00033" summary="added/changed some styles">
+      <option name="closed" value="true" />
+      <created>1687984597022</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984597022</updated>
+    </task>
+    <task id="LOCAL-00034" summary="changed AccountOperationsListView.tsx layout">
+      <option name="closed" value="true" />
+      <created>1687984635271</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984635271</updated>
+    </task>
+    <task id="LOCAL-00035" summary="changed Details.tsx layout, and added conditional rendering for no data in chart info">
+      <option name="closed" value="true" />
+      <created>1687984735474</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1687984735474</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,13 +391,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="eslint/prettier config" />
-    <MESSAGE value="dziwne pliki" />
-    <MESSAGE value="added przycisk, browserRouter, Routing, i context" />
-    <MESSAGE value="added Routing, LoginForm, RegisterForm i Obsługe błedu logowania" />
-    <MESSAGE value="zmiany w routingu" />
-    <MESSAGE value="push zapobiegający utracie danych (jedna taka akcja już była)" />
-    <MESSAGE value="dodanie przycisków, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
     <MESSAGE value="dodanie przycisków,obsluga błędów, stylowanie ogólnie, formularzy edycji, usuwanie konta, operacji typy, jakiś refactor" />
     <MESSAGE value="zmiana lokalizacji interfejsów, zmiana typów" />
     <MESSAGE value="dodanie about" />
@@ -320,6 +405,17 @@
     <MESSAGE value="changed DetailsView form" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
+    <MESSAGE value="added chart for incomes and expenses" />
+    <MESSAGE value="added cleanup funtions to all fetch actions" />
+    <MESSAGE value="deleted cleanup funtions which was wrong" />
+    <MESSAGE value="added modal, changes with data rendering" />
+    <MESSAGE value="cosmetic changes in functional account buttons" />
+    <MESSAGE value="added EditAccountBtn.tsx component" />
+    <MESSAGE value="changed SingleAccountPage.css layout" />
+    <MESSAGE value="changed AccountInfo.tsx layout / added buttons components" />
+    <MESSAGE value="added/changed some styles" />
+    <MESSAGE value="changed AccountOperationsListView.tsx layout" />
+    <MESSAGE value="changed Details.tsx layout, and added conditional rendering for no data in chart info" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed Details.tsx layout, and added conditional rendering for no data in chart info" />
   </component>
 </project>

@@ -23,6 +23,7 @@ export interface NewOperationData {
   description?: string;
   createdAt: Date;
   updatedAt: Date;
+  category: CategoryEntity;
   operationType: OperationType;
 }
 
@@ -30,7 +31,7 @@ export interface FilteredOperation {
   id: string;
   name: string;
   value: number;
-  createdAt: Date;
+  fullDate: string;
 }
 
 export interface CategoryEntity {

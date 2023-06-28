@@ -14,8 +14,6 @@ export const AddOperations = () => {
     setOperationType(e.target.value);
   };
 
-  console.log(id);
-
   return (
     <div className="container">
       <div className="col">

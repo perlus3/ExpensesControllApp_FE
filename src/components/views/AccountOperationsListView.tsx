@@ -1,11 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/authContext';
-
 import { apiUrl } from '../../config/api';
-
-import remove from '../../assets/icons/remove.png';
-import update123 from '../../assets/icons/update123.png';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Currency, NewOperationData } from '../../types/interfaces';
 interface Props {
@@ -74,85 +70,74 @@ export const AccountOperationsListView = (props: Props) => {
     });
   };
 
-  const today = new Date().toLocaleDateString('pl-PL', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
   if (error) {
     return <ErrorHandler message={error} />;
   }
 
   return (
-    <div className="col-12">
-      <div>{today}</div>
-      <ul className="list-group mt-2">
-        {operations.map((operation) => (
-          <div key={operation.id} className="container">
-            <li
-              className="list-group-item list-group-item-light "
-              key={operation.id}
-            >
-              <div className="row text-start">
-                <div className="col-9">
-                  <p className="small text-muted">
-                    {newDate(operation.createdAt)}
-                  </p>
-                </div>
-                <div className="col-3 text-end btn-group">
-                  <button
-                    className="btn btn-warning"
-                    style={{
-                      backgroundImage: `url(${update123})`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'contain',
-                    }}
-                    onClick={() =>
-                      navigate(`/edit-operation-form/${operation.id}`)
-                    }
-                  >
-                    <img src="../../assets/icons/update123.png" alt="" />
-                  </button>
-                  <button
-                    className="btn btn-danger"
-                    style={{
-                      backgroundImage: `url(${remove})`,
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'center',
-                      backgroundSize: 'contain',
-                    }}
-                    onClick={() => handleDeleteClick(operation.id)}
-                  >
-                    <img src="../../assets/icons/remove.png" alt="" />
-                  </button>
-                </div>
-                <div className="row mt-2">
-                  <div className="col-9 text-start">
-                    <span className="text-capitalize fw-bold ">
+    <div className="col-12 pt-3">
+      <div className="col border rounded border-dark">
+        <div className="text-center mt-3">
+          <h5>Ostatnie operacje</h5>
+        </div>
+        <ul className="list-group">
+          {operations.map((operation) => (
+            <div key={operation.id} className="container">
+              <li
+                className="list-group-item background-color border-dark mb-2"
+                key={operation.id}
+              >
+                <div className="row align-items-center">
+                  <div className="col-8">
+                    <p className="small text-muted">
+                      {newDate(operation.createdAt)}
+                    </p>
+                    <span className="text-capitalize fw-bold">
                       {operation.name}
                     </span>
-                  </div>
-                  <div className="col text-end">
                     <p
-                      style={{
-                        color:
-                          operation.operationType === 'EXPENSE'
-                            ? 'red'
-                            : 'green',
-                      }}
+                      className={`m-0 small text-${
+                        operation.operationType === 'EXPENSE'
+                          ? 'danger'
+                          : 'success'
+                      }`}
+                    >
+                      {operation.category.name}
+                    </p>
+                  </div>
+                  <div className="col-4 text-end">
+                    <div className="d-flex justify-content-end mb-2">
+                      <button
+                        className="btn btn-outline-dark btn-sm me-2"
+                        onClick={() =>
+                          navigate(`/edit-operation-form/${operation.id}`)
+                        }
+                      >
+                        Edytuj
+                      </button>
+                      <button
+                        className="btn btn-outline-dark btn-sm"
+                        onClick={() => handleDeleteClick(operation.id)}
+                      >
+                        Usuń
+                      </button>
+                    </div>
+                    <p
+                      className={`m-0 fw-bold text-${
+                        operation.operationType === 'EXPENSE'
+                          ? 'danger'
+                          : 'success'
+                      }`}
                     >
                       {operation.value} {props.currency}
                     </p>
                   </div>
                 </div>
-              </div>
-            </li>
-          </div>
-        ))}
-      </ul>
+              </li>
+            </div>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

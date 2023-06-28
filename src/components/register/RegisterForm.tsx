@@ -20,11 +20,13 @@ export const RegisterForm = () => {
 
   const registerUser = async (e: SyntheticEvent) => {
     e.preventDefault();
-
     setLoading(true);
 
+    const controller = new AbortController();
+    const signal = controller.signal;
     try {
       const res = await fetch(`${apiUrl}/auth/register`, {
+        signal,
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,11 +44,20 @@ export const RegisterForm = () => {
       if (!data.message) {
         navigate('/after-register');
       }
-    } catch (e: any) {
-      setError(e.message);
+    } catch (err: any) {
+      setError(err.message);
+      if (err.name === 'AbortError') {
+        console.log('cancelled');
+      } else {
+        setError(err.message);
+      }
     } finally {
       setLoading(false);
     }
+
+    return () => {
+      controller.abort();
+    };
   };
 
   const updateForm = (key: string, value: string) => {

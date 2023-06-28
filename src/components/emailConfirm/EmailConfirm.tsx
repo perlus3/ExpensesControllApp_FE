@@ -25,10 +25,8 @@ export const EmailConfirm = () => {
           setError(data.message);
         }
       })();
-    } catch (error: any) {
-      if (error) {
-        setError(error.message);
-      }
+    } catch (err: any) {
+      setError(err.message);
     }
   }, []);
 
