@@ -1,21 +1,19 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 import { AuthContext } from '../../contexts/authContext';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { AccountOperationsListView } from './AccountOperationsListView';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 
 import { AccountInfo } from '../account-operations/AccountInfo';
-import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
 import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
-import { Details } from './Details';
+import { AddOperationBtn } from '../common/buttons/AddOperationBtn';
 
 export const SingleAccountPage = () => {
   const userContext = useContext(AuthContext);
   const params = useParams();
   const { id } = params;
-  const navigate = useNavigate();
   const [account, setAccount] = useState<NewAccountEntity | null>(null);
   const [count, setCount] = useState(0);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -49,54 +47,39 @@ export const SingleAccountPage = () => {
     return <ErrorHandler message={error} />;
   }
 
-  const navigateClick = () => {
-    navigate(`/edit-account-form/${id}`);
-  };
-
-  const goForDetails = () => {
-    navigate(`/details/${id}`);
-  };
+  const today = new Date().toLocaleDateString('pl-PL', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
   return (
-    <div className="row background-color border pt-5">
-      <AccountInfo
-        id={account.id}
-        name={account.name}
-        value={account.value}
-        currency={account.currency}
-      />
-      <Details accountId={account.id} />
-      <AccountOperationsListView
-        id={params.id}
-        currency={account.currency}
-        count={count}
-        setCount={setCount}
-      />
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col">
-            <GoBackButton />
-          </div>
-          <div className="col">
-            <button
-              className="btn btn-success"
-              style={{ color: 'white' }}
-              onClick={() => goForDetails()}
-            >
-              Analizuj wydatki
-            </button>
-          </div>
-          <div className="col">
-            <button
-              className="btn btn-warning"
-              style={{ color: 'white' }}
-              onClick={() => navigateClick()}
-            >
-              Edytuj konto
-            </button>
-          </div>
-          <div className="col">
-            <DeleteAccountBtn />
+    <div className="container-fluid">
+      <div className="row d-flex justify-content-center background-color border">
+        <div className="d-flex justify-content-center py-1">
+          <h5>{account.name}</h5>
+        </div>
+        <div className="d-flex justify-content-center py-1">{today}</div>
+        <div className="d-flex justify-content-center py-1">
+          <AddOperationBtn id={id} />
+        </div>
+        <AccountInfo
+          id={params.id}
+          value={account.value}
+          currency={account.currency}
+        />
+        <AccountOperationsListView
+          id={params.id}
+          currency={account.currency}
+          count={count}
+          setCount={setCount}
+        />
+        <div className="container mt-3">
+          <div className="row">
+            <div className="col">
+              <GoBackButton />
+            </div>
           </div>
         </div>
       </div>
