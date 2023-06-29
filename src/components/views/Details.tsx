@@ -192,7 +192,16 @@ export const Details = ({ accountId }: Props) => {
             dialogClassName="custom-modal-width"
           >
             <Modal.Header closeButton>
-              <Modal.Title>Szczegóły</Modal.Title>
+              <Modal.Title>
+                Szczegóły dla{' '}
+                {`${
+                  selectedMonth
+                    ? months
+                        .find((el) => el.value === Number(selectedMonth))
+                        ?.name.toLowerCase()
+                    : 'rok'
+                } ${new Date(selectedYear).getFullYear()}`}{' '}
+              </Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <DetailsView

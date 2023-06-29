@@ -36,7 +36,6 @@ a {
     line-height: 1;
 }
 
-
 .custom-modal-width {
     max-width: 700px;
     margin: 0 auto;
@@ -50,4 +49,33 @@ a {
 .chart {
     max-height: 200px;
     max-width: 200px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.pagination a {
+    padding: 5px;
+    margin: 5px 5px;
+    border: 1px solid black;
+    color: black;
+}
+
+.pagination-link {
+    font-weight: normal;
+}
+
+.pagination-link-active a {
+    color: #fff;
+    background: #47a7de;
+}
+
+.pagination-link-disabled a {
+    color: rgb(143, 140, 150);
+    border: 1px solid rgb(121, 119, 131);
 }

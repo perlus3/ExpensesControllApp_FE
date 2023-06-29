@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="small changes in Header.tsx" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="small changes in Header.tsx">
+      <change afterPath="$PROJECT_DIR$/src/components/hooks/usePagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/pagination/Pagination.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -114,7 +124,7 @@
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
-      <workItem from="1687859737073" duration="37745000" />
+      <workItem from="1687859737073" duration="54058000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>

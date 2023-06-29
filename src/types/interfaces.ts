@@ -16,6 +16,15 @@ export enum OperationType {
   EXPENSE = 'EXPENSE',
 }
 
+export interface IPagination {
+  onPageChange?: (page: number) => void;
+  totalCount: number;
+  siblingCount: number;
+  currentPage: number;
+  pageSize: number;
+  className?: string;
+}
+
 export interface NewOperationData {
   id: string;
   name: string;
