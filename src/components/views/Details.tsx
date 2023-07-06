@@ -1,18 +1,19 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Month, NewOperationData } from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
-import { AuthContext } from '../../contexts/authContext';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { DoughnutChart } from '../charts/DoughnutChart';
 import { DetailsView } from './DetailsView';
+import { LogoutFunction } from '../logout/Logout';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   accountId: string | undefined;
 }
 
 export const Details = ({ accountId }: Props) => {
-  const userContext = useContext(AuthContext);
+  const navigate = useNavigate();
   const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [insertedDates, setInsertedDates] = useState<string[]>(['']);
@@ -46,18 +47,19 @@ export const Details = ({ accountId }: Props) => {
   useEffect(() => {
     try {
       (async () => {
-        const operations = await fetch(
-          `${apiUrl}/operations/all/${accountId}`,
-          {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: `Bearer ${userContext?.token}`,
-            },
+        const res = await fetch(`${apiUrl}/operations/all/${accountId}`, {
+          method: 'GET',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
           },
-        );
-        const operationsData = await operations.json();
-        const operationDates = operationsData.map((el: NewOperationData) =>
+        });
+        const data = await res.json();
+        if (data.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
+        const operationDates = data.map((el: NewOperationData) =>
           new Date(el.createdAt).getFullYear(),
         );
         const dates: Set<string> = new Set(operationDates);
@@ -74,22 +76,23 @@ export const Details = ({ accountId }: Props) => {
     e.preventDefault();
     setLoading(true);
 
-    const controller = new AbortController();
-    const signal = controller.signal;
     try {
       (async () => {
         const res = await fetch(
           `${apiUrl}/operations/total/report?year=${selectedYear}&month=${selectedMonth}`,
           {
-            signal,
             method: 'GET',
+            credentials: 'include',
             headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${userContext?.token}`,
             },
           },
         );
         const data = await res.json();
+        if (data.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
         if (!data.id) {
           setError(data.message);
         }
@@ -101,17 +104,9 @@ export const Details = ({ accountId }: Props) => {
       })();
     } catch (err: any) {
       setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
     } finally {
       setLoading(false);
     }
-    return () => {
-      controller.abort();
-    };
   };
 
   if (loading) {

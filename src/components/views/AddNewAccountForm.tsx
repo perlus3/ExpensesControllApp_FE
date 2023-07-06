@@ -1,13 +1,11 @@
-import React, { SyntheticEvent, useContext, useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
-import { AuthContext } from '../../contexts/authContext';
 import './AddNewAccount.css';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { ErrorHandler } from '../common/ErrorHandler';
 
 export const AddNewAccountForm = () => {
-  const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
@@ -15,19 +13,18 @@ export const AddNewAccountForm = () => {
     name: '',
     currency: '',
   });
+
   const addAccount = async (e: SyntheticEvent) => {
     e.preventDefault();
 
     setLoading(true);
-    const controller = new AbortController();
-    const signal = controller.signal;
+
     try {
       const res = await fetch(`${apiUrl}/accounts/add`, {
-        signal,
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
 
         body: JSON.stringify({
@@ -38,23 +35,12 @@ export const AddNewAccountForm = () => {
       if (data.error) {
         setError(data.message);
       }
-
-      userContext?.setUser(data.user);
       navigate(`/user`);
     } catch (err: any) {
       setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
     } finally {
       setLoading(false);
     }
-
-    return () => {
-      controller.abort();
-    };
   };
 
   if (error) {

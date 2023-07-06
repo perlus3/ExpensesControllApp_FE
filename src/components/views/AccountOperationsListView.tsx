@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/authContext';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Currency, NewOperationData } from '../../types/interfaces';
 import ReactPaginate from 'react-paginate';
+import { LogoutFunction } from '../logout/Logout';
 interface Props {
   id: string | undefined;
   count: number;
@@ -12,10 +12,9 @@ interface Props {
   currency: Currency;
 }
 
-const PER_PAGE = 1;
+const PER_PAGE = 8;
 
 export const AccountOperationsListView = (props: Props) => {
-  const userContext = useContext(AuthContext);
   const { setCount } = props;
   const navigate = useNavigate();
   const [operations, setOperations] = useState<NewOperationData[]>([]);
@@ -27,12 +26,16 @@ export const AccountOperationsListView = (props: Props) => {
       (async () => {
         const res = await fetch(`${apiUrl}/operations/all/${props.id}`, {
           method: 'GET',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${userContext?.token}`,
           },
         });
         const data = await res.json();
+        if (data.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
         if (!data.name) {
           setError(data.message);
         }
@@ -117,12 +120,16 @@ export const AccountOperationsListView = (props: Props) => {
   const handleDeleteClick = async (elementId: string) => {
     const res = await fetch(`${apiUrl}/operations/${elementId}`, {
       method: 'DELETE',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${userContext?.token}`,
       },
     });
     const data = await res.json();
+    if (data.statusCode === 401) {
+      LogoutFunction();
+      navigate('/login');
+    }
 
     if (data.affected) {
       setCount((prevCount: number) => prevCount + 1);
@@ -141,9 +148,7 @@ export const AccountOperationsListView = (props: Props) => {
         <div className="text-center mt-3">
           <h5>Ostatnie operacje</h5>
         </div>
-        <div className="text-center">
-          <ul className="list-group mb-3">{currentPageData}</ul>
-        </div>
+        <ul className="list-group mb-3">{currentPageData}</ul>
       </div>
       <ReactPaginate
         previousLabel={'Previous'}

@@ -1,45 +1,41 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/authContext';
+import React, { useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 
 import { AccountsListView } from './AccountsListView';
 import { Header } from '../header/Header';
 
 import { ErrorHandler } from '../common/ErrorHandler';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { LogoutFunction } from '../logout/Logout';
+import { NewAccountEntity } from '../../types/interfaces';
 
 export const UserMainPageView = () => {
-  const userContext = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [accounts, setAccounts] = useState<NewAccountEntity[] | undefined>(
+    undefined,
+  );
   const [error, setError] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
     (async () => {
       try {
         const res = await fetch(`${apiUrl}/accounts/all`, {
-          signal,
           method: 'GET',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${userContext?.token}`,
           },
         });
         const data = await res.json();
-
-        userContext?.setAccounts(data);
+        if (data.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
+        setAccounts(data);
+        // userContext?.setAccounts(data);
       } catch (err: any) {
         setError(err.message);
-        if (err.name === 'AbortError') {
-          console.log('cancelled');
-        } else {
-          setError(err.message);
-        }
       }
-
-      return () => {
-        controller.abort();
-      };
     })();
   }, []);
 
@@ -50,7 +46,7 @@ export const UserMainPageView = () => {
   return (
     <>
       <Header />
-      {userContext?.accounts && !userContext?.accounts.length ? (
+      {accounts && !accounts.length ? (
         <div className="d-flex flex-column justify-content-between h-100">
           <span className="d-flex align-items-center justify-content-center">
             <h3 className="text-center mt-5 mx-5">
@@ -71,7 +67,7 @@ export const UserMainPageView = () => {
           </div>
         </div>
       ) : (
-        <AccountsListView />
+        <AccountsListView accounts={accounts} />
       )}
     </>
   );

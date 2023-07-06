@@ -1,5 +1,4 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/authContext';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
@@ -10,7 +9,6 @@ interface Props {
 }
 
 export const EditAccount = (props: Props) => {
-  const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -28,9 +26,9 @@ export const EditAccount = (props: Props) => {
     (async () => {
       const res = await fetch(`${apiUrl}/accounts/${props.accountId}`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
       });
       const data = await res.json();
@@ -44,9 +42,9 @@ export const EditAccount = (props: Props) => {
     try {
       const res = await fetch(`${apiUrl}/accounts/${props.accountId}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
 
         body: JSON.stringify({

@@ -13,6 +13,7 @@ export const EmailConfirm = () => {
       (async () => {
         const res = await fetch(`${apiUrl}/email/confirm-email`, {
           method: 'POST',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
           },

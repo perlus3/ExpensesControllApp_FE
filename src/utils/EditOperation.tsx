@@ -1,19 +1,18 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import { apiUrl } from '../config/api';
-import { AuthContext } from '../contexts/authContext';
 import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
 import { CategoryEntity } from '../types/interfaces';
+import { LogoutFunction } from '../components/logout/Logout';
 
 interface Props {
   operationId: string | undefined;
 }
 
 export const EditOperation = (props: Props) => {
-  const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string>('');
@@ -35,21 +34,30 @@ export const EditOperation = (props: Props) => {
     (async () => {
       const res = await fetch(`${apiUrl}/operations/${props.operationId}`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
       });
       const categories = await fetch(`${apiUrl}/categories`, {
         method: 'GET',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
       });
       const categoryNames = await categories.json();
+      if (categoryNames.statusCode === 401) {
+        LogoutFunction();
+        navigate('/login');
+      }
       setCategories(categoryNames);
+
       const data = await res.json();
+      if (data.statusCode === 401) {
+        LogoutFunction();
+        navigate('/login');
+      }
       setSelectedOperation({
         ...data,
         category: data.category.name,
@@ -63,9 +71,9 @@ export const EditOperation = (props: Props) => {
     try {
       const res = await fetch(`${apiUrl}/operations/${props.operationId}`, {
         method: 'PUT',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
         },
 
         body: JSON.stringify({
@@ -74,6 +82,10 @@ export const EditOperation = (props: Props) => {
         }),
       });
       const data = await res.json();
+      if (data.statusCode === 401) {
+        LogoutFunction();
+        navigate('/login');
+      }
       if (!data.error) {
         navigate(-1);
       }

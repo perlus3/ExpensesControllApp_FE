@@ -79,3 +79,7 @@ a {
     color: rgb(143, 140, 150);
     border: 1px solid rgb(121, 119, 131);
 }
+
+.my-radio {
+    height: 20px;
+}

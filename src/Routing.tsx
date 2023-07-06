@@ -7,7 +7,7 @@ import { AddNewAccountForm } from './components/views/AddNewAccountForm';
 import { Logout } from './components/logout/Logout';
 import { PrivateRoutes } from './utils/PrivateRoutes';
 import { AccountsListView } from './components/views/AccountsListView';
-import { AddOperations } from './components/account-operations/AddOperations';
+import { AddOperationForm } from './components/account-operations/AddOperationForm';
 import { AfterRegisterInfo } from './components/register/AfterRegisterInfo';
 import { EditOperationForm } from './components/account-operations/EditOperationForm';
 import { ErrorHandler } from './components/common/ErrorHandler';
@@ -32,7 +32,7 @@ export const Routing = () => {
       <Route path="/error" element={<ErrorHandler message={''} />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/user" element={<UserMainPageView />} />
-        <Route path="/add-operation/:id" element={<AddOperations />} />
+        <Route path="/add-operation/:id" element={<AddOperationForm />} />
         <Route
           path="/edit-operation-form/:id"
           element={<EditOperationForm />}

@@ -1,30 +1,23 @@
-import { useContext, useEffect } from 'react';
-import { AuthContext } from '../../contexts/authContext';
+import React, { useEffect } from 'react';
 import { apiUrl } from '../../config/api';
-import { LoginForm } from '../login/LoginForm';
+import { Navigate } from 'react-router-dom';
+
+export const LogoutFunction = () => {
+  (async () => {
+    await fetch(`${apiUrl}/auth/log-out`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  })();
+};
 
 export const Logout = () => {
-  const userContext = useContext(AuthContext);
-
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    (async () => {
-      await fetch(`${apiUrl}/auth/log-out`, {
-        signal,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${userContext?.token}`,
-        },
-      });
-      userContext?.setToken('');
-
-      return () => {
-        controller.abort();
-      };
-    })();
+    LogoutFunction();
   }, []);
 
-  return <LoginForm />;
+  return <Navigate to="/login" />;
 };

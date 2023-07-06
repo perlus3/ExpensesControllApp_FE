@@ -1,5 +1,4 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../contexts/authContext';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 import {
   CategoryEntity,
   FilteredOperation,
@@ -7,6 +6,8 @@ import {
 } from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { LogoutFunction } from '../logout/Logout';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   selectedMonth?: string;
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
-  const userContext = useContext(AuthContext);
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [showOperations, setShowOperations] = useState(false);
@@ -37,12 +38,16 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
       (async () => {
         const res = await fetch(`${apiUrl}/categories`, {
           method: 'GET',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${userContext?.token}`,
           },
         });
         const data = await res.json();
+        if (data.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
         if (!data.id) {
           setError(data.message);
         }
@@ -62,14 +67,18 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
         `${apiUrl}/categories/all/${selectedCategoryId}?year=${selectedYear}&month=${selectedMonth}`,
         {
           method: 'GET',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${userContext?.token}`,
           },
         },
       );
-      const operationsData = await res.json();
-      const operationDates = operationsData.map((el: NewOperationData) => {
+      const data = await res.json();
+      if (data.statusCode === 401) {
+        LogoutFunction();
+        navigate('/login');
+      }
+      const operationDates = data.map((el: NewOperationData) => {
         const date = new Date(el.createdAt).toLocaleDateString('pl-PL', {
           day: 'numeric',
           month: 'long',
@@ -81,12 +90,12 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
         };
       });
 
-      if (operationsData) {
+      if (data) {
         setFilteredOperations(operationDates);
         setShowOperations(true);
       }
-      if (!operationsData) {
-        setError(operationsData.message);
+      if (!data) {
+        setError(data.message);
       }
     } catch (e: any) {
       setError('Aby kontynuować musisz wybrać kategorie operacji!');

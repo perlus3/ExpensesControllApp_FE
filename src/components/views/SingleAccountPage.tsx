@@ -1,19 +1,19 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
-import { AuthContext } from '../../contexts/authContext';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AccountOperationsListView } from './AccountOperationsListView';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 
 import { AccountInfo } from '../account-operations/AccountInfo';
 import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
-import { AddOperationBtn } from '../common/buttons/AddOperationBtn';
+import { AddOperationForm } from '../account-operations/AddOperationForm';
+import { LogoutFunction } from '../logout/Logout';
 
 export const SingleAccountPage = () => {
-  const userContext = useContext(AuthContext);
   const params = useParams();
   const { id } = params;
+  const navigate = useNavigate();
   const [account, setAccount] = useState<NewAccountEntity | null>(null);
   const [count, setCount] = useState(0);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -23,12 +23,17 @@ export const SingleAccountPage = () => {
       (async () => {
         const res = await fetch(`${apiUrl}/accounts/${id}`, {
           method: 'GET',
+          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${userContext?.token}`,
           },
         });
         const result = await res.json();
+        if (result.statusCode === 401) {
+          LogoutFunction();
+          navigate('/login');
+        }
+
         if (!result.name) {
           setError(result.message);
         }
@@ -62,7 +67,7 @@ export const SingleAccountPage = () => {
         </div>
         <div className="d-flex justify-content-center py-1">{today}</div>
         <div className="d-flex justify-content-center py-1">
-          <AddOperationBtn id={id} />
+          <AddOperationForm />
         </div>
         <AccountInfo
           id={params.id}

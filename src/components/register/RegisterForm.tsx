@@ -28,6 +28,7 @@ export const RegisterForm = () => {
       const res = await fetch(`${apiUrl}/auth/register`, {
         signal,
         method: 'POST',
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json',
         },
