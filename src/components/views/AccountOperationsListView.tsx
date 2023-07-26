@@ -4,22 +4,33 @@ import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Currency, NewOperationData } from '../../types/interfaces';
 import ReactPaginate from 'react-paginate';
-import { LogoutFunction } from '../logout/Logout';
 interface Props {
   id: string | undefined;
-  count: number;
-  setCount: (count: any) => void;
   currency: Currency;
 }
 
-const PER_PAGE = 8;
+const PER_PAGE = 6;
 
 export const AccountOperationsListView = (props: Props) => {
-  const { setCount } = props;
   const navigate = useNavigate();
   const [operations, setOperations] = useState<NewOperationData[]>([]);
   const [error, setError] = useState<string | undefined>(undefined);
   const [currentPage, setCurrentPage] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
+
+  // console.log('list render');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 576);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -33,7 +44,6 @@ export const AccountOperationsListView = (props: Props) => {
         });
         const data = await res.json();
         if (data.statusCode === 401) {
-          LogoutFunction();
           navigate('/login');
         }
         if (!data.name) {
@@ -52,7 +62,7 @@ export const AccountOperationsListView = (props: Props) => {
 
   const newDate = (date: Date) => {
     return new Date(date).toLocaleDateString('pl-PL', {
-      weekday: 'long',
+      weekday: 'short',
       year: 'numeric',
       month: 'long',
       day: 'numeric',
@@ -62,6 +72,10 @@ export const AccountOperationsListView = (props: Props) => {
   const handlePageClick = ({ selected: selectedPage }: any) => {
     setCurrentPage(selectedPage);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight);
+  }, [currentPage]);
 
   const offset = currentPage * PER_PAGE;
 
@@ -85,10 +99,14 @@ export const AccountOperationsListView = (props: Props) => {
                 {operation.category.name}
               </p>
             </div>
-            <div className="col-4 text-end">
-              <div className="d-flex justify-content-end mb-2">
+            <div className={`${isMobile ? 'col-4' : 'col-4'} text-end`}>
+              <div
+                className={`${
+                  isMobile ? 'd-grid mb-2' : 'd-flex justify-content-end mb-2'
+                }`}
+              >
                 <button
-                  className="btn btn-outline-dark btn-sm me-2"
+                  className="btn btn-outline-dark btn-sm m-1"
                   onClick={() =>
                     navigate(`/edit-operation-form/${operation.id}`)
                   }
@@ -96,7 +114,7 @@ export const AccountOperationsListView = (props: Props) => {
                   Edytuj
                 </button>
                 <button
-                  className="btn btn-outline-dark btn-sm"
+                  className="btn btn-outline-dark btn-sm m-1"
                   onClick={() => handleDeleteClick(operation.id)}
                 >
                   Usuń
@@ -127,12 +145,11 @@ export const AccountOperationsListView = (props: Props) => {
     });
     const data = await res.json();
     if (data.statusCode === 401) {
-      LogoutFunction();
       navigate('/login');
     }
 
     if (data.affected) {
-      setCount((prevCount: number) => prevCount + 1);
+      window.location.reload();
       setOperations((operations) =>
         operations.filter((operation) => operation.id !== elementId),
       );
@@ -143,24 +160,28 @@ export const AccountOperationsListView = (props: Props) => {
     return <ErrorHandler message={error} />;
   }
   return (
-    <div className="col-12 pt-3">
-      <div className="col border rounded border-dark">
-        <div className="text-center mt-3">
-          <h5>Ostatnie operacje</h5>
+    <>
+      {operations.length !== 0 ? (
+        <div className="col-12 pt-3 filling">
+          <div className="col border rounded border-dark">
+            <div className="text-center mt-3">
+              <h5>Ostatnie operacje</h5>
+            </div>
+            <ul className="list-group mb-3">{currentPageData}</ul>
+          </div>
+          <ReactPaginate
+            previousLabel={'Previous'}
+            nextLabel={'Next'}
+            pageCount={pageCount}
+            onPageChange={handlePageClick}
+            containerClassName={'pagination'}
+            previousLinkClassName={'pagination-link'}
+            nextLinkClassName={'pagination-link'}
+            disabledClassName={'pagination-link-disabled'}
+            activeClassName={'pagination-link-active'}
+          />
         </div>
-        <ul className="list-group mb-3">{currentPageData}</ul>
-      </div>
-      <ReactPaginate
-        previousLabel={'Previous'}
-        nextLabel={'Next'}
-        pageCount={pageCount}
-        onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        previousLinkClassName={'pagination-link'}
-        nextLinkClassName={'pagination-link'}
-        disabledClassName={'pagination-link-disabled'}
-        activeClassName={'pagination-link-active'}
-      />
-    </div>
+      ) : null}
+    </>
   );
 };

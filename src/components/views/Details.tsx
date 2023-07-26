@@ -5,7 +5,6 @@ import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { DoughnutChart } from '../charts/DoughnutChart';
 import { DetailsView } from './DetailsView';
-import { LogoutFunction } from '../logout/Logout';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -29,6 +28,7 @@ export const Details = ({ accountId }: Props) => {
 
   const isMonthsDisabled = selectedYear === '';
 
+  // console.log('render details');
   const months: Month[] = [
     { name: 'Styczeń', value: 1 },
     { name: 'Luty', value: 2 },
@@ -56,7 +56,6 @@ export const Details = ({ accountId }: Props) => {
         });
         const data = await res.json();
         if (data.statusCode === 401) {
-          LogoutFunction();
           navigate('/login');
         }
         const operationDates = data.map((el: NewOperationData) =>
@@ -90,7 +89,6 @@ export const Details = ({ accountId }: Props) => {
         );
         const data = await res.json();
         if (data.statusCode === 401) {
-          LogoutFunction();
           navigate('/login');
         }
         if (!data.id) {
@@ -221,7 +219,7 @@ export const Details = ({ accountId }: Props) => {
       <div className="row">
         <div className="col-12">
           <form onSubmit={changePeriodFilter}>
-            <div className="row border-bottom border-dark d-flex justify-content-center text-center">
+            <div className="border-bottom border-dark text-center">
               <h5 className="m-2">Analizuj operacje</h5>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">

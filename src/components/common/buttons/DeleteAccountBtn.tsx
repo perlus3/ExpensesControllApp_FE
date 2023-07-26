@@ -2,7 +2,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { apiUrl } from '../../../config/api';
 import React from 'react';
 import { Button } from 'react-bootstrap';
-import { LogoutFunction } from '../../logout/Logout';
 
 export const DeleteAccountBtn = () => {
   const navigate = useNavigate();
@@ -19,7 +18,6 @@ export const DeleteAccountBtn = () => {
     });
     const data = await res.json();
     if (data.statusCode === 401) {
-      LogoutFunction();
       navigate('/login');
     }
 
@@ -30,7 +28,7 @@ export const DeleteAccountBtn = () => {
 
   return (
     <Button
-      className="btn btn-sm smaller-button btn-danger"
+      className="btn btn-sm btn-danger mx-2"
       type="button"
       onClick={() => handleDeleteClick(id)}
     >

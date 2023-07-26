@@ -6,7 +6,6 @@ import {
 } from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
-import { LogoutFunction } from '../logout/Logout';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -45,7 +44,6 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
         });
         const data = await res.json();
         if (data.statusCode === 401) {
-          LogoutFunction();
           navigate('/login');
         }
         if (!data.id) {
@@ -75,7 +73,6 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
       );
       const data = await res.json();
       if (data.statusCode === 401) {
-        LogoutFunction();
         navigate('/login');
       }
       const operationDates = data.map((el: NewOperationData) => {
@@ -152,17 +149,17 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
               <table className="table table-striped">
                 <thead>
                   <tr>
+                    <th scope="col">Data</th>
                     <th scope="col">Nazwa</th>
                     <th scope="col">Wartość</th>
-                    <th scope="col">Data</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredOperations.map((el) => (
                     <tr key={el.id}>
+                      <td>{el.fullDate}</td>
                       <td>{el.name}</td>
                       <td>{el.value}</td>
-                      <td>{el.fullDate}</td>
                     </tr>
                   ))}
                 </tbody>

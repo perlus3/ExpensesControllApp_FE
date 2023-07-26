@@ -13,6 +13,7 @@ export const EditAccount = (props: Props) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
   const [selectedOption, setSelectedOption] = useState('');
+  const [isCurrencySelected, setIsCurrencySelected] = useState(false);
   const [selectedAccount, setSelectedAccount] = useState({
     name: '',
     currency: '',
@@ -75,6 +76,7 @@ export const EditAccount = (props: Props) => {
 
   const handleOptionChange = (e: any) => {
     setSelectedOption(e.target.value);
+    setIsCurrencySelected(e.target.value !== '#');
   };
 
   if (loading) {
@@ -115,7 +117,9 @@ export const EditAccount = (props: Props) => {
           <option value="DOLAR">DOLAR</option>
         </select>
 
-        <button className="btn btn-primary w-50">Zapisz</button>
+        <button className="btn btn-primary w-50" disabled={!isCurrencySelected}>
+          Zapisz
+        </button>
         <GoBackButton />
       </form>
     </div>

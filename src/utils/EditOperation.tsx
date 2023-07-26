@@ -6,7 +6,6 @@ import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
 import { CategoryEntity } from '../types/interfaces';
-import { LogoutFunction } from '../components/logout/Logout';
 
 interface Props {
   operationId: string | undefined;
@@ -48,14 +47,12 @@ export const EditOperation = (props: Props) => {
       });
       const categoryNames = await categories.json();
       if (categoryNames.statusCode === 401) {
-        LogoutFunction();
         navigate('/login');
       }
       setCategories(categoryNames);
 
       const data = await res.json();
       if (data.statusCode === 401) {
-        LogoutFunction();
         navigate('/login');
       }
       setSelectedOperation({
@@ -83,7 +80,6 @@ export const EditOperation = (props: Props) => {
       });
       const data = await res.json();
       if (data.statusCode === 401) {
-        LogoutFunction();
         navigate('/login');
       }
       if (!data.error) {

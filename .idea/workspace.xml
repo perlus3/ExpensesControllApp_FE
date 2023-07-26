@@ -4,33 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added pagination to operationList and changed little text detail in Modal">
-      <change afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added footer, toasts, changed some views and layouts">
+      <change afterPath="$PROJECT_DIR$/src/footer/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/toastify.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperations.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/ExpenseForm.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/AddOperationBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/AddOperationBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/EditAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/EditAccountBtn.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AccountList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/Blank.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/authContext.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/AddOperation.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/Form.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/Form.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +139,8 @@
       <workItem from="1683570322407" duration="38000" />
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
-      <workItem from="1687859737073" duration="131717000" />
+      <workItem from="1687859737073" duration="139331000" />
+      <workItem from="1689156893042" duration="59679000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -436,7 +434,23 @@
       <option name="project" value="LOCAL" />
       <updated>1688058467768</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refactored/moved adding operation to one component">
+      <option name="closed" value="true" />
+      <created>1688648780771</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1688648780771</updated>
+    </task>
+    <task id="LOCAL-00042" summary="changed auth from bearer for cookies, and deleted context">
+      <option name="closed" value="true" />
+      <created>1688649201576</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1688649201576</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -454,9 +468,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="confirm email, zmiana nazw" />
-    <MESSAGE value="zmiana nazw, readme" />
-    <MESSAGE value="images" />
     <MESSAGE value="landing page added" />
     <MESSAGE value="credits page with links added" />
     <MESSAGE value="added background to register form, and login page" />
@@ -479,6 +490,9 @@
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="small changes in Header.tsx" />
     <MESSAGE value="added pagination to operationList and changed little text detail in Modal" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pagination to operationList and changed little text detail in Modal" />
+    <MESSAGE value="refactored/moved adding operation to one component" />
+    <MESSAGE value="changed auth from bearer for cookies, and deleted context" />
+    <MESSAGE value="added footer, toasts, changed some views and layouts" />
+    <option name="LAST_COMMIT_MESSAGE" value="added footer, toasts, changed some views and layouts" />
   </component>
 </project>

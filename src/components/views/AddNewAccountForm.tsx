@@ -4,6 +4,7 @@ import { apiUrl } from '../../config/api';
 import './AddNewAccount.css';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { Toast } from '../../utils/toastify';
 
 export const AddNewAccountForm = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ export const AddNewAccountForm = () => {
     e.preventDefault();
 
     setLoading(true);
+
+    const addAccountId = 'addAccountId';
 
     try {
       const res = await fetch(`${apiUrl}/accounts/add`, {
@@ -35,6 +38,7 @@ export const AddNewAccountForm = () => {
       if (data.error) {
         setError(data.message);
       }
+      Toast('Nowe konto dodane!', addAccountId);
       navigate(`/user`);
     } catch (err: any) {
       setError(err.message);

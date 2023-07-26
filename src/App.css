@@ -15,10 +15,6 @@ a {
     color: black;
 }
 
-.border {
-    border: 3px solid #000c5e;
-}
-
 .background-image {
     background-image: url('./assets/images/background.svg');
     background-repeat: no-repeat;
@@ -83,3 +79,4 @@ a {
 .my-radio {
     height: 20px;
 }
+

@@ -3,10 +3,9 @@ import React, { SyntheticEvent, useState } from 'react';
 import './AuthForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
-import { LogoutFunction } from '../logout/Logout';
+import { Toast } from '../../utils/toastify';
 
 export const LoginForm = () => {
-  // const userContext = useContext(AuthContext);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -14,11 +13,13 @@ export const LoginForm = () => {
     login: '',
     password: '',
   });
-  LogoutFunction();
+  const loginId = 'loggedIn';
+  const badCredentialsId = 'badCredentialsId';
 
   const loginUser = async (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const res = await fetch(`${apiUrl}/auth/login`, {
         method: 'POST',
@@ -33,14 +34,15 @@ export const LoginForm = () => {
       });
 
       const data = await res.json();
-      if (!data.accessToken) {
-        setError(data.message);
-      }
-      if (!data.message) {
+      if (data.message) {
+        Toast('Logowanie nie powiodło się!', badCredentialsId);
+        setError('Niepoprawne dane logowania!');
+      } else {
+        Toast('Zalogowano poprawnie!', loginId);
         navigate(`/user`);
       }
     } catch (err: any) {
-      setError(err.message);
+      setError(err);
     } finally {
       setLoading(false);
     }
@@ -56,6 +58,15 @@ export const LoginForm = () => {
   if (loading) {
     return <h2>Trwa logowanie do aplikacji...</h2>;
   }
+
+  (async () => {
+    await fetch(`${apiUrl}/auth/log-out`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  })();
 
   return (
     <div className="login-page background-image">

@@ -7,7 +7,7 @@ export const EditAccountBtn = () => {
   const { id } = params;
 
   return (
-    <Button className="btn btn-sm smaller-button btn-warning">
+    <Button className="btn btn-sm btn-warning mx-2">
       <Link to={`/edit-account-form/${id}`}>
         <span className="text-white text-xs">Edytuj konto</span>
       </Link>

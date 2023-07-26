@@ -17,7 +17,7 @@ import { About } from './components/about/About';
 import { EmailConfirm } from './components/emailConfirm/EmailConfirm';
 import { LandingPage } from './components/landingPage/LandingPage';
 import { CreditsPage } from './components/credits/CreditsPage';
-import { BlankComponent } from './components/views/Blank';
+import { SingleAccountPage } from './components/views/SingleAccountPage';
 
 export const Routing = () => {
   return (
@@ -38,10 +38,10 @@ export const Routing = () => {
           element={<EditOperationForm />}
         />
         <Route path="/edit-account-form/:id" element={<EditAccountForm />} />
-        <Route path="/accounts/:id" element={<BlankComponent />} />
+        <Route path="/accounts/:id" element={<SingleAccountPage />} />
         <Route path="/new-account" element={<AddNewAccountForm />} />
         <Route path="/details/:id" element={<DetailsView />} />
-        <Route path="/user/accounts" element={<AccountsListView />} />
+        <Route path="/user" element={<AccountsListView />} />
         <Route path="/log-out" element={<Logout />} />
       </Route>
     </Routes>

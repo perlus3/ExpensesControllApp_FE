@@ -6,7 +6,6 @@ import { Header } from '../header/Header';
 
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Link, useNavigate } from 'react-router-dom';
-import { LogoutFunction } from '../logout/Logout';
 import { NewAccountEntity } from '../../types/interfaces';
 
 export const UserMainPageView = () => {
@@ -28,11 +27,9 @@ export const UserMainPageView = () => {
         });
         const data = await res.json();
         if (data.statusCode === 401) {
-          LogoutFunction();
           navigate('/login');
         }
         setAccounts(data);
-        // userContext?.setAccounts(data);
       } catch (err: any) {
         setError(err.message);
       }
