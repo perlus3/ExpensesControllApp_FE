@@ -6,7 +6,6 @@ import { ErrorHandler } from '../components/common/ErrorHandler';
 export const PrivateRoutes = () => {
   const [error, setError] = useState<string | undefined>(undefined);
   const [loggedIn, setLoggedIn] = useState<boolean>(true);
-  console.log('start');
   const refreshToken = async () => {
     setLoggedIn(true);
     try {
@@ -28,7 +27,7 @@ export const PrivateRoutes = () => {
   };
 
   useEffect(() => {
-    const interval = setInterval(refreshToken, 1000 * 30);
+    const interval = setInterval(refreshToken, 1000 * 60 * 9);
     return () => {
       clearInterval(interval);
     };

@@ -7,6 +7,7 @@ import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Header } from '../header/Header';
 import { Button } from 'react-bootstrap';
+import { Footer } from '../../footer/Footer';
 
 export const SingleAccountPage = () => {
   const params = useParams();
@@ -68,7 +69,7 @@ export const SingleAccountPage = () => {
           <div className="d-flex justify-content-center py-1">{today}</div>
           <div className="d-flex justify-content-center py-1">
             <Button
-              className="btn btn-sm smaller-button btn-primary"
+              className="btn btn-sm smaller-button btn-primary mb-1"
               onClick={() => navigate(`/add-operation/${id}`)}
             >
               Dodaj nową operacje
@@ -87,6 +88,7 @@ export const SingleAccountPage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -6,6 +6,20 @@ body {
     color: white;
 }
 
+.navbar {
+    background: black;
+    position: relative; /* Ustawienie pozycji na relative zachowa przepływ dokumentu */
+    z-index: 1; /* Dodaj z-index, aby nawigacja znajdowała się na wierzchu innych elementów */
+}
+
+.row {
+    position: absolute; /* Ustawienie pozycji na absolute, aby grafika "wyszła" spod przepływu */
+    top: 0; /* Ustawienie na górze, aby dopasować grafikę pod nawigację */
+    left: 0; /* Ustawienie na lewej stronie */
+    right: 0; /* Ustawienie na prawej stronie */
+    bottom: 0; /* Ustawienie na dole, aby wypełnić całą wysokość dostępnego widoku */
+}
+
 .overlay {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     background-size: cover;

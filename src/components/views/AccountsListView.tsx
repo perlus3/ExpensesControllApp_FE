@@ -23,13 +23,13 @@ export const AccountsListView = (props: Props) => {
           >
             <div className="box border border-dark border-3 rounded-pill">
               <Link to={`/accounts/${account.id}`}>
-                <div className="account-button text-capitalize flex-column">
-                  <span className="fs-3 text" style={{ color: 'red' }}>
+                <div className="account-button text-capitalize flex-column text-center">
+                  <p className="fs-2 text" style={{ color: 'red' }}>
                     {account.name}
-                  </span>
-                  <span>
+                  </p>
+                  <p className="text-wrap text-break">
                     {account.value} {account.currency}
-                  </span>
+                  </p>
                 </div>
               </Link>
             </div>

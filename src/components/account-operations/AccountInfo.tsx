@@ -11,14 +11,13 @@ interface Props {
 }
 
 export const AccountInfo = (props: Props) => {
-  // console.log('account info render');
   return (
     <div className="col-12">
       <div className="col border rounded border-dark">
         <div className="border-bottom border-dark d-flex justify-content-between align-items-center">
           <div className="col-6">
             <h1 className="fs-5 m-3">
-              <span>
+              <span className="text-wrap text-break">
                 Saldo: {props.value} {props.currency}
               </span>
             </h1>

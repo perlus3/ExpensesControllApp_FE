@@ -18,8 +18,6 @@ export const AccountOperationsListView = (props: Props) => {
   const [currentPage, setCurrentPage] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
 
-  // console.log('list render');
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 576);
@@ -88,7 +86,7 @@ export const AccountOperationsListView = (props: Props) => {
           key={operation.id}
         >
           <div className="row align-items-center">
-            <div className="col-8">
+            <div className={`${isMobile ? 'col-6' : 'col-8'}`}>
               <p className="small text-muted">{newDate(operation.createdAt)}</p>
               <span className="text-capitalize fw-bold">{operation.name}</span>
               <p
@@ -99,7 +97,7 @@ export const AccountOperationsListView = (props: Props) => {
                 {operation.category.name}
               </p>
             </div>
-            <div className={`${isMobile ? 'col-4' : 'col-4'} text-end`}>
+            <div className={`${isMobile ? 'col-6' : 'col-4'} text-end`}>
               <div
                 className={`${
                   isMobile ? 'd-grid mb-2' : 'd-flex justify-content-end mb-2'
@@ -125,7 +123,9 @@ export const AccountOperationsListView = (props: Props) => {
                   operation.operationType === 'EXPENSE' ? 'danger' : 'success'
                 }`}
               >
-                {operation.value} {props.currency}
+                <span className="text-wrap text-break">
+                  {operation.value} {props.currency}
+                </span>
               </p>
             </div>
           </div>
@@ -164,7 +164,7 @@ export const AccountOperationsListView = (props: Props) => {
       {operations.length !== 0 ? (
         <div className="col-12 pt-3 filling">
           <div className="col border rounded border-dark">
-            <div className="text-center mt-3">
+            <div className="text-center my-3">
               <h5>Ostatnie operacje</h5>
             </div>
             <ul className="list-group mb-3">{currentPageData}</ul>

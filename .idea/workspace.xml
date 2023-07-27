@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added footer, toasts, changed some views and layouts">
-      <change afterPath="$PROJECT_DIR$/src/footer/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/toastify.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/EditAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/EditAccountBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/Blank.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/footer/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +128,7 @@
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
       <workItem from="1687859737073" duration="139331000" />
-      <workItem from="1689156893042" duration="59679000" />
+      <workItem from="1689156893042" duration="67688000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -450,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688649201576</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="added footer, toasts, changed some views and layouts">
+      <option name="closed" value="true" />
+      <created>1690383747963</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1690383747963</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -1,19 +1,15 @@
 
 .box {
-    margin-top: 40px;
-    margin-left: 20px;
-    height: 6em;
-    width: 12em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10em;
+    width: 14em;
     background-color: #e7e2e2;
 }
 
 .account-button {
-    display: flex;
-    justify-content: flex-start;
-    padding-left: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
-.account-button {
-    position: relative;
-    top: 10px;
-}
