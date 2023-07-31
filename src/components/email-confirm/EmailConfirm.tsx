@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ErrorHandler } from '../common/ErrorHandler';
+import { Toast } from '../../utils/toastify';
+import { Spinner } from '../common/spinner/Spinner';
 
 export const EmailConfirm = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { token } = params;
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
 
+  const confirmSuccessId = 'confirmSuccessId';
+
   useEffect(() => {
+    setLoading(true);
     try {
       (async () => {
         const res = await fetch(`${apiUrl}/email/confirm-email`, {
           method: 'POST',
-          credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
           },
@@ -25,30 +31,24 @@ export const EmailConfirm = () => {
         if (data.message) {
           setError(data.message);
         }
+        if (data.success) {
+          Toast(`Adres email potwierdzony!`, confirmSuccessId, 2000);
+          navigate('/login');
+        }
       })();
     } catch (err: any) {
       setError(err.message);
+    } finally {
+      setLoading(false);
     }
   }, []);
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (error) {
     return <ErrorHandler message={error} />;
   }
-
-  return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <p className="text-center text-success fs-2 mt-3">
-            Email potwierdzono prawidłowo!
-          </p>
-        </div>
-      </div>
-      <div className="row justify-content-center">
-        <button className="d-flex justify-center btn btn-secondary mt-3 w-25">
-          <Link to="/">Wróć do panelu logowania</Link>
-        </button>
-      </div>
-    </div>
-  );
+  return <></>;
 };

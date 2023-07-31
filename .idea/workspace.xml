@@ -4,19 +4,44 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added footer, toasts, changed some views and layouts">
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added toasts + loading spinners and changed some css styles">
+      <change afterPath="$PROJECT_DIR$/src/components/reset-password/ResetPassword.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/reset-password/SetResetPasswordLink.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/context/UserAccountsContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/EditAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/EditAccountForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/account-operations/EditOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/EditOperationForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/email-confirm/EmailConfirm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing-page/LandingPage.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing-page/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/AuthForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/AuthForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/AfterRegisterInfo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/toastify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/toastify.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +105,11 @@
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\views" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\assets\icons" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\common\buttons" />
-      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
     </key>
   </component>
   <component name="RunManager">
@@ -128,7 +153,7 @@
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
       <workItem from="1687859737073" duration="139331000" />
-      <workItem from="1689156893042" duration="67688000" />
+      <workItem from="1689156893042" duration="117052000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -446,7 +471,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690383747963</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="changed landingPage styles and footer display">
+      <option name="closed" value="true" />
+      <created>1690452183694</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1690452183694</updated>
+    </task>
+    <task id="LOCAL-00045" summary="added spinner for loading">
+      <option name="closed" value="true" />
+      <created>1690830885889</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1690830885889</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,9 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="landing page added" />
-    <MESSAGE value="credits page with links added" />
-    <MESSAGE value="added background to register form, and login page" />
     <MESSAGE value="changed DetailsView form" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
@@ -489,6 +527,9 @@
     <MESSAGE value="refactored/moved adding operation to one component" />
     <MESSAGE value="changed auth from bearer for cookies, and deleted context" />
     <MESSAGE value="added footer, toasts, changed some views and layouts" />
-    <option name="LAST_COMMIT_MESSAGE" value="added footer, toasts, changed some views and layouts" />
+    <MESSAGE value="changed landingPage styles and footer display" />
+    <MESSAGE value="added spinner for loading" />
+    <MESSAGE value="added toasts + loading spinners and changed some css styles" />
+    <option name="LAST_COMMIT_MESSAGE" value="added toasts + loading spinners and changed some css styles" />
   </component>
 </project>
