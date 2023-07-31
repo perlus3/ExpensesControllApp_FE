@@ -7,7 +7,6 @@ import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Header } from '../header/Header';
 import { Button } from 'react-bootstrap';
-import { Footer } from '../../footer/Footer';
 
 export const SingleAccountPage = () => {
   const params = useParams();
@@ -39,7 +38,10 @@ export const SingleAccountPage = () => {
     } catch (err: any) {
       setError(err.message);
     }
-  }, []);
+    return () => {
+      setAccount(null);
+    };
+  }, [id]);
 
   if (account === null) {
     return <p>Wczytywanie...</p>;
@@ -57,38 +59,29 @@ export const SingleAccountPage = () => {
   });
 
   return (
-    <div className="container-fluid p-0">
+    <div className="container-fluid d-flex flex-column p-0 background-color vh-100">
       <Header />
-      <div className="container-fluid d-flex flex-column">
-        <div className="row d-flex justify-content-center background-color border">
-          <div className="d-flex justify-content-center py-1">
-            <h5>
-              {account.name.charAt(0).toUpperCase() + account.name.slice(1)}
-            </h5>
-          </div>
-          <div className="d-flex justify-content-center py-1">{today}</div>
-          <div className="d-flex justify-content-center py-1">
-            <Button
-              className="btn btn-sm smaller-button btn-primary mb-1"
-              onClick={() => navigate(`/add-operation/${id}`)}
-            >
-              Dodaj nową operacje
-            </Button>
-          </div>
-          <div>
-            <AccountInfo
-              id={params.id}
-              value={account.value}
-              currency={account.currency}
-            />
-            <AccountOperationsListView
-              id={params.id}
-              currency={account.currency}
-            />
-          </div>
+      <div className="row d-flex justify-content-center background-color border">
+        <div className="mt-3"></div>
+        <div className="d-flex justify-content-center">
+          <h5 className="text-center">
+            {account.name.charAt(0).toUpperCase() + account.name.slice(1)}
+          </h5>
+        </div>
+        <div className="d-flex justify-content-center py-1">{today}</div>
+        <div className="d-flex justify-content-center py-1">
+          <Button
+            className="btn btn-sm btn-primary my-3"
+            onClick={() => navigate(`/add-operation/${id}`)}
+          >
+            Dodaj nową operacje
+          </Button>
+        </div>
+        <div>
+          <AccountInfo value={account.value} currency={account.currency} />
+          <AccountOperationsListView currency={account.currency} />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -39,14 +39,13 @@ export const UserMainPageView = () => {
   if (error) {
     return <ErrorHandler message={error} />;
   }
-
   return (
-    <>
+    <div className="container-fluid d-flex flex-column p-0 vh-100">
       <Header />
       {accounts && !accounts.length ? (
         <div className="d-flex flex-column justify-content-between h-100">
           <span className="d-flex align-items-center justify-content-center">
-            <h3 className="text-center mt-5 mx-5">
+            <h3 className="text-center text mt-5 mx-5 pt-5">
               Ta aplikacja ma pomagać w kontrolowaniu swoich wydatków, stwórz
               nowe konto, dodaj na niego środki, a następnie wykonuj na nim
               dowolne operacje, wpłacaj środki, zapisuj wydatki.
@@ -54,18 +53,16 @@ export const UserMainPageView = () => {
           </span>
           <div className="d-flex align-items-center justify-content-center">
             <button
-              className="btn btn-lg btn-dark"
+              className="btn btn-lg btn-light text-dark "
               style={{ position: 'relative', top: '100px' }}
             >
-              <Link to="/new-account" style={{ color: 'white' }}>
-                Dodaj nowe konto!
-              </Link>
+              <Link to="/new-account">Dodaj nowe konto!</Link>
             </button>
           </div>
         </div>
       ) : (
         <AccountsListView accounts={accounts} />
       )}
-    </>
+    </div>
   );
 };

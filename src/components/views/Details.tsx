@@ -5,14 +5,13 @@ import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { DoughnutChart } from '../charts/DoughnutChart';
 import { DetailsView } from './DetailsView';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Spinner } from '../common/spinner/Spinner';
 
-interface Props {
-  accountId: string | undefined;
-}
-
-export const Details = ({ accountId }: Props) => {
+export const Details = () => {
   const navigate = useNavigate();
+  const params = useParams();
+  const { id } = params;
   const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
   const [insertedDates, setInsertedDates] = useState<string[]>(['']);
@@ -28,7 +27,6 @@ export const Details = ({ accountId }: Props) => {
 
   const isMonthsDisabled = selectedYear === '';
 
-  // console.log('render details');
   const months: Month[] = [
     { name: 'Styczeń', value: 1 },
     { name: 'Luty', value: 2 },
@@ -47,7 +45,7 @@ export const Details = ({ accountId }: Props) => {
   useEffect(() => {
     try {
       (async () => {
-        const res = await fetch(`${apiUrl}/operations/all/${accountId}`, {
+        const res = await fetch(`${apiUrl}/operations/all/${id}`, {
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -78,7 +76,7 @@ export const Details = ({ accountId }: Props) => {
     try {
       (async () => {
         const res = await fetch(
-          `${apiUrl}/operations/total/report?year=${selectedYear}&month=${selectedMonth}`,
+          `${apiUrl}/operations/${id}/total/report?year=${selectedYear}&month=${selectedMonth}`,
           {
             method: 'GET',
             credentials: 'include',
@@ -108,10 +106,10 @@ export const Details = ({ accountId }: Props) => {
   };
 
   if (loading) {
-    return <h2>Trwa pobieranie danych...</h2>;
+    return <Spinner />;
   }
 
-  const handleYearChange = (e: any) => {
+  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedYearValue = e.target.value;
     setSelectedYear(selectedYearValue);
 
@@ -120,7 +118,7 @@ export const Details = ({ accountId }: Props) => {
     }
   };
 
-  const handleMonthChange = (e: any) => {
+  const handleMonthChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMonth(e.target.value);
   };
 
@@ -257,7 +255,7 @@ export const Details = ({ accountId }: Props) => {
                 </select>
               </div>
             </div>
-            <div className="me-3 d-flex justify-content-center">
+            <div className="d-flex justify-content-center mt-1">
               <button
                 disabled={!selectedYear}
                 className="btn btn-primary my-2 smaller-button"

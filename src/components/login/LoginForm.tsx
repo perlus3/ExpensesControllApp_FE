@@ -1,9 +1,11 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React, { SyntheticEvent, useEffect, useState } from 'react';
 
-import './AuthForm.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { Toast } from '../../utils/toastify';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
+import { Spinner } from '../common/spinner/Spinner';
+import { ErrorHandler } from '../common/ErrorHandler';
 
 export const LoginForm = () => {
   const navigate = useNavigate();
@@ -13,8 +15,26 @@ export const LoginForm = () => {
     login: '',
     password: '',
   });
+
+  useEffect(() => {
+    (async () => {
+      await fetch(`${apiUrl}/auth/log-out`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    })();
+  }, []);
+
   const loginId = 'loggedIn';
   const badCredentialsId = 'badCredentialsId';
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleToggle = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    e.preventDefault();
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const loginUser = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -34,12 +54,15 @@ export const LoginForm = () => {
       });
 
       const data = await res.json();
-      if (data.message) {
-        Toast('Logowanie nie powiodło się!', badCredentialsId);
-        setError('Niepoprawne dane logowania!');
-      } else {
-        Toast('Zalogowano poprawnie!', loginId);
+      if (data.userId) {
+        Toast('Zalogowano poprawnie!', loginId, 1000);
         navigate(`/user`);
+      }
+      if (data.statusCode === 401) {
+        Toast(`${data.message}`, badCredentialsId, 2000);
+      }
+      if (data.statusCode === 400) {
+        Toast(`${data.message}`, badCredentialsId, 2000);
       }
     } catch (err: any) {
       setError(err);
@@ -56,21 +79,16 @@ export const LoginForm = () => {
   };
 
   if (loading) {
-    return <h2>Trwa logowanie do aplikacji...</h2>;
+    return <Spinner />;
   }
 
-  (async () => {
-    await fetch(`${apiUrl}/auth/log-out`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  })();
+  if (error) {
+    return <ErrorHandler message={error} />;
+  }
 
   return (
     <div className="login-page background-image">
-      <form className="auth-form" action="" onSubmit={loginUser}>
+      <form className="auth-form" onSubmit={loginUser}>
         <h1>Zaloguj się!</h1>
         <input
           type="text"
@@ -82,7 +100,7 @@ export const LoginForm = () => {
           onChange={(e) => updateForm('login', e.target.value)}
         />
         <input
-          type="password"
+          type={showPassword ? 'text' : 'password'}
           name="password"
           placeholder="Hasło"
           required
@@ -90,12 +108,25 @@ export const LoginForm = () => {
           value={form.password}
           onChange={(e) => updateForm('password', e.target.value)}
         />
-        {error && (
-          <p className="text-center" style={{ color: 'red' }}>
-            {error}
-          </p>
-        )}
-        <p>
+        <div
+          style={{
+            position: 'absolute',
+            right: '0.2em',
+            top: '43%',
+            transform: 'translateY(-50%)',
+            cursor: 'pointer',
+            fontSize: '2.5em',
+          }}
+          onClick={handleToggle}
+        >
+          {showPassword ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+        </div>
+        <p className="text-center small p-0 m-0">
+          <Link style={{ color: 'blue' }} to="/reset-password">
+            Przypomnij hasło!
+          </Link>
+        </p>
+        <p className="text-center small p-0 m-0">
           Nie masz jescze konta?{' '}
           <Link style={{ color: 'blue' }} to="/register">
             Załóż konto TUTAJ!

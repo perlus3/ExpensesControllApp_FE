@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
+import { Spinner } from '../common/spinner/Spinner';
 
 interface Props {
   accountId: string | undefined;
@@ -80,7 +81,7 @@ export const EditAccount = (props: Props) => {
   };
 
   if (loading) {
-    return <h2>Trwa edycja operacji...</h2>;
+    return <Spinner />;
   }
 
   if (error) {
@@ -88,10 +89,10 @@ export const EditAccount = (props: Props) => {
   }
 
   return (
-    <div className="form-container">
+    <div className="form-container background-image vh-100">
       <form className="form" action="" onSubmit={editOperation}>
         <h1>Edytuj konto</h1>
-        <p className="mt-2 mb-0">
+        <p className="mt-2 mb-0 text-center">
           Aktualna nazwa konta to: {selectedAccount.name}
         </p>
         <input
@@ -102,7 +103,7 @@ export const EditAccount = (props: Props) => {
           value={form.name}
           onChange={(e) => updateForm('name', e.target.value)}
         />
-        <p className="mt-2 mb-0">
+        <p className="mt-2 mb-0 text-center">
           Aktualna waluta to: {selectedAccount.currency}
         </p>
         <select

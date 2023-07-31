@@ -5,7 +5,6 @@ import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
 import { EditAccountBtn } from '../common/buttons/EditAccountBtn';
 
 interface Props {
-  id?: string;
   value?: number;
   currency: Currency;
 }
@@ -30,7 +29,7 @@ export const AccountInfo = (props: Props) => {
           </div>
         </div>
         <div className="row">
-          <Details accountId={props.id} />
+          <Details />
         </div>
       </div>
     </div>

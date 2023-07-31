@@ -7,6 +7,7 @@ import {
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { useNavigate } from 'react-router-dom';
+import { Spinner } from '../common/spinner/Spinner';
 
 interface Props {
   selectedMonth?: string;
@@ -106,7 +107,7 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
   };
 
   if (loading) {
-    return <h2>Trwa pobieranie operacji...</h2>;
+    return <Spinner />;
   }
 
   if (error) {

@@ -8,16 +8,17 @@ import { Logout } from './components/logout/Logout';
 import { PrivateRoutes } from './utils/PrivateRoutes';
 import { AccountsListView } from './components/views/AccountsListView';
 import { AddOperationForm } from './components/account-operations/AddOperationForm';
-import { AfterRegisterInfo } from './components/register/AfterRegisterInfo';
 import { EditOperationForm } from './components/account-operations/EditOperationForm';
 import { ErrorHandler } from './components/common/ErrorHandler';
 import { EditAccountForm } from './components/account-operations/EditAccountForm';
 import { DetailsView } from './components/views/DetailsView';
 import { About } from './components/about/About';
-import { EmailConfirm } from './components/emailConfirm/EmailConfirm';
-import { LandingPage } from './components/landingPage/LandingPage';
+import { EmailConfirm } from './components/email-confirm/EmailConfirm';
+import { LandingPage } from './components/landing-page/LandingPage';
 import { CreditsPage } from './components/credits/CreditsPage';
 import { SingleAccountPage } from './components/views/SingleAccountPage';
+import { SetResetPasswordLink } from './components/reset-password/SetResetPasswordLink';
+import { ResetPassword } from './components/reset-password/ResetPassword';
 
 export const Routing = () => {
   return (
@@ -27,8 +28,9 @@ export const Routing = () => {
       <Route path="/credits" element={<CreditsPage />} />
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/about" element={<About />} />
+      <Route path="/reset-password" element={<SetResetPasswordLink />} />
+      <Route path="/reset-password/:id/:token" element={<ResetPassword />} />
       <Route path="/email/confirm-email/:token" element={<EmailConfirm />} />
-      <Route path="/after-register" element={<AfterRegisterInfo />} />
       <Route path="/error" element={<ErrorHandler message={''} />} />
       <Route element={<PrivateRoutes />}>
         <Route path="/user" element={<UserMainPageView />} />

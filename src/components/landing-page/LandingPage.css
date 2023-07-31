@@ -1,0 +1,31 @@
+body {
+    overflow: hidden;
+}
+
+.text {
+    color: white;
+}
+
+.navbar-landing-page {
+    background: black;
+    position: relative;
+    z-index: 1;
+}
+
+.row-landing-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.text:hover {
+    color: #ddd;
+}
+
+.overlay {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+}

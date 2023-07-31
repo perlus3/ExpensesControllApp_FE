@@ -4,6 +4,7 @@ import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
+import { Spinner } from '../common/spinner/Spinner';
 
 export const AddOperationForm = () => {
   const params = useParams();
@@ -95,13 +96,12 @@ export const AddOperationForm = () => {
     }));
   };
   if (loading) {
-    return <h2>Trwa dodawanie operacji...</h2>;
+    return <Spinner />;
   }
 
   if (error) {
     return <ErrorHandler message={error} />;
   }
-
   return (
     <div className="form-container">
       <form className="form" onSubmit={addOperation}>
@@ -165,7 +165,7 @@ export const AddOperationForm = () => {
           </div>
         </div>
         <div className="row mb-3 d-flex justify-content-center">
-          <div className="col-12 col-md-6">
+          <div className="col">
             <select
               className="form-select"
               name="categoryId"

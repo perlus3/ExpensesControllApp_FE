@@ -1,10 +1,10 @@
 import { toast } from 'react-toastify';
 
-export const Toast = (info: string, id: string) => {
+export const Toast = (info: string, id: string, durationMS: number) => {
   toast.info(`${info}`, {
     position: 'top-right',
     toastId: id,
-    autoClose: 1000,
+    autoClose: durationMS,
     hideProgressBar: false,
     closeOnClick: true,
     pauseOnHover: false,

@@ -9,10 +9,8 @@ export const App = () => {
   return (
     <>
       <ToastContainer />
-      <div className="d-flex flex-column min-vh-100 background-color">
-        <div className="flex-grow-1">
-          <Routing />
-        </div>
+      <div className="d-flex flex-column vh-100 background-image-user-main-view">
+        <Routing />
       </div>
     </>
   );

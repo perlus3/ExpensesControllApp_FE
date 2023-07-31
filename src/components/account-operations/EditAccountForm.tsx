@@ -6,7 +6,7 @@ export const EditAccountForm = () => {
   const params = useParams();
   const { id } = params;
   return (
-    <div className="edit-form">
+    <div className="edit-form background-image vh-100">
       <EditAccount accountId={id} />
     </div>
   );

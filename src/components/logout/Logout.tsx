@@ -8,11 +8,12 @@ export const LogoutFunction = () => {
   (async () => {
     await fetch(`${apiUrl}/auth/log-out`, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    Toast('Wylogowano!', logoutId);
+    Toast('Wylogowano!', logoutId, 1000);
   })();
 };
 
@@ -21,5 +22,5 @@ export const Logout = () => {
     LogoutFunction();
   }, []);
 
-  return <Navigate to="/" />;
+  return <Navigate to="/login" />;
 };

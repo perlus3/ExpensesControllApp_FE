@@ -5,6 +5,7 @@ import './AddNewAccount.css';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Toast } from '../../utils/toastify';
+import { Spinner } from '../common/spinner/Spinner';
 
 export const AddNewAccountForm = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ export const AddNewAccountForm = () => {
       if (data.error) {
         setError(data.message);
       }
-      Toast('Nowe konto dodane!', addAccountId);
+      Toast('Nowe konto dodane!', addAccountId, 1000);
       navigate(`/user`);
     } catch (err: any) {
       setError(err.message);
@@ -59,7 +60,7 @@ export const AddNewAccountForm = () => {
   };
 
   if (loading) {
-    return <h2>Trwa dodawanie konta...</h2>;
+    return <Spinner />;
   }
 
   return (
@@ -68,12 +69,11 @@ export const AddNewAccountForm = () => {
         <h1>Stwórz nowe konto</h1>
         <div className="form-floating w-100">
           <input
-            id="login"
             type="name"
             name="name"
             placeholder="Nazwa nowego konta"
             required
-            maxLength={50}
+            maxLength={20}
             value={form.name}
             className="form-control"
             onChange={(e) => updateForm('name', e.target.value)}

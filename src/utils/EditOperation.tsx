@@ -6,6 +6,7 @@ import { GoBackButton } from '../components/common/buttons/GoBackBtn';
 import './Form.css';
 import { ErrorHandler } from '../components/common/ErrorHandler';
 import { CategoryEntity } from '../types/interfaces';
+import { Spinner } from '../components/common/spinner/Spinner';
 
 interface Props {
   operationId: string | undefined;
@@ -103,7 +104,7 @@ export const EditOperation = (props: Props) => {
   };
 
   if (loading) {
-    return <h2>Trwa edycja operacji...</h2>;
+    return <Spinner />;
   }
 
   if (error) {
@@ -112,25 +113,17 @@ export const EditOperation = (props: Props) => {
 
   return (
     <div className="form-container">
-      <form
-        style={{
-          backgroundColor:
-            selectedOperation.operationType === 'INCOME'
-              ? '#beff9c'
-              : '#f799af',
-        }}
-        className="form"
-        action=""
-        onSubmit={editOperation}
-      >
-        <h1>
+      <form className="form" action="" onSubmit={editOperation}>
+        <h3 className="text-center mt-2">
           Edytuj{' '}
           {selectedOperation.operationType === 'INCOME'
             ? 'przychód'
             : 'wydatek'}{' '}
           na koncie
-        </h1>
-        <p className="mt-2 mb-0">Aktualna nazwa to: {selectedOperation.name}</p>
+        </h3>
+        <p className="mt-2 mb-0 text-center">
+          Aktualna nazwa to: {selectedOperation.name}
+        </p>
         <input
           type="text"
           name="name"

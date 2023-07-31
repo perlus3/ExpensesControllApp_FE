@@ -1,14 +1,17 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { apiUrl } from '../../../config/api';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { Spinner } from '../spinner/Spinner';
 
 export const DeleteAccountBtn = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { id } = params;
+  const [loading, setLoading] = useState(false);
 
   const handleDeleteClick = async (accountId: string | undefined) => {
+    setLoading(true);
     const res = await fetch(`${apiUrl}/accounts/${accountId}`, {
       method: 'DELETE',
       credentials: 'include',
@@ -22,9 +25,14 @@ export const DeleteAccountBtn = () => {
     }
 
     if (data.affected) {
+      setLoading(false);
       navigate(-1);
     }
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   return (
     <Button

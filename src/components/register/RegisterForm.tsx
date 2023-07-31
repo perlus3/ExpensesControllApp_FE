@@ -4,6 +4,8 @@ import '../login/AuthForm.css';
 import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { apiUrl } from '../../config/api';
+import { Toast } from '../../utils/toastify';
+import { Spinner } from '../common/spinner/Spinner';
 
 export const RegisterForm = () => {
   const navigate = useNavigate();
@@ -18,15 +20,14 @@ export const RegisterForm = () => {
     lastName: '',
   });
 
+  const registerSuccessId = 'registerSuccessId';
+
   const registerUser = async (e: SyntheticEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    const controller = new AbortController();
-    const signal = controller.signal;
     try {
       const res = await fetch(`${apiUrl}/auth/register`, {
-        signal,
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -43,22 +44,18 @@ export const RegisterForm = () => {
       }
 
       if (!data.message) {
-        navigate('/after-register');
+        Toast(
+          `Potwierdź rejestracje linkiem wysłanym na adres ${form.email}`,
+          registerSuccessId,
+          3000,
+        );
+        navigate('/login');
       }
     } catch (err: any) {
       setError(err.message);
-      if (err.name === 'AbortError') {
-        console.log('cancelled');
-      } else {
-        setError(err.message);
-      }
     } finally {
       setLoading(false);
     }
-
-    return () => {
-      controller.abort();
-    };
   };
 
   const updateForm = (key: string, value: string) => {
@@ -69,7 +66,7 @@ export const RegisterForm = () => {
   };
 
   if (loading) {
-    return <h2>Trwa rejestracja użytkownika...</h2>;
+    return <Spinner />;
   }
 
   return (

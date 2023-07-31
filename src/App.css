@@ -1,5 +1,83 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     overflow-y: scroll;
+}
+.accounts-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+    background-color: #fff;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+}
+
+.accounts-list li {
+    display: block;
+    width: 100%;
+}
+
+.login-page {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reset-password-form {
+    background-color: white;
+    width: 25em;
+    height: 12em;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.auth-form {
+    background-color: white;
+    width: 30em;
+    height: 30em;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.reset-password-form input {
+    border: none;
+    background-color: rgb(229, 226, 226);
+    height: 2em;
+    width: 70%;
+    border-radius: 0.25em;
+    text-align: center;
+}
+
+input {
+    border: none;
+    background-color: rgb(229, 226, 226);
+    height: 4em;
+    width: 70%;
+    border-radius: 0.25em;
+    text-align: center;
+    /*padding: 2em;*/
+}
+
+input:focus {
+    outline-color: rgb(32, 177, 255);
 }
 
 .register-form {
@@ -8,6 +86,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.text {
+    color: white;
 }
 
 a {
@@ -19,6 +101,14 @@ a {
     background-image: url('./assets/images/background.svg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center;
+}
+
+.background-image-user-main-view {
+    background-image: url('assets/images/sejf.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .background-color {

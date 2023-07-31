@@ -11,14 +11,14 @@ export const LandingPage = () => {
     backgroundPosition: 'center',
   };
   return (
-    <div className="container-fluid vh-100 bg-dark p-0">
-      <nav className="navbar navbar-expand-md navbar-dark">
+    <>
+      <nav className="navbar navbar-dark navbar-expand-sm navbar-landing-page">
         <div className="container d-flex justify-content-between align-items-center mx-2">
-          <Link to="/user" className="navbar-brand">
+          <Link to="/user" className="navbar-brand text">
             <p className="text display-6">ExpenseApp</p>
           </Link>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler border-white"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#nav"
@@ -48,13 +48,16 @@ export const LandingPage = () => {
           </div>
         </div>
       </nav>
-      <div className="row vh-100 position-absolute" style={landingPageStyle}>
+      <div
+        className="row row-landing-page vh-100 position-absolute"
+        style={landingPageStyle}
+      >
         <div className="col px-1 d-flex justify-content-center align-items-center overlay">
-          <p className="text text-center display-6 p-3">
+          <p className="text-center text-white display-6 p-3">
             Zarządzaj swoimi pieniędzmi. Zaplanuj budżet. Oszczędzaj!
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };

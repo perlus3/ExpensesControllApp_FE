@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Currency, NewOperationData } from '../../types/interfaces';
 import ReactPaginate from 'react-paginate';
+import { Spinner } from '../common/spinner/Spinner';
 interface Props {
-  id: string | undefined;
   currency: Currency;
 }
 
@@ -13,10 +13,13 @@ const PER_PAGE = 6;
 
 export const AccountOperationsListView = (props: Props) => {
   const navigate = useNavigate();
+  const params = useParams();
+  const { id } = params;
   const [operations, setOperations] = useState<NewOperationData[]>([]);
   const [error, setError] = useState<string | undefined>(undefined);
   const [currentPage, setCurrentPage] = useState(0);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -33,7 +36,7 @@ export const AccountOperationsListView = (props: Props) => {
   useEffect(() => {
     try {
       (async () => {
-        const res = await fetch(`${apiUrl}/operations/all/${props.id}`, {
+        const res = await fetch(`${apiUrl}/operations/all/${id}`, {
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -136,28 +139,39 @@ export const AccountOperationsListView = (props: Props) => {
   const pageCount = Math.ceil(operations.length / PER_PAGE);
 
   const handleDeleteClick = async (elementId: string) => {
-    const res = await fetch(`${apiUrl}/operations/${elementId}`, {
-      method: 'DELETE',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    const data = await res.json();
-    if (data.statusCode === 401) {
-      navigate('/login');
-    }
+    setLoading(true);
+    try {
+      const res = await fetch(`${apiUrl}/operations/${elementId}`, {
+        method: 'DELETE',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await res.json();
+      if (data.statusCode === 401) {
+        navigate('/login');
+      }
 
-    if (data.affected) {
-      window.location.reload();
-      setOperations((operations) =>
-        operations.filter((operation) => operation.id !== elementId),
-      );
+      if (data.affected) {
+        window.location.reload();
+        setOperations((operations) =>
+          operations.filter((operation) => operation.id !== elementId),
+        );
+      }
+    } catch (e: any) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   if (error) {
     return <ErrorHandler message={error} />;
+  }
+
+  if (loading) {
+    return <Spinner />;
   }
   return (
     <>
@@ -169,17 +183,19 @@ export const AccountOperationsListView = (props: Props) => {
             </div>
             <ul className="list-group mb-3">{currentPageData}</ul>
           </div>
-          <ReactPaginate
-            previousLabel={'Previous'}
-            nextLabel={'Next'}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={'pagination'}
-            previousLinkClassName={'pagination-link'}
-            nextLinkClassName={'pagination-link'}
-            disabledClassName={'pagination-link-disabled'}
-            activeClassName={'pagination-link-active'}
-          />
+          <div className="mb-5 pb-1">
+            <ReactPaginate
+              previousLabel={'Previous'}
+              nextLabel={'Next'}
+              pageCount={pageCount}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              previousLinkClassName={'pagination-link'}
+              nextLinkClassName={'pagination-link'}
+              disabledClassName={'pagination-link-disabled'}
+              activeClassName={'pagination-link-active'}
+            />
+          </div>
         </div>
       ) : null}
     </>
