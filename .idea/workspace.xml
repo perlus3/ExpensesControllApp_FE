@@ -4,44 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added toasts + loading spinners and changed some css styles">
-      <change afterPath="$PROJECT_DIR$/src/components/reset-password/ResetPassword.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/reset-password/SetResetPasswordLink.tsx" afterDir="false" />
+    <list default="true" id="e99f5b02-5a7d-4bda-8daa-09215e04c2b3" name="Changes" comment="added Analysis.tsx and 2 charts, changed selects for smaller, and searching for dates from created for updated">
+      <change afterPath="$PROJECT_DIR$/src/components/analysis/Analysis.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/charts/BarChart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/charts/BarChart2.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/charts/PieChart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/views/AccountsList.tsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/context/UserAccountsContext.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Routing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Routing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AccountInfo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/AddOperationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/EditAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/EditAccountForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/account-operations/EditOperationForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/account-operations/EditOperationForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/DeleteAccountBtn.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/credits/CreditsPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/emailConfirm/EmailConfirm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/email-confirm/EmailConfirm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/buttons/GoBackBtn.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing-page/LandingPage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing-page/LandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/AuthForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/AuthForm.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/login/LoginForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/logout/Logout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/logout/Logout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/AfterRegisterInfo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/register/RegisterForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountOperationsListView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/views/AccountsListView.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/AddNewAccountForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/Details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/Details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/DetailsView.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/EditAccount.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/SingleAccountPage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/views/UserMainPageView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/footer/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/interfaces.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/EditOperation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/EditOperation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/PrivateRoutes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/toastify.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/toastify.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,29 +66,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;rebuild&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Moje projekty/Wydatki/wydatki-frontend&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "rebuild",
+    "last_opened_file_path": "C:/Moje projekty/Wydatki/wydatki-frontend/src/components/charts",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "C:\\Moje projekty\\Wydatki\\wydatki-frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components\charts" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src" />
       <recent name="C:\Moje projekty\Wydatki\wydatki-frontend\src\components" />
@@ -153,7 +143,7 @@
       <workItem from="1685456670518" duration="35493000" />
       <workItem from="1686721299005" duration="84290000" />
       <workItem from="1687859737073" duration="139331000" />
-      <workItem from="1689156893042" duration="117052000" />
+      <workItem from="1689156893042" duration="186424000" />
     </task>
     <task id="LOCAL-00001" summary="eslint/prettier config">
       <created>1678532190597</created>
@@ -487,7 +477,23 @@
       <option name="project" value="LOCAL" />
       <updated>1690830885889</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="added toasts + loading spinners and changed some css styles">
+      <option name="closed" value="true" />
+      <created>1690831118011</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1690831118011</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added reset password, password preview">
+      <option name="closed" value="true" />
+      <created>1690831228260</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1690831228260</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,8 +511,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed DetailsView form" />
-    <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views" />
     <MESSAGE value="trying to make big component for account, and put inside other components, changed styles and views REFACTOR in general" />
     <MESSAGE value="added chart for incomes and expenses" />
     <MESSAGE value="added cleanup funtions to all fetch actions" />
@@ -530,6 +534,8 @@
     <MESSAGE value="changed landingPage styles and footer display" />
     <MESSAGE value="added spinner for loading" />
     <MESSAGE value="added toasts + loading spinners and changed some css styles" />
-    <option name="LAST_COMMIT_MESSAGE" value="added toasts + loading spinners and changed some css styles" />
+    <MESSAGE value="added reset password, password preview" />
+    <MESSAGE value="added Analysis.tsx and 2 charts, changed selects for smaller, and searching for dates from created for updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Analysis.tsx and 2 charts, changed selects for smaller, and searching for dates from created for updated" />
   </component>
 </project>

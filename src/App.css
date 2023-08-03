@@ -3,6 +3,14 @@
     box-sizing: border-box;
 }
 
+html {
+    background-color: #eee;
+}
+
+.account-name {
+    margin-left: 8px;
+}
+
 body {
     overflow-y: scroll;
 }
@@ -111,15 +119,20 @@ a {
     background-position: center center;
 }
 
-.background-color {
-    background: #cfd2f1;
-}
-
 .smaller-button {
     font-size: 1rem;
     padding: 0.25rem 0.5rem;
     line-height: 1;
 }
+
+.cos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 600px;
+}
+
 
 .custom-modal-width {
     max-width: 700px;
@@ -131,9 +144,24 @@ a {
     color: blue;
 }
 
+.chart-div {
+    height: 400px;
+    width: 400px;
+}
+
 .chart {
     max-height: 200px;
     max-width: 200px;
+}
+
+.background-color {
+    background: #eee;
+}
+
+.bar-chart {
+    width: 100%;
+    max-width: 800px;
+    max-height: 400px;
 }
 
 .pagination {

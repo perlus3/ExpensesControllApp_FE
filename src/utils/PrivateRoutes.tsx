@@ -17,17 +17,7 @@ export const PrivateRoutes = () => {
         },
       });
       const data = await res.json();
-      const currentDate = new Date();
-      const year = currentDate.getFullYear();
-      const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-      const day = String(currentDate.getDate()).padStart(2, '0');
-      const hours = String(currentDate.getHours()).padStart(2, '0');
-      const minutes = String(currentDate.getMinutes()).padStart(2, '0');
-      const seconds = String(currentDate.getSeconds()).padStart(2, '0');
-      const formattedDate = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-      console.log('data', data, formattedDate);
       if (data.statusCode === 401) {
-        console.log('loggedOUT', formattedDate);
         setLoggedIn(false);
       }
     } catch (err: any) {
@@ -37,10 +27,8 @@ export const PrivateRoutes = () => {
 
   useEffect(() => {
     const interval = setInterval(refreshToken, 1000 * 60 * 4);
-    console.log('interfval RUN', interval);
     return () => {
       clearInterval(interval);
-      console.log('interval cleared', interval);
     };
   }, []);
 

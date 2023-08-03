@@ -16,24 +16,34 @@ export enum OperationType {
   EXPENSE = 'EXPENSE',
 }
 
-export interface IPagination {
-  onPageChange?: (page: number) => void;
-  totalCount: number;
-  siblingCount: number;
-  currentPage: number;
-  pageSize: number;
-  className?: string;
-}
+// export interface IPagination {
+//   onPageChange?: (page: number) => void;
+//   totalCount: number;
+//   siblingCount: number;
+//   currentPage: number;
+//   pageSize: number;
+//   className?: string;
+// }
 
 export interface NewOperationData {
   id: string;
   name: string;
   value: number;
   description?: string;
+  byUserAccount?: NewAccountEntity;
   createdAt: Date;
   updatedAt: Date;
   category: CategoryEntity;
   operationType: OperationType;
+}
+
+export interface OperationData {
+  id: string;
+  name: string;
+  value: number;
+  createdAt: Date;
+  updatedAt: Date;
+  category: CategoryEntity;
 }
 
 export interface FilteredOperation {

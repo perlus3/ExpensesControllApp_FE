@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 
-import { AccountsListView } from './AccountsListView';
+import { AccountsList } from './AccountsList';
 import { Header } from '../header/Header';
 
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Link, useNavigate } from 'react-router-dom';
 import { NewAccountEntity } from '../../types/interfaces';
+import { UserAccountsContext } from '../../context/UserAccountsContext';
 
 export const UserMainPageView = () => {
+  const accountsContext = useContext(UserAccountsContext);
   const navigate = useNavigate();
   const [accounts, setAccounts] = useState<NewAccountEntity[] | undefined>(
     undefined,
@@ -30,11 +32,16 @@ export const UserMainPageView = () => {
           navigate('/login');
         }
         setAccounts(data);
+        accountsContext?.setAccounts(data);
       } catch (err: any) {
         setError(err.message);
       }
     })();
   }, []);
+
+  const handleAccountSubmit = (accountId: string) => {
+    navigate(`/accounts/${accountId}`);
+  };
 
   if (error) {
     return <ErrorHandler message={error} />;
@@ -61,7 +68,18 @@ export const UserMainPageView = () => {
           </div>
         </div>
       ) : (
-        <AccountsListView accounts={accounts} />
+        <div className="row justify-content-center">
+          <div className="col-12">
+            <div className="pt-5"></div>
+            <p className="fs-3 pt-5 text-center text-white">
+              Wybierz konto aby wykonywać na nim operacje:
+            </p>
+          </div>
+          <AccountsList
+            accounts={accounts}
+            onSubmitEvent={handleAccountSubmit}
+          />
+        </div>
       )}
     </div>
   );

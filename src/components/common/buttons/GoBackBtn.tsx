@@ -8,7 +8,11 @@ export const GoBackButton = () => {
   };
 
   return (
-    <button className="btn btn-secondary" type="button" onClick={handleClick}>
+    <button
+      className="btn btn-sm btn-secondary"
+      type="button"
+      onClick={handleClick}
+    >
       Powrót
     </button>
   );

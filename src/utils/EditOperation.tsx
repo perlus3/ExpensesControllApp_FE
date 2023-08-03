@@ -148,7 +148,7 @@ export const EditOperation = (props: Props) => {
         </p>
 
         <select
-          className="form-select w-75"
+          className="form-select-sm"
           name="category"
           value={form.category}
           onChange={(e) => updateForm('category', e.target.value)}
@@ -160,9 +160,14 @@ export const EditOperation = (props: Props) => {
             </option>
           ))}
         </select>
-
-        <button className="btn btn-primary w-50">Zapisz</button>
-        <GoBackButton />
+        <div className="row my-2">
+          <div className="col">
+            <GoBackButton />
+          </div>
+          <div className="col">
+            <button className="btn btn-sm btn-primary">Zapisz</button>
+          </div>
+        </div>
       </form>
     </div>
   );

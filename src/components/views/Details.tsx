@@ -8,16 +8,31 @@ import { DetailsView } from './DetailsView';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Spinner } from '../common/spinner/Spinner';
 
+export const months: Month[] = [
+  { name: 'Styczeń', value: 1 },
+  { name: 'Luty', value: 2 },
+  { name: 'Marzec', value: 3 },
+  { name: 'Kwiecień', value: 4 },
+  { name: 'Maj', value: 5 },
+  { name: 'Czerwiec', value: 6 },
+  { name: 'Lipiec', value: 7 },
+  { name: 'Sierpień', value: 8 },
+  { name: 'Wrzesień', value: 9 },
+  { name: 'Październik', value: 10 },
+  { name: 'Listopad', value: 11 },
+  { name: 'Grudzień', value: 12 },
+];
+
 export const Details = () => {
   const navigate = useNavigate();
   const params = useParams();
   const { id } = params;
   const [error, setError] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(false);
-  const [insertedDates, setInsertedDates] = useState<string[]>(['']);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedYear, setSelectedYear] = useState<string>('');
   const [selectedMonth, setSelectedMonth] = useState<string>('');
+  const [insertedDates, setInsertedDates] = useState<string[]>(['']);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [cashReport, setCashReport] = useState({
     income: 0,
     expenses: 0,
@@ -26,21 +41,6 @@ export const Details = () => {
   const [dataAvailable, setDataAvailable] = useState<boolean>(false);
 
   const isMonthsDisabled = selectedYear === '';
-
-  const months: Month[] = [
-    { name: 'Styczeń', value: 1 },
-    { name: 'Luty', value: 2 },
-    { name: 'Marzec', value: 3 },
-    { name: 'Kwiecień', value: 4 },
-    { name: 'Maj', value: 5 },
-    { name: 'Czerwiec', value: 6 },
-    { name: 'Lipiec', value: 7 },
-    { name: 'Sierpień', value: 8 },
-    { name: 'Wrzesień', value: 9 },
-    { name: 'Październik', value: 10 },
-    { name: 'Listopad', value: 11 },
-    { name: 'Grudzień', value: 12 },
-  ];
 
   useEffect(() => {
     try {
@@ -57,7 +57,7 @@ export const Details = () => {
           navigate('/login');
         }
         const operationDates = data.map((el: NewOperationData) =>
-          new Date(el.createdAt).getFullYear(),
+          new Date(el.updatedAt).getFullYear(),
         );
         const dates: Set<string> = new Set(operationDates);
         const datesArray: string[] = Array.from(dates);
@@ -183,16 +183,7 @@ export const Details = () => {
             dialogClassName="custom-modal-width"
           >
             <Modal.Header closeButton>
-              <Modal.Title>
-                Szczegóły dla{' '}
-                {`${
-                  selectedMonth
-                    ? months
-                        .find((el) => el.value === Number(selectedMonth))
-                        ?.name.toLowerCase()
-                    : 'rok'
-                } ${new Date(selectedYear).getFullYear()}`}{' '}
-              </Modal.Title>
+              <Modal.Title>Szczegóły</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <DetailsView
@@ -212,19 +203,16 @@ export const Details = () => {
   ) : (
     <div className="col d-flex flex-column justify-content-center">
       <div className="row">
-        <div className="col d-flex justify-content-center"></div>
-      </div>
-      <div className="row">
-        <div className="col-12">
+        <div className="col">
           <form onSubmit={changePeriodFilter}>
             <div className="border-bottom border-dark text-center">
               <h5 className="m-2">Analizuj operacje</h5>
             </div>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <div className="col">
+              <div className="row">
                 <p className="my-1 fw-bold text-center">Wybierz rok:</p>
                 <select
-                  className="form-select"
+                  className="form-select-sm"
                   name="year"
                   value={selectedYear}
                   onChange={handleYearChange}
@@ -237,10 +225,10 @@ export const Details = () => {
                   ))}
                 </select>
               </div>
-              <div className="col">
+              <div className="row">
                 <p className="my-1 fw-bold text-center">Wybierz miesiąc:</p>
                 <select
-                  className="form-select"
+                  className="form-select-sm"
                   name="month"
                   value={selectedMonth}
                   disabled={isMonthsDisabled}

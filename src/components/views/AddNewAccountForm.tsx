@@ -64,38 +64,41 @@ export const AddNewAccountForm = () => {
   }
 
   return (
-    <div className="new-account">
-      <form className="adding-new-account" action="" onSubmit={addAccount}>
-        <h1>Stwórz nowe konto</h1>
-        <div className="form-floating w-100">
-          <input
-            type="name"
-            name="name"
-            placeholder="Nazwa nowego konta"
-            required
-            maxLength={20}
-            value={form.name}
-            className="form-control"
-            onChange={(e) => updateForm('name', e.target.value)}
-          />
-          <label htmlFor="login">Nazwa konta</label>
-        </div>
-        <select
-          className="form-select w-75"
-          name="currency"
-          value={form.currency}
-          onChange={(e) => updateForm('currency', e.target.value)}
-        >
-          <option hidden value="#">
-            --wybierz--
-          </option>
-          <option value="PLN">PLN</option>
-          <option value="EURO">EURO</option>
-          <option value="DOLAR">DOLAR</option>
-        </select>
-        <button className="btn btn-primary w-50">Dodaj konto</button>
-        <GoBackButton />
-      </form>
+    <div className="background-image vh-100">
+      <div className="new-account">
+        <form className="adding-new-account" action="" onSubmit={addAccount}>
+          <h1>Stwórz nowe konto</h1>
+          <div className="form-floating w-100">
+            <input
+              type="name"
+              name="name"
+              placeholder="Nazwa nowego konta"
+              required
+              maxLength={20}
+              value={form.name}
+              className="form-control"
+              onChange={(e) => updateForm('name', e.target.value)}
+            />
+            <label htmlFor="login">Nazwa konta</label>
+          </div>
+          <p className="fs-5 m-0">Wybierz walute:</p>
+          <select
+            className="form-select-sm"
+            name="currency"
+            value={form.currency}
+            onChange={(e) => updateForm('currency', e.target.value)}
+          >
+            <option hidden value="#">
+              --wybierz--
+            </option>
+            <option value="PLN">PLN</option>
+            <option value="EURO">EURO</option>
+            <option value="DOLAR">DOLAR</option>
+          </select>
+          <button className="btn btn-primary">Dodaj konto</button>
+          <GoBackButton />
+        </form>
+      </div>
     </div>
   );
 };

@@ -107,7 +107,7 @@ export const EditAccount = (props: Props) => {
           Aktualna waluta to: {selectedAccount.currency}
         </p>
         <select
-          className="form-select w-75"
+          className="form-select-sm"
           name="currency"
           value={selectedOption}
           onChange={handleOptionChange}

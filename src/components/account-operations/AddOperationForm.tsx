@@ -105,7 +105,7 @@ export const AddOperationForm = () => {
   return (
     <div className="form-container">
       <form className="form" onSubmit={addOperation}>
-        <h5>Wybierz typ operacji:</h5>
+        <h5 className="mt-3">Wybierz typ operacji:</h5>
         <div className="row mb-3">
           <label className="mb-0">
             <div className="col d-flex align-items-center">
@@ -146,7 +146,7 @@ export const AddOperationForm = () => {
               name="name"
               placeholder="Nazwa operacji"
               required
-              maxLength={50}
+              maxLength={20}
               value={form.name}
               onChange={(e) => updateForm('name', e.target.value)}
             />
@@ -158,7 +158,8 @@ export const AddOperationForm = () => {
               name="value"
               placeholder="Wpisz wartość operacji"
               required
-              maxLength={50}
+              min={1}
+              max={10000000}
               value={form.value}
               onChange={(e) => updateForm('value', Number(e.target.value))}
             />
@@ -167,8 +168,9 @@ export const AddOperationForm = () => {
         <div className="row mb-3 d-flex justify-content-center">
           <div className="col">
             <select
-              className="form-select"
+              className="form-select-sm"
               name="categoryId"
+              disabled={!operationType}
               value={form.categoryId}
               onChange={(e) => updateForm('categoryId', e.target.value)}
             >
@@ -191,13 +193,19 @@ export const AddOperationForm = () => {
             </select>
           </div>
         </div>
-        <button
-          className="btn btn-primary w-50 mb-2"
-          disabled={!isCategorySelected}
-        >
-          Dodaj
-        </button>
-        <GoBackButton />
+        <div className="row">
+          <div className="col-12 text-center">
+            <button
+              className="btn btn-primary w-100"
+              disabled={!isCategorySelected}
+            >
+              Dodaj
+            </button>
+          </div>
+          <div className="col-12 text-center my-3">
+            <GoBackButton />
+          </div>
+        </div>
       </form>
     </div>
   );

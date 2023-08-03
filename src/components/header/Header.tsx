@@ -65,10 +65,7 @@ export const Header = () => {
               >
                 Wybierz Konto
               </Link>
-              <ul
-                className="dropdown-menu w-50"
-                aria-labelledby="accountsDropdown"
-              >
+              <ul className="dropdown-menu" aria-labelledby="accountsDropdown">
                 {accounts?.map((account) => (
                   <li key={account.id}>
                     <Link
@@ -93,7 +90,7 @@ export const Header = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/new-account"
+                to="/analysis"
                 className="nav-link text"
                 aria-current="page"
               >

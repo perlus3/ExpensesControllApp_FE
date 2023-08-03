@@ -77,7 +77,7 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
         navigate('/login');
       }
       const operationDates = data.map((el: NewOperationData) => {
-        const date = new Date(el.createdAt).toLocaleDateString('pl-PL', {
+        const date = new Date(el.updatedAt).toLocaleDateString('pl-PL', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
@@ -118,21 +118,23 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
     <>
       <div className="d-flex justify-content-center">
         <div className="row">
-          <form className="" onSubmit={checkDetails}>
+          <form onSubmit={checkDetails}>
             <h3>Analizuj wybrane kategorie</h3>
-            <select
-              className="form-select"
-              name="categoryId"
-              value={selectedCategoryId}
-              onChange={handleCategoryIdChange}
-            >
-              <option value="">--Wybierz kategorie--</option>
-              {categories.map((category) => (
-                <option key={category.id} value={category.id}>
-                  {category.name}
-                </option>
-              ))}
-            </select>
+            <div className="d-flex justify-content-center mt-3">
+              <select
+                className="form-select-sm"
+                name="categoryId"
+                value={selectedCategoryId}
+                onChange={handleCategoryIdChange}
+              >
+                <option value="">--Wybierz kategorie--</option>
+                {categories.map((category) => (
+                  <option key={category.id} value={category.id}>
+                    {category.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="row pt-3">
               <div className="d-flex justify-content-center">
                 <button className="btn btn-primary">Wybierz</button>
