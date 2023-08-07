@@ -17,33 +17,30 @@ export const PieChart = (props: Props) => {
   const currentYear = Number(new Date().getFullYear());
   const currentMonth = Number(new Date().getMonth() + 1);
 
-  const backgroundColors = [
-    { name: 'WYPŁATA', value: 'rgba(71, 235, 53, 0.5)' },
-    { name: 'POŻYCZKA', value: 'rgba(235, 205, 53, 0.5)' },
-    { name: 'OPŁATY', value: 'rgba(255, 99, 132, 0.5)' },
-    { name: 'UBRANIA', value: 'rgba(53, 162, 235, 0.5)' },
-    { name: 'SPORT', value: 'rgba(236, 130, 10, 0.5)' },
-    { name: 'PODRÓŻE', value: 'rgba(5, 47, 222, 0.5)' },
-    { name: 'JEDZENIE', value: 'rgba(190, 53, 235, 0.5)' },
-    { name: 'ROZRYWKA', value: 'rgba(0, 255, 216, 0.5)' },
-  ];
-
   const labels =
     props.operationType === 'INCOME'
-      ? [backgroundColors[0].name, backgroundColors[1].name]
+      ? [
+          { name: 'WYPŁATA', value: 'rgba(71, 235, 53, 0.5)' },
+          { name: 'POŻYCZKA', value: 'rgba(235, 205, 53, 0.5)' },
+        ]
       : [
-          backgroundColors[2].name,
-          backgroundColors[3].name,
-          backgroundColors[4].name,
-          backgroundColors[5].name,
-          backgroundColors[6].name,
-          backgroundColors[7].name,
+          { name: 'OPŁATY', value: 'rgba(255, 99, 132, 0.5)' },
+          { name: 'UBRANIA', value: 'rgba(53, 162, 235, 0.5)' },
+          { name: 'SPORT', value: 'rgba(236, 130, 10, 0.5)' },
+          { name: 'PODRÓŻE', value: 'rgba(5, 47, 222, 0.5)' },
+          { name: 'JEDZENIE', value: 'rgba(190, 53, 235, 0.5)' },
+          { name: 'ROZRYWKA', value: 'rgba(0, 255, 216, 0.5)' },
         ];
+
+  const legendLabels = labels.map((bgColor) => ({
+    text: bgColor.name,
+    fillStyle: bgColor.value,
+  }));
 
   const generateDatasets = () => {
     const data = months.map(() => {
       const values: number[] = [];
-      for (const bgColor of backgroundColors) {
+      for (const bgColor of labels) {
         const filteredOperations = props.operationsData.filter(
           (operation) =>
             operation.operationType === props.operationType &&
@@ -64,18 +61,42 @@ export const PieChart = (props: Props) => {
 
       return {
         data: values,
-        backgroundColor: backgroundColors.map((bgColor) => bgColor.value),
-        borderColor: backgroundColors.map((bgColor) => bgColor.value),
+        backgroundColor: labels.map((bgColor) => bgColor.value),
+        borderColor: labels.map((bgColor) => bgColor.value),
       };
     });
 
     return data;
   };
 
+  const selectedBackgroundColors = labels.filter((bgColor) =>
+    props.operationType === 'INCOME'
+      ? ['WYPŁATA', 'POŻYCZKA'].includes(bgColor.name)
+      : [
+          'OPŁATY',
+          'UBRANIA',
+          'SPORT',
+          'PODRÓŻE',
+          'JEDZENIE',
+          'ROZRYWKA',
+        ].includes(bgColor.name),
+  );
+
   const data = {
-    labels: labels.map((label) => label),
+    labels: selectedBackgroundColors.map((bgColor) => bgColor.name),
     datasets: generateDatasets(),
   };
+  const options = {
+    plugins: {
+      legend: {
+        labels: {
+          generateLabels: (chart: any) => {
+            return legendLabels;
+          },
+        },
+      },
+    },
+  };
 
-  return <Pie data={data} />;
+  return <Pie data={data} options={options} />;
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routing } from './Routing';
+import { Routing } from './pages/Routing';
 
 import './App.css';
 import { ToastContainer } from 'react-toastify';

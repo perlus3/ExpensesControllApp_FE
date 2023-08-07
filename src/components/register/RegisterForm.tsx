@@ -1,6 +1,6 @@
 import React, { SyntheticEvent, useState } from 'react';
 
-import '../login/AuthForm.css';
+import '../../assets/styles/AuthForm.css';
 import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { apiUrl } from '../../config/api';
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
 
       if (!data.message) {
         Toast(
-          `Potwierdź rejestracje linkiem wysłanym na adres ${form.email}`,
+          `Potwierdź rejestracje linkiem wysłanym na adres ${form.email}. Link jest ważny 2h`,
           registerSuccessId,
           3000,
         );

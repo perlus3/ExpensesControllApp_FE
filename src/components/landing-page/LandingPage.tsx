@@ -1,5 +1,5 @@
 import React from 'react';
-import './LandingPage.css';
+import '../../assets/styles/LandingPage.css';
 
 import background from '../../assets/images/background-landing-page.jpg';
 import { Link } from 'react-router-dom';

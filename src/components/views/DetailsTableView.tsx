@@ -14,7 +14,7 @@ interface Props {
   selectedYear?: string;
 }
 
-export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
+export const DetailsTableView = ({ selectedMonth, selectedYear }: Props) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | undefined>(undefined);
@@ -102,7 +102,7 @@ export const DetailsView = ({ selectedMonth, selectedYear }: Props) => {
     }
   };
 
-  const handleCategoryIdChange = (e: any) => {
+  const handleCategoryIdChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedCategoryId(e.target.value);
   };
 

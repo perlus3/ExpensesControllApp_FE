@@ -11,8 +11,8 @@ html {
     margin-left: 8px;
 }
 
-body {
-    overflow-y: scroll;
+#root {
+    overflow-y: auto;
 }
 .accounts-list {
     position: absolute;
@@ -196,4 +196,14 @@ a {
 .my-radio {
     height: 20px;
 }
+
+.custom-select-container {
+    min-height: 500px; /* Ustaw maksymalną wysokość według potrzeb */
+
+}
+.custom-select {
+    max-height: 150px;
+    overflow-y: auto;
+}
+
 

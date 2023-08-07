@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import React from 'react';
-import { EditOperation } from '../../utils/EditOperation';
+import { EditOperation } from './EditOperation';
 
 export const EditOperationForm = () => {
   const params = useParams();

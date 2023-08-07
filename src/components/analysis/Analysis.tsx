@@ -7,7 +7,7 @@ import { ErrorHandler } from '../common/ErrorHandler';
 import { NewOperationData, OperationType } from '../../types/interfaces';
 import { Header } from '../header/Header';
 import { Spinner } from '../common/spinner/Spinner';
-import { BarChart2 } from '../charts/BarChart2';
+import { BarChart } from '../charts/BarChart';
 import { months } from '../views/Details';
 import { PieChart } from '../charts/PieChart';
 
@@ -81,7 +81,6 @@ export const Analysis = () => {
           setOperationsYears(yearsArray);
           setAccountOperations(data);
         } catch (err: any) {
-          console.log(err);
           setError(err.message);
         } finally {
           setLoading(false);
@@ -140,9 +139,7 @@ export const Analysis = () => {
             {getAccountName ? (
               <h5 className="text-center">
                 Wybrane konto:
-                <span className="account-name">
-                  {getAccountName?.toUpperCase()}
-                </span>
+                <p className="account-name">{getAccountName?.toUpperCase()}</p>
               </h5>
             ) : (
               <p className="text-center text-danger">Brak operacji na koncie</p>
@@ -169,7 +166,7 @@ export const Analysis = () => {
             )}
             {getAccountName && (
               <div className="col-12 col-md-3 text-center mb-3">
-                <p className="">Rodzaj operacji:</p>
+                <p className="">Wybierz rodzaj operacji:</p>
                 <div className="form-check form-check-inline">
                   <label className="form-check-label mx-1">
                     <input
@@ -204,8 +201,8 @@ export const Analysis = () => {
                   <div className="col-12 col-md-3 text-center mb-3">
                     <p className="">Wybierz miesiąc:</p>
                     <select
-                      className="form-select-sm"
-                      name="year"
+                      className="form-select-sm custom-select"
+                      name="month"
                       value={selectedMonth}
                       onChange={handleMonthChange}
                     >
@@ -231,7 +228,7 @@ export const Analysis = () => {
                 <div className="d-none d-md-block">
                   <div className="d-flex justify-content-center">
                     <div className="d-flex justify-content-center bar-chart">
-                      <BarChart2
+                      <BarChart
                         operationsData={accountOperations}
                         year={selectedYear}
                         operationType={operationType}

@@ -4,6 +4,7 @@ import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { Spinner } from '../common/spinner/Spinner';
+import { Toast } from '../../utils/toastify';
 
 interface Props {
   accountId: string | undefined;
@@ -23,6 +24,8 @@ export const EditAccount = (props: Props) => {
     name: ``,
     currency: '',
   });
+
+  const updateAccountId = 'updateAccountId';
 
   useEffect(() => {
     (async () => {
@@ -56,6 +59,7 @@ export const EditAccount = (props: Props) => {
       });
       const data = await res.json();
       if (!data.error) {
+        Toast('Dane konta zaktualizowane!', updateAccountId, 1000);
         navigate(-1);
       }
       if (!data.name) {
@@ -75,7 +79,7 @@ export const EditAccount = (props: Props) => {
     }));
   };
 
-  const handleOptionChange = (e: any) => {
+  const handleOptionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(e.target.value);
     setIsCurrencySelected(e.target.value !== '#');
   };

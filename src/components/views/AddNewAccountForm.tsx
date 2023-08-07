@@ -1,7 +1,7 @@
 import React, { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiUrl } from '../../config/api';
-import './AddNewAccount.css';
+import '../../assets/styles/AddNewAccount.css';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Toast } from '../../utils/toastify';
@@ -15,6 +15,8 @@ export const AddNewAccountForm = () => {
     name: '',
     currency: '',
   });
+
+  const isCurrencySelected = form.currency !== '';
 
   const addAccount = async (e: SyntheticEvent) => {
     e.preventDefault();
@@ -36,11 +38,11 @@ export const AddNewAccountForm = () => {
         }),
       });
       const data = await res.json();
-      if (data.error) {
-        setError(data.message);
+      if (!data.error) {
+        Toast('Nowe konto dodane!', addAccountId, 1000);
+        navigate(`/user`);
       }
-      Toast('Nowe konto dodane!', addAccountId, 1000);
-      navigate(`/user`);
+      setError(data.message);
     } catch (err: any) {
       setError(err.message);
     } finally {
@@ -95,7 +97,9 @@ export const AddNewAccountForm = () => {
             <option value="EURO">EURO</option>
             <option value="DOLAR">DOLAR</option>
           </select>
-          <button className="btn btn-primary">Dodaj konto</button>
+          <button disabled={!isCurrencySelected} className="btn btn-primary">
+            Dodaj konto
+          </button>
           <GoBackButton />
         </form>
       </div>

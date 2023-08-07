@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-import './AccountList.css';
 import { NewAccountEntity } from '../../types/interfaces';
 
 interface SubmitHandler {

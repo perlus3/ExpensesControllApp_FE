@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useState } from 'react';
+import React from 'react';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -9,8 +9,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { NewOperationData } from '../../types/interfaces';
 import { months } from '../views/Details';
+import { NewOperationData, OperationType } from '../../types/interfaces';
 
 ChartJS.register(
   CategoryScale,
@@ -22,55 +22,12 @@ ChartJS.register(
 );
 
 interface Props {
-  data: NewOperationData[];
-  years: string[];
+  operationsData: NewOperationData[];
+  year: string;
+  operationType: OperationType | string | null;
 }
-
 export const BarChart = (props: Props) => {
-  const [selectedYear, setSelectedYear] = useState<string>('');
-  const [filteredData, setFilteredData] = useState<NewOperationData[]>([]);
-
-  const handleYearChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedYearValue = e.target.value;
-    setSelectedYear(selectedYearValue);
-  };
-
-  const filterOperationsByMonths = (
-    data: NewOperationData[],
-    months: number[],
-  ) => {
-    return data.filter((operation) => {
-      const month = new Date(operation.updatedAt).getMonth() + 1;
-      return months.includes(month);
-    });
-  };
-
-  const filterOperationsByYear = (data: NewOperationData[], year: string) => {
-    return data.filter((operation) => {
-      const operationYear = new Date(operation.updatedAt)
-        .getFullYear()
-        .toString();
-      return operationYear === year;
-    });
-  };
-
-  const changeYearFilter = (e: SyntheticEvent) => {
-    e.preventDefault();
-
-    const filteredByYear = filterOperationsByYear(props.data, selectedYear);
-
-    const monthsNumbers = Array.from(
-      new Set(
-        filteredByYear.map((op) => new Date(op.updatedAt).getMonth() + 1),
-      ),
-    );
-
-    const filteredData = filterOperationsByMonths(
-      filteredByYear,
-      monthsNumbers,
-    );
-    setFilteredData(filteredData);
-  };
+  const currentYear = Number(new Date().getFullYear());
 
   const options = {
     responsive: true,
@@ -80,119 +37,55 @@ export const BarChart = (props: Props) => {
       },
       title: {
         display: true,
-        text: `Rok ${selectedYear}`,
+        text: `Wykres dla roku ${props.year !== '' ? props.year : currentYear}`,
       },
     },
   };
 
-  const monthsData = months.map((month) => ({
-    name: month.name,
-    value: month.value,
-    data: new Map<string, number>(),
-  }));
+  const backgroundColors = [
+    { name: 'OPŁATY', value: 'rgba(255, 99, 132, 0.5)' },
+    { name: 'UBRANIA', value: 'rgba(53, 162, 235, 0.5)' },
+    { name: 'WYPŁATA', value: 'rgba(71, 235, 53, 0.5)' },
+    { name: 'POŻYCZKA', value: 'rgba(235, 205, 53, 0.5)' },
+    { name: 'SPORT', value: 'rgba(236, 130, 10, 0.5)' },
+    { name: 'PODRÓŻE', value: 'rgba(5, 47, 222, 0.5)' },
+    { name: 'JEDZENIE', value: 'rgba(190, 53, 235, 0.5)' },
+    { name: 'ROZRYWKA', value: 'rgba(0, 255, 216, 0.5)' },
+  ];
 
-  const operationsMonthsNumbers = props.data.map(
-    (el) => new Date(el.updatedAt).getMonth() + 1,
-  );
-
-  const filteredMonths = months.filter((month) =>
-    operationsMonthsNumbers.includes(month.value),
-  );
-
-  const monthNames = filteredMonths.map((month) => month.name);
-
-  const filteredMonthsData = monthsData.filter((month) =>
-    monthNames.includes(month.name),
-  );
-
-  const prepareChartData = (data: NewOperationData[]) => {
-    data.forEach((operation) => {
-      const monthValue = new Date(operation.updatedAt).getMonth() + 1;
-      const monthIndex = filteredMonthsData.findIndex(
-        (month) => month.value === monthValue,
-      );
-      if (monthIndex !== -1) {
-        const categorySum =
-          filteredMonthsData[monthIndex].data.get(operation.category.name) || 0;
-        filteredMonthsData[monthIndex].data.set(
-          operation.category.name,
-          categorySum + Number(operation.value),
+  const labels = months.map((month) => month.name);
+  const generateDatasets = () => {
+    return backgroundColors.map((bgColor) => {
+      const data = months.map((month) => {
+        const filteredOperations = props.operationsData.filter(
+          (operation) =>
+            operation.operationType === props.operationType &&
+            new Date(operation.updatedAt).getMonth() + 1 === month.value &&
+            new Date(operation.updatedAt).getFullYear() ===
+              (Number(props.year) || currentYear) &&
+            operation.category.name === bgColor.name,
         );
-      }
+
+        const totalValue = filteredOperations.reduce(
+          (total, operation) => total + Number(operation.value),
+          0,
+        );
+
+        return totalValue;
+      });
+
+      return {
+        label: bgColor.name,
+        data,
+        backgroundColor: bgColor.value,
+      };
     });
-
-    const uniqueLabels = Array.from(
-      new Set(data.map((operation) => operation.category.name)),
-    );
-
-    const backgroundColors = [
-      { name: 'Opłaty', value: 'rgba(255, 99, 132, 0.5)' },
-      { name: 'Ubrania', value: 'rgba(53, 162, 235, 0.5)' },
-      { name: 'Wypłata', value: 'rgba(71, 235, 53, 0.5)' },
-      { name: 'Pożyczka', value: 'rgba(235, 205, 53, 0.5)' },
-      { name: 'Sport', value: 'rgba(236, 130, 10, 0.5)' },
-      { name: 'Podróże', value: 'rgba(5, 47, 222, 0.5)' },
-      { name: 'Jedzenie', value: 'rgba(190, 53, 235, 0.5)' },
-      { name: 'Rozrywka', value: 'rgba(0, 255, 216, 0.5)' },
-    ];
-
-    const getBackgroundColor = (i: number) =>
-      backgroundColors[i % backgroundColors.length].value;
-
-    const chartData = {
-      labels: months.map((month) => month.name),
-      datasets: uniqueLabels.map((label, index) => {
-        const data = filteredMonthsData.map(
-          (month) => month.data.get(label) || 0,
-        );
-        return {
-          label,
-          data,
-          backgroundColor: getBackgroundColor(index),
-        };
-      }),
-    };
-
-    return chartData;
   };
 
-  const dataToUse = filteredData.length ? filteredData : props.data;
+  const data = {
+    labels: labels,
+    datasets: generateDatasets(),
+  };
 
-  const chartData = prepareChartData(dataToUse);
-
-  return (
-    <div className="bg-white">
-      <div className="row">
-        <div className="d-flex flex-column justify-content-center align-items-center">
-          <form onSubmit={changeYearFilter}>
-            <p className="my-1 fw-bold text-center">Wybierz rok:</p>
-            <select
-              className="form-select-sm"
-              name="year"
-              value={selectedYear}
-              onChange={handleYearChange}
-            >
-              <option value="">--Wybierz--</option>
-              {props.years.map((year) => (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              ))}
-            </select>
-            <div className="d-flex justify-content-center mt-1">
-              <button
-                disabled={!selectedYear}
-                className="btn btn-primary my-2 smaller-button"
-              >
-                Sprawdź!
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div className="row">
-        <Bar options={options} data={chartData} />
-      </div>
-    </div>
-  );
+  return <Bar options={options} data={data} />;
 };

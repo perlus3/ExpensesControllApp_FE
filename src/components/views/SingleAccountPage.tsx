@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { apiUrl } from '../../config/api';
 import { useNavigate, useParams } from 'react-router-dom';
-import { AccountOperationsListView } from './AccountOperationsListView';
-import { AccountInfo } from '../account-operations/AccountInfo';
+import { OperationsList } from './OperationsList';
+import { AccountInfo } from './AccountInfo';
 import { NewAccountEntity } from '../../types/interfaces';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { Header } from '../header/Header';
@@ -79,7 +79,7 @@ export const SingleAccountPage = () => {
         </div>
         <div>
           <AccountInfo value={account.value} currency={account.currency} />
-          <AccountOperationsListView currency={account.currency} />
+          <OperationsList currency={account.currency} />
         </div>
       </div>
     </div>

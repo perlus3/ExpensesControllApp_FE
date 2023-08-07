@@ -1,6 +1,6 @@
 import React from 'react';
 import { Currency } from '../../types/interfaces';
-import { Details } from '../views/Details';
+import { Details } from './Details';
 import { DeleteAccountBtn } from '../common/buttons/DeleteAccountBtn';
 import { EditAccountBtn } from '../common/buttons/EditAccountBtn';
 

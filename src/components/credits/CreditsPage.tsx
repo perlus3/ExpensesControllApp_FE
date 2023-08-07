@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../landing-page/LandingPage.css';
+import '../../assets/styles/LandingPage.css';
 
 export const CreditsPage = () => {
   const emailAddress = 'kamilperlega@gmail.com';

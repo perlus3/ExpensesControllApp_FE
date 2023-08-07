@@ -4,7 +4,7 @@ import { Month, NewOperationData } from '../../types/interfaces';
 import { apiUrl } from '../../config/api';
 import { ErrorHandler } from '../common/ErrorHandler';
 import { DoughnutChart } from '../charts/DoughnutChart';
-import { DetailsView } from './DetailsView';
+import { DetailsTableView } from './DetailsTableView';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Spinner } from '../common/spinner/Spinner';
 
@@ -186,7 +186,7 @@ export const Details = () => {
               <Modal.Title>Szczegóły</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <DetailsView
+              <DetailsTableView
                 selectedMonth={selectedMonth}
                 selectedYear={selectedYear}
               />

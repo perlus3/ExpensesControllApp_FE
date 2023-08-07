@@ -5,7 +5,7 @@ import { Toast } from '../../utils/toastify';
 import { Spinner } from '../common/spinner/Spinner';
 import { GoBackButton } from '../common/buttons/GoBackBtn';
 
-export const SetResetPasswordLink = () => {
+export const SendResetPasswordLink = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState('');
@@ -28,7 +28,6 @@ export const SetResetPasswordLink = () => {
         }),
       });
       const data = await res.json();
-      console.log(data);
       if (data.message) {
         setError(data.message);
       }

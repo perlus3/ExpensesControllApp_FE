@@ -1,12 +1,13 @@
 import React, { SyntheticEvent, useEffect, useState } from 'react';
-import { apiUrl } from '../config/api';
+import { apiUrl } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
-import { GoBackButton } from '../components/common/buttons/GoBackBtn';
+import { GoBackButton } from '../common/buttons/GoBackBtn';
 
-import './Form.css';
-import { ErrorHandler } from '../components/common/ErrorHandler';
-import { CategoryEntity } from '../types/interfaces';
-import { Spinner } from '../components/common/spinner/Spinner';
+import '../../assets/styles/Form.css';
+import { ErrorHandler } from '../common/ErrorHandler';
+import { CategoryEntity } from '../../types/interfaces';
+import { Spinner } from '../common/spinner/Spinner';
+import { Toast } from '../../utils/toastify';
 
 interface Props {
   operationId: string | undefined;
@@ -29,6 +30,8 @@ export const EditOperation = (props: Props) => {
     value: ``,
     category: ``,
   });
+
+  const updateOperationId = 'updateOperationId';
 
   useEffect(() => {
     (async () => {
@@ -84,6 +87,7 @@ export const EditOperation = (props: Props) => {
         navigate('/login');
       }
       if (!data.error) {
+        Toast('Operacja edytowana pomyślnie!', updateOperationId, 1000);
         navigate(-1);
       }
       if (!data.name) {
@@ -148,7 +152,7 @@ export const EditOperation = (props: Props) => {
         </p>
 
         <select
-          className="form-select-sm"
+          className="form-select-sm mt-2"
           name="category"
           value={form.category}
           onChange={(e) => updateForm('category', e.target.value)}
@@ -160,12 +164,12 @@ export const EditOperation = (props: Props) => {
             </option>
           ))}
         </select>
-        <div className="row my-2">
-          <div className="col">
-            <GoBackButton />
+        <div className="col my-2">
+          <div className="col my-2 text-center">
+            <button className="btn btn-sm w-100 btn-primary">Zapisz</button>
           </div>
-          <div className="col">
-            <button className="btn btn-sm btn-primary">Zapisz</button>
+          <div className="col text-center">
+            <GoBackButton />
           </div>
         </div>
       </form>

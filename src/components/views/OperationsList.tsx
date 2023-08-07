@@ -11,7 +11,7 @@ interface Props {
 
 const PER_PAGE = 6;
 
-export const AccountOperationsListView = (props: Props) => {
+export const OperationsList = (props: Props) => {
   const navigate = useNavigate();
   const params = useParams();
   const { id } = params;
